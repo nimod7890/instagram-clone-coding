@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { JWT_KEY } from "../../config/constant";
 import * as jsonwebtoken from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
+import { JWT_KEY } from "../../constants/key";
 
 const request: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API,
@@ -20,13 +20,13 @@ request.interceptors.request.use(
     const currentTime = new Date().getTime() / 1000;
 
     if (decodedJwt.exp ?? 0 < currentTime) {
-      // 서버에 토큰 재발급 요청 코드 작성 필요
+      // Todo: 서버에 토큰 재발급 요청 코드 작성 필요
       console.log("서버에 토큰 재발급 요청");
     }
     return config;
   },
   (error) => {
-    console.log(error);
+    console.error(error);
     return Promise.reject(error);
   }
 );
