@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import * as jsonwebtoken from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
-import { JWT_KEY } from "../../constants/key";
+import lStorage, { StorageKeys } from "@utils/storage";
 
 const request: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API,
@@ -9,13 +9,13 @@ const request: AxiosInstance = axios.create({
 
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${window.localStorage.getItem(JWT_KEY)}`,
+    Authorization: `Bearer ${lStorage.get(StorageKeys.Token)}`,
   },
 });
 
 request.interceptors.request.use(
   (config) => {
-    const jwt = window.localStorage.getItem(JWT_KEY) ?? "";
+    const jwt = lStorage.get(StorageKeys.Token) ?? "";
     const decodedJwt: JwtPayload = jsonwebtoken.decode(jwt) as JwtPayload;
     const currentTime = new Date().getTime() / 1000;
 
