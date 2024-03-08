@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import * as jsonwebtoken from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
-import lStorage, { StorageKeys } from "@utils/storage";
+import lStorage, { StorageKeys } from "src/utils/storage";
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API,

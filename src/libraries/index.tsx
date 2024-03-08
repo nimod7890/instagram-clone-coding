@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
-import ReactQuerySetting from "@libraries/reactQuery/ReactQuerySetting";
-import ToastSetting from "@libraries/toast/ToastSetting";
-import RecoilSetting from "@libraries/recoil/RecoilSetting";
+import ReactQuerySetting from "src/libraries/reactQuery/ReactQuerySetting";
+import RecoilSetting from "src/libraries/recoil/RecoilSetting";
+import ToastSetting from "src/libraries/toast/ToastSetting";
 
 export default function AppRegister({ children }: PropsWithChildren) {
   return (

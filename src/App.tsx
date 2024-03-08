@@ -1,12 +1,11 @@
 import { RouterProvider } from "react-router-dom";
-import AppRegister from "@libraries/index";
-import Router from "@routes/router";
+import AppRegister from "src/libraries/index";
+import Router from "src/routes/router";
 
-const App = () => {
+export default function App() {
   return (
     <AppRegister>
       <RouterProvider router={Router} fallbackElement={null} />
     </AppRegister>
   );
-};
-export default App;
+}

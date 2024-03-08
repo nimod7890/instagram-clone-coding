@@ -1,6 +1,6 @@
 import { atom } from "recoil";
-import { StorageKeys } from "@utils/storage";
-import { localStorageEffect } from "@libraries/recoil";
+import { localStorageEffect } from "src/libraries/recoil";
+import { StorageKeys } from "src/utils/storage";
 
 export const tokenState = atom<string>({
   key: StorageKeys.Token,
