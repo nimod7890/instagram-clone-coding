@@ -1,6 +1,6 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
-import RoutePath from "@routes/routePath";
-import NotFoundPage from "@pages/NotFoundPage";
+import NotFoundPage from "src/pages/NotFoundPage";
+import RoutePath from "src/routes/routePath";
 
 const routes: RouteObject[] = [
   {

@@ -1,4 +1,4 @@
-import { StorageKeys } from "@utils/storage";
+import { StorageKeys } from "src/utils/storage";
 
 export const enum RecoilKeys {
   /** StorageKeys.Token */
