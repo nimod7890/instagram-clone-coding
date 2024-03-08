@@ -3,7 +3,7 @@ import * as jsonwebtoken from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
 import lStorage, { StorageKeys } from "@utils/storage";
 
-const request: AxiosInstance = axios.create({
+const apiClient: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API,
   timeout: 2500,
 
@@ -13,7 +13,7 @@ const request: AxiosInstance = axios.create({
   },
 });
 
-request.interceptors.request.use(
+apiClient.interceptors.request.use(
   (config) => {
     const jwt = lStorage.get(StorageKeys.Token) ?? "";
     const decodedJwt: JwtPayload = jsonwebtoken.decode(jwt) as JwtPayload;
@@ -21,7 +21,7 @@ request.interceptors.request.use(
 
     if (decodedJwt.exp ?? 0 < currentTime) {
       // Todo: 서버에 토큰 재발급 요청 코드 작성 필요
-      console.log("서버에 토큰 재발급 요청");
+      console.error("서버에 토큰 재발급 요청");
     }
     return config;
   },
@@ -31,13 +31,9 @@ request.interceptors.request.use(
   }
 );
 
-request.interceptors.response.use(
-  (response) => {
-    return response.data;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
+apiClient.interceptors.response.use(
+  ({ data }) => data,
+  (error) => Promise.reject(error)
 );
 
-export default request;
+export default apiClient;
