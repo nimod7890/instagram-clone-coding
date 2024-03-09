@@ -22,13 +22,17 @@ const palette = {
   /** black */
   gray1000: "#000000",
 
-  border: "#D0D5DD",
-
   /** gray0 */
   white: "#ffffff",
 
   /** gray1000 */
   black: "#000000",
+
+  button: "#bdbdbd",
+  border: "#D0D5DD",
+
+  kakaoYellow: "#F8D706",
+  kakaoBlack: "#2F1B1A",
 } as const;
 
 export default palette;
