@@ -62,6 +62,7 @@ const Container = styled.div`
 
 const StyledInput = styled.input`
   width: 100%;
+  height: 16px;
   border: none;
   padding: 0 8px;
   ${theme.typography.body1Regular};
