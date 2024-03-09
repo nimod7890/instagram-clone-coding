@@ -1,6 +1,6 @@
 import { KeyOfPalette, theme } from "src/styles";
 
-type KeyOfIcon =
+export type KeyOfIcon =
   | "alert-circle"
   | "bell"
   | "bookmark"
