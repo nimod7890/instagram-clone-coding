@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
-import ReactDOM from "react-dom";
 import "react-app-polyfill/stable";
-import App from "./App";
+import ReactDOM from "react-dom";
+import App from "src/App";
 
 ReactDOM.render(
   <StrictMode>
