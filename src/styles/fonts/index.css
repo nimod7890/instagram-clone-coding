@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Sofia Pro Extra Light";
+  src: url("SofiaProLight.eot");
+  src: local("Sofia Pro ExtraLight"), local("SofiaProExtraLight"),
+    url("./SofiaProLight.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProExtraLight.woff2") format("woff2"),
+    url("./SofiaProExtraLight.woff") format("woff"),
+    url("./SofiaProExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro Light";
+  src: url("SofiaProLight.eot");
+  src: local("Sofia Pro Light"), local("SofiaProLight"),
+    url("./SofiaProLight.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProLight.woff2") format("woff2"),
+    url("./SofiaProLight.woff") format("woff"),
+    url("./SofiaProLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro Regular";
+  src: url("SofiaProRegular.eot");
+  src: local("Sofia Pro Regular"), local("SofiaProRegular"),
+    url("./SofiaProRegular.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProRegular.woff2") format("woff2"),
+    url("./SofiaProRegular.woff") format("woff"),
+    url("./SofiaProRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("SofiaProMedium.eot");
+  src: local("Sofia Pro Medium"), local("SofiaProMedium"),
+    url("./SofiaProMedium.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProMedium.woff2") format("woff2"),
+    url("./SofiaProMedium.woff") format("woff"),
+    url("./SofiaProMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro SemiBold";
+  src: url("SofiaProSemiBold.eot");
+  src: local("Sofia Pro SemiBold"), local("SofiaProSemiBold"),
+    url("SofiaProSemiBold.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProSemiBold.woff2") format("woff2"),
+    url("./SofiaProSemiBold.woff") format("woff"),
+    url("./SofiaProSemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro Bold";
+  src: url("SofiaProBold.eot");
+  src: local("Sofia Pro Bold"), local("SofiaProBold"),
+    url("SofiaProBold.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProBold.woff2") format("woff2"),
+    url("./SofiaProBold.woff") format("woff"),
+    url("./SofiaProBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sofia Pro Black";
+  src: url("SofiaProBlack.eot");
+  src: local("Sofia Pro Black"), local("SofiaProBlack"),
+    url("SofiaProBlack.eot?#iefix") format("embedded-opentype"),
+    url("./SofiaProBlack.woff2") format("woff2"),
+    url("./SofiaProBlack.woff") format("woff"),
+    url("./SofiaProBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "Sofia Pro";
+}
