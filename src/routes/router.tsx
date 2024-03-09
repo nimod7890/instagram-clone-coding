@@ -1,13 +1,19 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
-import NotFoundPage from "src/pages/NotFoundPage";
+import Layout from "src/components/layout/Layout";
+import { UserPage, IndexPage, PostPage, SignupPage } from "src/pages";
 import RoutePath from "src/routes/routePath";
 
 const routes: RouteObject[] = [
   {
     path: RoutePath.Index,
-    element: <>index page</>,
+    element: <Layout />,
+    children: [
+      { index: true, element: <IndexPage /> },
+      { path: RoutePath.Post, element: <PostPage /> },
+      { path: RoutePath.User, element: <UserPage /> },
+      { path: RoutePath.Signup, element: <SignupPage /> },
+    ],
   },
-  { path: "*", element: <NotFoundPage /> },
 ];
 
 const Router = createBrowserRouter(routes);
