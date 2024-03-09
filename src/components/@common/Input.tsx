@@ -1,22 +1,28 @@
-import { ForwardedRef, InputHTMLAttributes, forwardRef } from "react";
+import {
+  ForwardedRef,
+  InputHTMLAttributes,
+  PropsWithChildren,
+  forwardRef,
+} from "react";
 import Icon, { KeyOfIcon } from "src/components/@common/Icon";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
-type InputProps = {
+export type InputProps = {
   value?: string;
   isError?: boolean;
   startIcon: KeyOfIcon;
   displayErrorStatusIcon?: boolean;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "children">;
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   (
     {
       value = "",
       startIcon,
       isError = false,
       displayErrorStatusIcon = false,
+      children,
       ...props
     },
     ref
@@ -36,6 +42,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             size={"20"}
           />
         )}
+        {children}
       </Container>
     );
   }
@@ -45,7 +52,7 @@ export default Input;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 14px;
+  padding: 10px 20px;
 
   background-color: ${theme.palette.white};
 
@@ -53,10 +60,7 @@ const Container = styled.div`
   border-radius: 30px;
 `;
 
-const StyledInput = styled.input<{
-  value: string;
-  isError?: boolean;
-}>`
+const StyledInput = styled.input`
   width: 100%;
   border: none;
   padding: 0 8px;
