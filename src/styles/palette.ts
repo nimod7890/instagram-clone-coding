@@ -2,7 +2,7 @@ const palette = {
   primary200: "#b2ddff",
   primary500: "#2e90fa",
 
-  warning: "#f04438",
+  error: "#f04438",
 
   gray0: "#ffffff",
   gray10: "#fafafa",
