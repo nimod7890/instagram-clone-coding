@@ -4,7 +4,9 @@ const palette = {
 
   error: "#f04438",
 
+  /** white */
   gray0: "#ffffff",
+
   gray10: "#fafafa",
   gray50: "#f6f6f6",
   gray100: "#e5e5e5",
@@ -16,9 +18,16 @@ const palette = {
   gray700: "#4c4c4c",
   gray800: "#333333",
   gray900: "#191919",
+
+  /** black */
   gray1000: "#000000",
 
+  border: "#D0D5DD",
+
+  /** gray0 */
   white: "#ffffff",
+
+  /** gray1000 */
   black: "#000000",
 } as const;
 
