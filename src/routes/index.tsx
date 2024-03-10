@@ -1,4 +1,4 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 import Layout from "src/components/layout";
 import { UserPage, IndexPage, PostPage, SignupPage } from "src/pages";
 import RoutePath from "src/routes/routePath";
@@ -16,6 +16,4 @@ const routes: RouteObject[] = [
   },
 ];
 
-const Router = createBrowserRouter(routes);
-
-export default Router;
+export default routes;
