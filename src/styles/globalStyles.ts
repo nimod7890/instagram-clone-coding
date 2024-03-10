@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
     font-family: "Sofia Pro", "Noto Sans", -apple-system, sans-serif, Roboto;
+    line-height: 24px;
+    text-align: center;
     
     margin: 0;
     padding: 0;

@@ -7,7 +7,6 @@ const Typography = styled.p<{
 }>`
   ${({ type = "body1Regular" }) => theme.typography[type]};
   color: ${({ color = "black" }) => theme.palette[color]};
-  line-height: 24px;
 `;
 
 export default Typography;
