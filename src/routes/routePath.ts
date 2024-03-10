@@ -1,16 +1,16 @@
-const RoutePath = {
-  Index: "/",
-  Home: "/",
+const enum RoutePath {
+  Index = "/",
+  Home = "/",
 
-  Signin: "/signin",
-  Signup: "/signup",
+  Signin = "/signin",
+  Signup = "/signup",
 
-  Post: "/post/:postId",
-  User: "/:userId",
+  Post = "/post/:postId",
+  User = "/:userId",
 
-  DirectMessage: "/direct",
-  Notification: "/notifications",
-} as const;
+  DirectMessage = "/direct",
+  Notification = "/notifications",
+}
 
 export default RoutePath;
 
