@@ -15,9 +15,6 @@ const Button = styled.button<{
 
   padding: 10px 0px;
 
-  cursor: pointer;
-
-  border: none;
   border-radius: 30px;
 
   ${theme.typography.body1Bold};
@@ -33,7 +30,6 @@ const Button = styled.button<{
   }
 
   :disabled {
-    cursor: default;
     opacity: 0.5;
     :active {
       transform: none;
