@@ -1,9 +1,48 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import Header from "src/components/layout/header";
+import TabBar from "src/components/layout/tabBar";
+import { GlobalSize } from "src/constants";
+import RoutePath from "src/routes/routePath";
+import styled from "styled-components";
 
 export default function AuthenticatedLayout() {
+  const isAuthenticated: boolean = true;
+
+  if (!isAuthenticated) {
+    return <Navigate to={RoutePath.Signin} />;
+  }
+
   return (
-    <div>
-      <Outlet />
-    </div>
+    <Container>
+      <Header />
+      <BodyContainer>
+        <Outlet />
+      </BodyContainer>
+      <TabBar />
+    </Container>
   );
 }
+
+/** styles */
+
+const Container = styled.div`
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+`;
+
+const BodyContainer = styled.div`
+  width: 100%;
+  max-width: ${GlobalSize.WindowWidthMax};
+  height: 100%;
+
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
