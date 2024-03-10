@@ -1,19 +1,28 @@
 import { RouteObject } from "react-router-dom";
-import Layout from "src/components/layout";
-import { UserPage, IndexPage, PostPage, SignupPage } from "src/pages";
+import AuthenticatedLayout from "src/components/layout/AuthenticatedLayout";
+import {
+  DirectMessagePage,
+  HomePage,
+  PostPage,
+  SigninPage,
+  SignupPage,
+  NotificationPage,
+} from "src/pages";
 import RoutePath from "src/routes/routePath";
 
 const routes: RouteObject[] = [
   {
     path: RoutePath.Index,
-    element: <Layout />,
+    element: <AuthenticatedLayout />,
     children: [
-      { index: true, element: <IndexPage /> },
+      { index: true, element: <HomePage /> },
       { path: RoutePath.Post, element: <PostPage /> },
-      { path: RoutePath.User, element: <UserPage /> },
-      { path: RoutePath.Signup, element: <SignupPage /> },
+      { path: RoutePath.DirectMessage, element: <DirectMessagePage /> },
+      { path: RoutePath.Notification, element: <NotificationPage /> },
     ],
   },
+  { path: RoutePath.Signin, element: <SigninPage /> },
+  { path: RoutePath.Signup, element: <SignupPage /> },
 ];
 
 export default routes;

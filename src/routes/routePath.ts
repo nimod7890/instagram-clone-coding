@@ -1,11 +1,15 @@
 const RoutePath = {
   Index: "/",
   Home: "/",
-  Login: "/",
 
+  Signin: "/signin",
   Signup: "/signup",
-  User: "/:userId",
+
   Post: "/post/:postId",
+  User: "/:userId",
+
+  DirectMessage: "/direct",
+  Notification: "/notifications",
 } as const;
 
 export default RoutePath;
