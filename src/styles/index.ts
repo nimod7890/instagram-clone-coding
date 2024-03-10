@@ -5,3 +5,5 @@ export { default as theme } from "./theme/theme";
 
 export type KeyOfTypography = keyof typeof typography;
 export type KeyOfPalette = keyof typeof palette;
+
+export { GlobalStyle } from "./globalStyles";

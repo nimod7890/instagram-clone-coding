@@ -117,7 +117,3 @@
     url("./NotoSansKR-Bold.woff") format("woff"),
     url("./NotoSansKR-Bold.otf") format("truetype");
 }
-
-body {
-  font-family: "Sofia Pro", "Noto Sans";
-}
