@@ -28,6 +28,7 @@ const palette = {
   /** gray1000 */
   black: "#000000",
 
+  background: "#ffffff",
   button: "#bdbdbd",
   border: "#D0D5DD",
 

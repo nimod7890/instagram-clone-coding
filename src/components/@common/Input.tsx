@@ -54,7 +54,7 @@ const Container = styled.div`
   align-items: center;
   padding: 10px 20px;
 
-  background-color: ${theme.palette.white};
+  background-color: ${theme.palette.background};
 
   border: 1px solid ${theme.palette.gray300};
   border-radius: 30px;
