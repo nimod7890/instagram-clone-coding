@@ -35,7 +35,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   border-radius: 6px;
 
   background-color: ${({ checked }) =>
-    checked ? theme.palette.primary200 : theme.palette.background};
+    checked ? theme.palette.primary200 : theme.palette.white};
 
   cursor: pointer;
 `;

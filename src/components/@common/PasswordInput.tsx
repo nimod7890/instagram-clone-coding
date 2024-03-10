@@ -31,7 +31,7 @@ const StyledButton = styled.button`
   border: none;
   padding: 0;
   margin-left: 8px;
-  background-color: ${theme.palette.background};
+  background-color: ${theme.palette.white};
   ${theme.typography.body1Bold}
   min-width: max-content;
   cursor: pointer;
