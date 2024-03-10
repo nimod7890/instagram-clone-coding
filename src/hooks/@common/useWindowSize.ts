@@ -1,5 +1,5 @@
 // https://9yujin.tistory.com/20
-import { debounce } from "lodash";
+import { throttle } from "lodash";
 import { useEffect, useState } from "react";
 
 type WindowSize = {
@@ -14,7 +14,7 @@ export default function useWindowSize() {
   });
 
   useEffect(() => {
-    const handleResize = debounce(() => {
+    const handleResize = throttle(() => {
       if (window !== undefined) {
         const { innerWidth: width, innerHeight: height } = window;
         setWindowSize({ width, height });
