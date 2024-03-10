@@ -4,8 +4,7 @@ import { theme } from "src/styles";
 import styled from "styled-components";
 
 export default function Header() {
-  const { width } = useWindowSize();
-  const isMobileSize = width ? width <= 1000 : false;
+  const { isMobileSize } = useWindowSize();
 
   return (
     <OuterContainer>
