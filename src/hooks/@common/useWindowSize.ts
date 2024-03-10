@@ -15,7 +15,7 @@ export default function useWindowSize() {
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      if (window === undefined) {
+      if (window !== undefined) {
         const { innerWidth: width, innerHeight: height } = window;
         setWindowSize({ width, height });
       }
