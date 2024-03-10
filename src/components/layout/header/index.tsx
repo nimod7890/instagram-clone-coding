@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "src/components/@common";
+import SearchInput from "src/components/@common/SearchInput";
 import { GlobalSize } from "src/constants";
 import { useWindowSize } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
@@ -15,7 +16,7 @@ export default function Header() {
         <Link to={RoutePath.Home}>
           <Logo />
         </Link>
-        <div>search bar</div>
+        <SearchInput readOnly />
         {isMobileSize ? null : <div>menu bar</div>}
       </InnterContainer>
     </OuterContainer>
