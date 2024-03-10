@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
-import { Logo } from "src/components/@common";
-import SearchInput from "src/components/@common/SearchInput";
+import { Logo, SearchInput } from "src/components/@common";
+import Menubar from "src/components/layout/header/menubar";
 import { GlobalSize } from "src/constants";
-import { useWindowSize } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
 export default function Header() {
-  const { isMobileSize } = useWindowSize();
-
   return (
     <OuterContainer>
       <InnterContainer>
@@ -17,7 +14,7 @@ export default function Header() {
           <Logo />
         </Link>
         <SearchInput readOnly />
-        {isMobileSize ? null : <div>menu bar</div>}
+        <Menubar />
       </InnterContainer>
     </OuterContainer>
   );
