@@ -1,5 +1,5 @@
 import { RouteObject } from "react-router-dom";
-import AuthenticatedLayout from "src/components/layout/AuthenticatedLayout";
+import AuthenticatedLayout from "src/components/layout";
 import {
   DirectMessagePage,
   HomePage,
