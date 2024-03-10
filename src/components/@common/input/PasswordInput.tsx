@@ -1,7 +1,7 @@
 import { isEmpty } from "lodash";
 import { forwardRef, useState } from "react";
 import { Input } from "src/components/@common";
-import { InputProps } from "src/components/@common/Input";
+import { InputProps } from "src/components/@common/input";
 import { theme } from "src/styles";
 import styled from "styled-components";
 

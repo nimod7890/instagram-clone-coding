@@ -1,5 +1,5 @@
 import { Input } from "src/components/@common";
-import { InputProps } from "src/components/@common/Input";
+import { InputProps } from "src/components/@common/input";
 import { css } from "styled-components";
 
 type SearchInputProps = Omit<
