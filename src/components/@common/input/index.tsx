@@ -26,7 +26,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   ) => {
     return (
       <Container css={containerStyles}>
-        <Icon icon={startIcon} color="gray500" size={"20"} />
+        <Icon icon={startIcon} size={"20"} />
         <StyledInput
           value={value}
           ref={ref as ForwardedRef<HTMLInputElement>}
