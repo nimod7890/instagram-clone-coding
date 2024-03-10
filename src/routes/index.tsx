@@ -23,6 +23,8 @@ const routes: RouteObject[] = [
   },
   { path: RoutePath.Signin, element: <SigninPage /> },
   { path: RoutePath.Signup, element: <SignupPage /> },
+  // Todo: 404 not found page
+  { path: "*", element: <>404</> },
 ];
 
 export default routes;
