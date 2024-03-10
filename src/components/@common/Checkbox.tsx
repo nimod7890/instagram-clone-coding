@@ -1,11 +1,10 @@
-import { InputHTMLAttributes } from "react";
 import Icon from "src/components/@common/Icon";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
 type CheckboxProps = {
   checked: boolean;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, "onClick">;
+} & Pick<React.InputHTMLAttributes<HTMLInputElement>, "onClick">;
 
 export default function Checkbox({
   checked,
