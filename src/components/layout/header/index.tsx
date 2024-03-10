@@ -24,7 +24,6 @@ const OuterContainer = styled.div`
 
   width: 100%;
   height: ${GlobalSize.HeaderHeight};
-  min-height: ${GlobalSize.HeaderHeight};
 
   display: flex;
   flex-direction: column;
