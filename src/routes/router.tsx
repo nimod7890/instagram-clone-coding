@@ -1,5 +1,5 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
-import { Layout } from "src/components/layout";
+import Layout from "src/components/layout";
 import { UserPage, IndexPage, PostPage, SignupPage } from "src/pages";
 import RoutePath from "src/routes/routePath";
 
