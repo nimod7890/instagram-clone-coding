@@ -26,7 +26,7 @@ export type KeyOfIcon =
   | "user"
   | "x-circle";
 
-type IconProps = {
+export type IconProps = {
   icon: KeyOfIcon;
   color?: KeyOfPalette;
   size?: string;
@@ -34,7 +34,7 @@ type IconProps = {
 
 export default function Icon({
   icon,
-  color = "black",
+  color = "gray500",
   size = "24",
 }: IconProps) {
   return (
