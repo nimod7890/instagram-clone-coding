@@ -6,13 +6,14 @@ import {
 } from "react";
 import Icon, { KeyOfIcon } from "src/components/@common/Icon";
 import { theme } from "src/styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export type InputProps = {
   value?: string;
   isError?: boolean;
   startIcon: KeyOfIcon;
   displayErrorStatusIcon?: boolean;
+  containerStyles?: ReturnType<typeof css>;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "children">;
 
 const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
@@ -22,13 +23,14 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
       startIcon,
       isError = false,
       displayErrorStatusIcon = false,
+      containerStyles,
       children,
       ...props
     },
     ref
   ) => {
     return (
-      <Container>
+      <Container css={containerStyles}>
         <Icon icon={startIcon} color="gray500" size={"20"} />
         <StyledInput
           value={value}
@@ -49,22 +51,29 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
 );
 export default Input;
 
-const Container = styled.div`
+/** styles */
+const Container = styled.div<{ css?: ReturnType<typeof css> }>`
+  height: 28px;
+
   display: flex;
   align-items: center;
-  padding: 10px 20px;
 
   background-color: ${theme.palette.white};
+  padding: 10px 20px;
 
   border: 1px solid ${theme.palette.gray300};
   border-radius: 30px;
+
+  ${({ css }) => css}
 `;
 
 const StyledInput = styled.input`
   width: 100%;
-  height: 16px;
+  height: 100%;
+
   border: none;
   padding: 0 8px;
+
   ${theme.typography.body1Regular};
   color: ${theme.palette.black};
 
