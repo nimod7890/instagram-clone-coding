@@ -1,5 +1,4 @@
-import IconButton from "src/components/@common/button/IconButton";
-import NavIconButton from "src/components/@common/button/NavIconButton";
+import { IconButton, NavIconButton } from "src/components/@common";
 import { useWindowSize } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
 import styled from "styled-components";
