@@ -21,5 +21,5 @@ const Container = styled.div`
   justify-content: space-around;
 
   background-color: ${theme.palette.white};
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #0000000d;
 `;
