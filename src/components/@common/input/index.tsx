@@ -1,9 +1,4 @@
-import {
-  ForwardedRef,
-  InputHTMLAttributes,
-  PropsWithChildren,
-  forwardRef,
-} from "react";
+import { ForwardedRef, PropsWithChildren, forwardRef } from "react";
 import Icon, { KeyOfIcon } from "src/components/@common/Icon";
 import { theme } from "src/styles";
 import styled, { css } from "styled-components";
@@ -14,7 +9,7 @@ export type InputProps = {
   startIcon: KeyOfIcon;
   displayErrorStatusIcon?: boolean;
   containerStyles?: ReturnType<typeof css>;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "children">;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "children">;
 
 const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   (
