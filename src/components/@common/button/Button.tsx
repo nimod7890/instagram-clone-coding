@@ -19,14 +19,8 @@ const Button = styled.button<{
 
   ${theme.typography.body1Bold};
 
-  transition: 0.2s all;
-
   :hover {
     box-shadow: 1px 1px 1px ${theme.palette.gray100};
-  }
-
-  :active {
-    transform: scale(0.99);
   }
 
   :disabled {
