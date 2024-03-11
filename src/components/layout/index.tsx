@@ -2,14 +2,15 @@ import { Navigate, Outlet } from "react-router-dom";
 import Header from "src/components/layout/header";
 import TabBar from "src/components/layout/tabBar";
 import { GlobalSize } from "src/constants";
+import { useAuthStorage } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
 import styled from "styled-components";
 
 export default function AuthenticatedLayout() {
-  const isAuthenticated: boolean = true;
+  const { isEmptyToken } = useAuthStorage();
 
-  if (!isAuthenticated) {
-    return <Navigate to={RoutePath.Signin} />;
+  if (isEmptyToken) {
+    return <Navigate to={RoutePath.Signout} />;
   }
 
   return (
