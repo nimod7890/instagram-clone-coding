@@ -1,4 +1,5 @@
 import { IconButton, NavIconButton } from "src/components/@common";
+import ProfileDropdown from "src/components/layout/header/menubar/dropdown";
 import { useWindowSize } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
 import styled from "styled-components";
@@ -16,6 +17,7 @@ export default function Menubar() {
       <NavIconButton icon="send" to={RoutePath.DirectMessage} />
       <IconButton icon="plus-square" />
       <NavIconButton icon="heart" to={RoutePath.Notification} />
+      <ProfileDropdown />
     </Container>
   );
 }
