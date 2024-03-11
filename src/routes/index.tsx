@@ -6,6 +6,7 @@ import {
   PostPage,
   SigninPage,
   SignupPage,
+  UserPage,
 } from "src/pages";
 import RoutePath from "src/routes/routePath";
 
@@ -17,6 +18,7 @@ const routes: RouteObject[] = [
       { index: true, element: <HomePage /> },
       { path: RoutePath.Post, element: <PostPage /> },
       { path: RoutePath.DirectMessage, element: <DirectMessagePage /> },
+      { path: RoutePath.User, element: <UserPage /> },
     ],
   },
   { path: RoutePath.Signin, element: <SigninPage /> },
