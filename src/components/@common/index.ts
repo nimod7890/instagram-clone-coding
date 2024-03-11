@@ -2,6 +2,7 @@ export { default as Checkbox } from "./Checkbox";
 export { default as Icon } from "./Icon";
 export { default as Typography } from "./Typography";
 export { default as Logo } from "./Logo";
+export { default as HomeMockup } from "./HomeMockup";
 
 export { default as Button } from "./button/Button";
 export { default as IconButton } from "./button/IconButton";
