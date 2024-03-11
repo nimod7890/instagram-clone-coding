@@ -3,7 +3,7 @@ import { IconProps } from "src/components/@common/Icon";
 import IconButton from "src/components/@common/button/IconButton";
 import RoutePath from "src/routes/routePath";
 
-type NavIconButtonProps = { to: RoutePath } & IconProps;
+type NavIconButtonProps = { to?: RoutePath } & IconProps;
 
 export default function NavIconButton({
   to: path,
@@ -12,6 +12,10 @@ export default function NavIconButton({
 }: NavIconButtonProps) {
   const { pathname } = useLocation();
   const isActive = pathname === path || pathname.startsWith(path + "/");
+
+  if (!path) {
+    return <IconButton icon={icon} size={size} color="gray900" disabled />;
+  }
 
   return (
     <NavLink to={path}>
