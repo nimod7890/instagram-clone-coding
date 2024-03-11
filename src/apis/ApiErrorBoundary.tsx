@@ -1,0 +1,46 @@
+import { useQueryClient } from "@tanstack/react-query";
+import { AxiosError } from "axios";
+import { PropsWithChildren } from "react";
+import { toast } from "react-toastify";
+import RoutePath from "src/routes/routePath";
+
+type ErrorResponseType = {
+  statusCode: number;
+  error: string;
+  message: string[];
+};
+
+export default function ApiErrorBoundary({ children }: PropsWithChildren) {
+  const queryClient = useQueryClient();
+
+  queryClient.getQueryCache().config = {
+    onError: (error) => handleError(error as AxiosError),
+  };
+
+  queryClient.getMutationCache().config = {
+    onError: (error) => handleError(error as AxiosError),
+  };
+
+  function handleError(axiosError: AxiosError) {
+    const errorResponse = axiosError.response?.data as ErrorResponseType;
+
+    const messages = errorResponse.message;
+
+    switch (errorResponse.statusCode) {
+      case 401:
+      case 403:
+        messages.forEach((message) => toast.error(message));
+
+        setTimeout(() => {
+          window.location.href = RoutePath.Signout;
+        }, 2000);
+
+        break;
+      default:
+        messages.forEach((message) => toast.error(message));
+        break;
+    }
+  }
+
+  return <>{children}</>;
+}

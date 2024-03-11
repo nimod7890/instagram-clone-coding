@@ -8,13 +8,9 @@ export default function useAuthStorage() {
 
   const isEmptyToken = _.isEmpty(token);
 
-  function setAuthData({ accessToken }: { accessToken: string | null }) {
-    setToken(accessToken);
-  }
-
   const clear = useCallback(() => {
     setToken(null);
   }, [isEmptyToken]);
 
-  return { token, isEmptyToken, setAuthData, clear };
+  return { token, isEmptyToken, setAuthData: setToken, clear };
 }
