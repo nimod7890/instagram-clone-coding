@@ -7,6 +7,7 @@ import {
   SigninPage,
   SignupPage,
   UserPage,
+  SignOutNavPage,
 } from "src/pages";
 import RoutePath from "src/routes/routePath";
 
@@ -21,6 +22,7 @@ const routes: RouteObject[] = [
       { path: RoutePath.User, element: <UserPage /> },
     ],
   },
+  { path: RoutePath.Signout, element: <SignOutNavPage /> },
   { path: RoutePath.Signin, element: <SigninPage /> },
   { path: RoutePath.Signup, element: <SignupPage /> },
   // Todo: 404 not found page

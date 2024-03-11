@@ -4,6 +4,7 @@ const enum RoutePath {
 
   Signin = "/signin",
   Signup = "/signup",
+  Signout = "/signout",
 
   Post = "/post/:postId",
   User = "/:userId",
