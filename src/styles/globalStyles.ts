@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
 
     transition: 0.2s all;
 
-    ${theme.typography.body1Bold};
+    ${theme.typography.body1SemiBold};
   }
   button:hover{
     transform: scale(1.02);
