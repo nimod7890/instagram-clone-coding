@@ -1,6 +1,12 @@
 import { css } from "styled-components";
 
 const typography = {
+  /** size 16; weight 400 */
+  body1Light: css`
+    font-size: 16;
+    font-weight: 400;
+    font-family: "Sofia Pro Regular";
+  `,
   /** size 16; weight 500 */
   body1Regular: css`
     font-size: 16;
