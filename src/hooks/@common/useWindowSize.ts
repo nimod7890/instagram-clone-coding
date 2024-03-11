@@ -28,7 +28,7 @@ export default function useWindowSize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isMobileSize = windowSize.width ? windowSize.width <= 1000 : false;
+  const isMobileSize = windowSize.width ? windowSize.width < 1000 : false;
 
   return { ...windowSize, isMobileSize };
 }
