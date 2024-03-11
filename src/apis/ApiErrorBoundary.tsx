@@ -42,5 +42,5 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
     }
   }
 
-  return <>{children}</>;
+  return children;
 }
