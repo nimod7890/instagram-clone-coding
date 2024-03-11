@@ -41,6 +41,4 @@ const StyledLink = styled(Link)`
   ${theme.typography.body1SemiBold}
 
   color: ${theme.palette.primary500};
-
-  text-decoration: none;
 `;
