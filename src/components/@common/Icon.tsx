@@ -406,7 +406,7 @@ export default function Icon({
                 </g>
                 <defs>
                   <clipPath id="clip0_1_1758">
-                    <rect width={size} height={size} fill="white" />
+                    <rect width="24" height="24" fill="white" />
                   </clipPath>
                 </defs>
               </svg>
