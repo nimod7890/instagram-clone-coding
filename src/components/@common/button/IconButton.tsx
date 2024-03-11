@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   border-radius: 8px;
 
   :hover {
-    background-color: ${theme.palette.gray100};
+    background-color: ${theme.palette.gray50};
   }
 
   :disabled {
