@@ -22,7 +22,9 @@ export const GlobalStyle = createGlobalStyle`
 
     overflow: hidden;
   }
-
+  p {
+    margin:0
+  }
   button {
     min-width: max-content;
     background: inherit;
