@@ -3,17 +3,15 @@ import styled, { css } from "styled-components";
 
 const Button = styled.button<{
   backgroundColor?: KeyOfPalette;
-  width?: string | number;
   variant?: keyof typeof buttonVariant;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: ${({ width }) => (width ? width : "100%")};
+  width: 320px;
+  height: 44px;
   ${({ variant = "primary" }) => buttonVariant[variant]}
-
-  padding: 10px 0px;
 
   border-radius: 30px;
 
