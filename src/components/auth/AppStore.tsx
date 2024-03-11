@@ -1,5 +1,5 @@
+import appStore from "src/assets/app-store-apple.svg";
 import playStore from "src/assets/app-store-google.svg";
-import appStore from "src/assets/app-store-google.svg";
 import { Typography } from "src/components/@common";
 import styled from "styled-components";
 
