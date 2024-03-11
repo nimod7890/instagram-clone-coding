@@ -15,7 +15,7 @@ export default function AuthPageSwitcher({
 
   return (
     <Container>
-      <Typography type="body1Bold" color="gray500">
+      <Typography type="body1SemiBold" color="gray500">
         {label}
       </Typography>
       <StyledLink to={path}>{linkLabel}</StyledLink>
@@ -38,7 +38,7 @@ const Container = styled.div`
 
 const StyledLink = styled(Link)`
   margin-left: 4px;
-  ${theme.typography.body1Bold}
+  ${theme.typography.body1SemiBold}
 
   color: ${theme.palette.primary500};
 

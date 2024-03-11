@@ -15,7 +15,7 @@ const Button = styled.button<{
 
   border-radius: 30px;
 
-  ${theme.typography.body1Bold};
+  ${theme.typography.body1SemiBold};
 
   :hover {
     box-shadow: 1px 1px 1px ${theme.palette.gray100};
