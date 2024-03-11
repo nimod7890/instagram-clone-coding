@@ -1,6 +1,11 @@
+import { NavIconButton, IconButton } from "src/components/@common";
 import { useWindowSize } from "src/hooks/@common";
+import RoutePath, { getUserPagePath } from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
+
+// Todo: user 정보 불러오기
+const USER_ID = "nim_od";
 
 export default function TabBar() {
   const { isMobileSize } = useWindowSize();
@@ -9,7 +14,15 @@ export default function TabBar() {
     return null;
   }
 
-  return <Container>tab bar</Container>;
+  return (
+    <Container>
+      <NavIconButton icon="home" to={RoutePath.Home} />
+      <NavIconButton icon="send" to={RoutePath.DirectMessage} />
+      <IconButton icon="plus-square" />
+      <NavIconButton icon="heart" />
+      <NavIconButton icon="user" to={getUserPagePath(USER_ID)} />
+    </Container>
+  );
 }
 
 const Container = styled.div`

@@ -3,7 +3,7 @@ import { IconProps } from "src/components/@common/Icon";
 import IconButton from "src/components/@common/button/IconButton";
 import RoutePath from "src/routes/routePath";
 
-type NavIconButtonProps = { to?: RoutePath } & IconProps;
+type NavIconButtonProps = { to?: RoutePath | string } & IconProps;
 
 export default function NavIconButton({
   to: path,
