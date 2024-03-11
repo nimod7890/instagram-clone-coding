@@ -4,6 +4,7 @@ import RoutePath, { getUserPagePath } from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
+// Todo: user 정보 불러오기
 const USER_ID = "nim_od";
 
 export default function ProfileMenu() {
