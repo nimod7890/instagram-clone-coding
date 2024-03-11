@@ -11,7 +11,6 @@ const Button = styled.button<{
 
   width: 320px;
   height: 44px;
-  ${({ variant = "primary" }) => buttonVariant[variant]}
 
   border-radius: 30px;
 
@@ -30,6 +29,8 @@ const Button = styled.button<{
       box-shadow: none;
     }
   }
+  
+  ${({ variant = "primary" }) => buttonVariant[variant]}
 `;
 
 export default Button;
