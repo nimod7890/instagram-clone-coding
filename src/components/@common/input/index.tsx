@@ -48,6 +48,7 @@ export default Input;
 
 /** styles */
 const Container = styled.div<{ css?: ReturnType<typeof css> }>`
+  width: calc(100% - 40px);
   height: 28px;
 
   display: flex;
@@ -70,6 +71,7 @@ const StyledInput = styled.input`
   padding: 0 8px;
 
   ${theme.typography.body1Regular};
+
   color: ${theme.palette.black};
 
   & + div {
