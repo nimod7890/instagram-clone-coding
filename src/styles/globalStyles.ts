@@ -7,7 +7,7 @@ export const supportDeviceSize = 1080;
 export const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Sofia Pro", "Noto Sans", -apple-system, sans-serif, Roboto;
-
+    
     margin: 0;
     padding: 0;
 
@@ -21,8 +21,12 @@ export const GlobalStyle = createGlobalStyle`
 
     overflow: hidden;
   }
+  a{
+    text-decoration: none;
+  }
   p {
-    margin:0
+    margin:0;
+    
   }
   button {
     min-width: max-content;
