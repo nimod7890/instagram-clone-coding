@@ -10,7 +10,7 @@ type DateSelectProps = {
 const DateObject = {
   day: Array.from({ length: 31 }, (_, index) => index + 1),
   month: Array.from({ length: 12 }, (_, index) => index + 1),
-  year: Array.from({ length: 2015 - 1919 + 1 }, (_, index) => 2015 - index),
+  year: Array.from({ length: 2021 - 1919 + 1 }, (_, index) => 2021 - index),
 };
 
 export default function DateSelect({ value, onChange }: DateSelectProps) {
