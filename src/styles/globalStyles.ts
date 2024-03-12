@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     height: 100vh;
 
-    overflow: hidden;
+    overflow: scroll;
   }
   a{
     text-decoration: none;
