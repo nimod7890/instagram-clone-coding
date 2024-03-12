@@ -16,10 +16,6 @@ const Button = styled.button<{
 
   ${theme.typography.body1SemiBold};
 
-  :hover {
-    box-shadow: 1px 1px 1px ${theme.palette.gray100};
-  }
-
   :disabled {
     opacity: 0.5;
     :active {
@@ -29,7 +25,7 @@ const Button = styled.button<{
       box-shadow: none;
     }
   }
-  
+
   ${({ variant = "primary" }) => buttonVariant[variant]}
 `;
 
@@ -48,6 +44,9 @@ const buttonVariant = {
   secondary: css`
     background-color: ${theme.palette.white};
     color: ${theme.palette.primary500};
+    :hover {
+      background-color: ${theme.palette.gray10};
+    }
   `,
 
   kakao: css`
