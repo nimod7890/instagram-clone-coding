@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import BirthdayIcon from "src/assets/birthday.svg";
 import { Typography, Button } from "src/components/@common";
 import DateSelect from "src/components/@common/select/DateSelect";
+import { FunnelStepProps } from "src/pages/SignupPage";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
-type BirthdayStepProps = {};
-
-export default function BirthdayStep({}: BirthdayStepProps) {
+export default function BirthdayStep({
+  onPrevStep,
+  onNextStep,
+}: FunnelStepProps) {
   return (
     <>
       <TitleContainer>
@@ -30,8 +32,10 @@ export default function BirthdayStep({}: BirthdayStepProps) {
         </Typography>
       </InputContainer>
       <ButtonContainer>
-        <Button disabled>가입</Button>
-        <Button variant="secondary">돌아가기</Button>
+        <Button onClick={onNextStep}>가입</Button>
+        <Button variant="secondary" onClick={onPrevStep}>
+          돌아가기
+        </Button>
       </ButtonContainer>
     </>
   );

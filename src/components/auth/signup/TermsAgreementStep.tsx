@@ -1,10 +1,9 @@
 import { every } from "lodash";
 import { useMemo, useState } from "react";
 import { Button, Checkbox, Typography } from "src/components/@common";
+import { FunnelStepProps } from "src/pages/SignupPage";
 import { theme } from "src/styles";
 import styled, { css } from "styled-components";
-
-type TermsAgreementStepProps = {};
 
 type Consent = {
   terms: boolean;
@@ -18,7 +17,10 @@ const ConsentList: { id: keyof Consent; label: string }[] = [
   { id: "locationEnabled", label: "위치 기반 기능 (필수)" },
 ];
 
-export default function TermsAgreementStep({}: TermsAgreementStepProps) {
+export default function TermsAgreementStep({
+  onSubmit,
+  onPrevStep,
+}: FunnelStepProps) {
   const [consent, setConsent] = useState<Consent>({
     terms: false,
     dataPolicy: false,
@@ -77,8 +79,12 @@ export default function TermsAgreementStep({}: TermsAgreementStepProps) {
         ))}
       </CheckboxContainer>
       <ButtonContainer>
-        <Button disabled={!isAllChecked}>다음</Button>
-        <Button variant="secondary">돌아가기</Button>
+        <Button disabled={!isAllChecked} onClick={onSubmit}>
+          다음
+        </Button>
+        <Button variant="secondary" onClick={onPrevStep}>
+          돌아가기
+        </Button>
       </ButtonContainer>
     </>
   );
