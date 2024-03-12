@@ -38,8 +38,12 @@ export default function BirthdayStep({
           value={birthDate}
           onChange={(value) => setValue("birthDate", value)}
         />
-        <Typography type="body2Regular" color="gray500">
-          태어난 날짜를 입력해야 합니다.
+        <Typography
+          type="body2Regular"
+          color="gray500"
+          style={{ height: "24px" }}
+        >
+          {disabledSubmitButton ? "태어난 날짜를 입력해야 합니다." : ""}
         </Typography>
       </InputContainer>
       <ButtonContainer>
