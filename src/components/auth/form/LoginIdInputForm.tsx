@@ -36,12 +36,16 @@ export default function LoginIdInputForm({
             "사용자 이름에는 문자(영문), 숫자, 밑줄 및 마침표만 사용할 수 있습니다.",
         },
         validate: debounce(async (loginId) => {
+          if (isSignInPage) {
+            return true;
+          }
+
           const { isExist } = await checkUserIdIsExist(loginId);
           return (
             !isExist ||
             `사용할 수 없는 사용자 이름입니다. 다른 이름을 사용하세요.`
           );
-        }, 1000),
+        }, 2000),
         maxLength: 20,
       })}
       maxLength={20}
