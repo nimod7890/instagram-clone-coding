@@ -1,15 +1,26 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import BirthdayIcon from "src/assets/birthday.svg";
 import { Typography, Button } from "src/components/@common";
 import DateSelect from "src/components/@common/select/DateSelect";
 import { FunnelStepProps } from "src/pages/SignupPage";
 import { theme } from "src/styles";
+import { DateSelectFormType } from "src/types";
 import styled from "styled-components";
 
 export default function BirthdayStep({
+  forms,
   onPrevStep,
   onNextStep,
 }: FunnelStepProps) {
+  const { watch, setValue } = forms;
+
+  const birthDate = watch("birthDate");
+
+  const disabledSubmitButton = useMemo(() => {
+    return !isValidDateFormat(birthDate);
+  }, [birthDate]);
+
   return (
     <>
       <TitleContainer>
@@ -24,15 +35,17 @@ export default function BirthdayStep({
       </DescriptionContainer>
       <InputContainer>
         <DateSelect
-          value={{ date: 31, month: 21, year: 2012 }}
-          onChange={console.log}
+          value={birthDate}
+          onChange={(value) => setValue("birthDate", value)}
         />
         <Typography type="body2Regular" color="gray500">
           태어난 날짜를 입력해야 합니다.
         </Typography>
       </InputContainer>
       <ButtonContainer>
-        <Button onClick={onNextStep}>가입</Button>
+        <Button onClick={onNextStep} disabled={disabledSubmitButton}>
+          가입
+        </Button>
         <Button variant="secondary" onClick={onPrevStep}>
           돌아가기
         </Button>
@@ -40,6 +53,24 @@ export default function BirthdayStep({
     </>
   );
 }
+
+/** utils */
+
+function isValidDateFormat({ year, month, day }: DateSelectFormType): boolean {
+  if (!day || !month || !year) {
+    return false;
+  }
+
+  const date = new Date(year, month - 1, day);
+
+  return (
+    date.getFullYear() === year &&
+    date.getMonth() + 1 === month &&
+    date.getDate() === day
+  );
+}
+
+/** styles */
 
 const Stack = styled.div`
   display: flex;

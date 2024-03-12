@@ -6,6 +6,7 @@ import {
   BirthdayStep,
   TermsAgreementStep,
 } from "src/components/auth/signup";
+import { DateSelectFormType } from "src/types";
 
 export type FunnelStepProps = {
   forms: UseFormReturn<SignupFormInput, any, undefined>;
@@ -50,7 +51,7 @@ export type SignupFormInput = {
   password: string;
   realName: string;
   phone: string;
-  birthDate: string;
+  birthDate: DateSelectFormType;
 };
 
 const defaultFormInput: SignupFormInput = {
@@ -58,5 +59,5 @@ const defaultFormInput: SignupFormInput = {
   password: "",
   realName: "",
   phone: "",
-  birthDate: "",
+  birthDate: { day: 0, month: 0, year: 0 },
 };
