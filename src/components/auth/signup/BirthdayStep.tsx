@@ -61,6 +61,10 @@ function isValidDateFormat({ year, month, day }: DateSelectFormType): boolean {
     return false;
   }
 
+  if (year >= 2016) {
+    return false;
+  }
+
   const date = new Date(year, month - 1, day);
 
   return (
