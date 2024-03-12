@@ -70,7 +70,7 @@ export default function BasicInfo({ forms }: FunnelStepProps) {
         value={watch("password")}
         {...register("password", {
           required: true,
-          minLength: 6,
+          minLength: 8,
           maxLength: 20,
         })}
         maxLength={20}
