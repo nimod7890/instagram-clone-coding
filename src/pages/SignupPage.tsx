@@ -1,10 +1,10 @@
 import { UseFormReturn } from "react-hook-form";
 import { SignInUpLayout } from "src/components/auth";
 import { useSignupPage } from "src/hooks/page";
-import type { SignupFormInput } from "src/hooks/page/useSignupPage";
+import { SignupFormInput } from "src/hooks/page/useSignupPage";
 
 export type FunnelStepProps = {
-  forms: UseFormReturn<SignupFormInput>;
+  forms: UseFormReturn<SignupFormInput, any, undefined>;
 
   onPrevStep?: () => void;
   onNextStep?: () => void;
