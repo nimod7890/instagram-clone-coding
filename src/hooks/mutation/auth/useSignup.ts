@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { padStart } from "lodash";
 import { useNavigate } from "react-router-dom";
 import apiClient from "src/apis";
-import { SignupFormInput } from "src/pages/SignupPage";
+import { SignupFormInput } from "src/hooks/page/useSignupPage";
 import RoutePath from "src/routes/routePath";
 import { DateSelectFormType } from "src/types";
 

@@ -1,7 +1,7 @@
 import { debounce } from "lodash";
 import { checkUserIdIsExist } from "src/apis/auth";
 import { Input, PasswordInput } from "src/components/@common";
-import { FunnelStepProps } from "src/pages/SignupPage";
+import { FunnelStepProps } from "src/hooks/page/useSignupPage";
 
 export default function BasicInfo({ forms }: FunnelStepProps) {
   const {

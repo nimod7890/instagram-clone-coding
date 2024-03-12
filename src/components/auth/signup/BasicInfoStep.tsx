@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Logo, Typography, Button } from "src/components/@common";
 import { KaKaoButton } from "src/components/auth";
 import BasicInfo from "src/components/auth/signup/BasicInfo";
-import { FunnelStepProps, SignupFormInput } from "src/pages/SignupPage";
+import { FunnelStepProps, SignupFormInput } from "src/hooks/page/useSignupPage";
 import styled from "styled-components";
 
 export default function BasicInfoStep(props: FunnelStepProps) {

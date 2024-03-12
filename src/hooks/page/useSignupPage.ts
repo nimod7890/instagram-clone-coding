@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { UseFormReturn, useForm } from "react-hook-form";
 import {
   BasicInfoStep,
   BirthdayStep,
@@ -9,6 +9,14 @@ import { useSignup } from "src/hooks/mutation";
 import { DateSelectFormType } from "src/types";
 
 const Steps = [BasicInfoStep, BirthdayStep, TermsAgreementStep];
+
+export type FunnelStepProps = {
+  forms: UseFormReturn<SignupFormInput, any, undefined>;
+
+  onPrevStep?: () => void;
+  onNextStep?: () => void;
+  onSubmit?: () => Promise<void> | undefined;
+};
 
 export type SignupFormInput = {
   loginId: string;
