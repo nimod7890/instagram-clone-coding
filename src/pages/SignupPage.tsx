@@ -1,63 +1,30 @@
-import { useState } from "react";
-import { UseFormReturn, useForm } from "react-hook-form";
+import { UseFormReturn } from "react-hook-form";
 import { SignInUpLayout } from "src/components/auth";
-import {
-  BasicInfoStep,
-  BirthdayStep,
-  TermsAgreementStep,
-} from "src/components/auth/signup";
-import { DateSelectFormType } from "src/types";
+import { useSignupPage } from "src/hooks/page";
+import type { SignupFormInput } from "src/hooks/page/useSignupPage";
 
 export type FunnelStepProps = {
-  forms: UseFormReturn<SignupFormInput, any, undefined>;
+  forms: UseFormReturn<SignupFormInput>;
 
   onPrevStep?: () => void;
   onNextStep?: () => void;
-  onSubmit?: () => void | undefined;
+  onSubmit?: () => Promise<void> | undefined;
 };
 
 export default function SignupPage() {
-  const [step, setStep] = useState<number>(0);
-
-  const forms = useForm({
-    mode: "onChange",
-    defaultValues: defaultFormInput,
-  });
-
-  const CurrentStep = Steps[step];
-
-  const handlePrevStep = () => setStep((prevStep) => prevStep - 1);
-  const handleNextStep = () => setStep((prevStep) => prevStep + 1);
-  const handleSubmit = () => {};
+  const { forms, CurrentStep, handlePrevStep, handleNextStep, handleSubmit } =
+    useSignupPage();
 
   return (
     <SignInUpLayout>
       <CurrentStep
         forms={forms}
-        onPrevStep={step === 0 ? undefined : handlePrevStep}
-        onNextStep={step === 2 ? undefined : handleNextStep}
-        onSubmit={step === 2 ? handleSubmit : undefined}
+        onPrevStep={handlePrevStep}
+        onNextStep={handleNextStep}
+        onSubmit={handleSubmit}
       />
     </SignInUpLayout>
   );
 }
 
 /** utils */
-
-const Steps = [BasicInfoStep, BirthdayStep, TermsAgreementStep];
-
-export type SignupFormInput = {
-  loginId: string;
-  password: string;
-  realName: string;
-  phone: string;
-  birthDate: DateSelectFormType;
-};
-
-const defaultFormInput: SignupFormInput = {
-  loginId: "",
-  password: "",
-  realName: "",
-  phone: "",
-  birthDate: { day: 0, month: 0, year: 0 },
-};
