@@ -28,6 +28,7 @@ export default function BasicInfo({ forms }: FunnelStepProps) {
           setValueAs: formatPhoneNumberInProgress,
           maxLength: 20,
         })}
+        maxLength={20}
       />
       <Input
         autoComplete="off"
@@ -35,6 +36,7 @@ export default function BasicInfo({ forms }: FunnelStepProps) {
         placeholder="성명"
         value={watch("realName")}
         {...register("realName", { required: true, maxLength: 20 })}
+        maxLength={20}
       />
       <Input
         autoComplete="off"
@@ -56,12 +58,19 @@ export default function BasicInfo({ forms }: FunnelStepProps) {
             //   console.log(res);
             //   return res || t('name_not_available')
           },
+          maxLength: 20,
         })}
+        maxLength={20}
       />
       <PasswordInput
         autoComplete="new-password"
         value={watch("password")}
-        {...register("password", { required: true })}
+        {...register("password", {
+          required: true,
+          minLength: 6,
+          maxLength: 20,
+        })}
+        maxLength={20}
       />
     </>
   );
