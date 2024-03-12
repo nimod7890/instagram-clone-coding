@@ -23,7 +23,10 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         {...props}
       >
         {isEmpty(props.value) ? null : (
-          <StyledButton onClick={() => toggleShowPassword(!showPassword)}>
+          <StyledButton
+            type="button"
+            onClick={() => toggleShowPassword(!showPassword)}
+          >
             {showPassword ? "숨기기" : "비밀번호 표시"}
           </StyledButton>
         )}
