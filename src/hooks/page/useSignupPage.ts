@@ -1,30 +1,14 @@
 import { useState } from "react";
-import { UseFormReturn, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   BasicInfoStep,
   BirthdayStep,
   TermsAgreementStep,
 } from "src/components/auth/signup";
 import { useSignup } from "src/hooks/mutation";
-import { DateSelectFormType } from "src/types";
+import { SignupFormInput } from "src/types";
 
 const Steps = [BasicInfoStep, BirthdayStep, TermsAgreementStep];
-
-export type FunnelStepProps = {
-  forms: UseFormReturn<SignupFormInput, any, undefined>;
-
-  onPrevStep?: () => void;
-  onNextStep?: () => void;
-  onSubmit?: () => Promise<void> | undefined;
-};
-
-export type SignupFormInput = {
-  loginId: string;
-  password: string;
-  realName: string;
-  phone: string;
-  birthDate: DateSelectFormType;
-};
 
 export default function useSignupPage() {
   const [step, setStep] = useState<number>(0);

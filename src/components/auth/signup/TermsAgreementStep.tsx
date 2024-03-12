@@ -1,8 +1,8 @@
 import { every } from "lodash";
 import { useMemo, useState } from "react";
 import { Button, Checkbox, Typography } from "src/components/@common";
-import { FunnelStepProps } from "src/hooks/page/useSignupPage";
 import { theme } from "src/styles";
+import { FunnelStepProps } from "src/types";
 import styled, { css } from "styled-components";
 
 type Consent = {

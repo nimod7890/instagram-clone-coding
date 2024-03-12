@@ -1,11 +1,9 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import BirthdayIcon from "src/assets/birthday.svg";
-import { Typography, Button } from "src/components/@common";
-import DateSelect from "src/components/@common/select/DateSelect";
-import { FunnelStepProps } from "src/hooks/page/useSignupPage";
+import { Typography, Button, DateSelect } from "src/components/@common";
 import { theme } from "src/styles";
-import { DateSelectFormType } from "src/types";
+import { DateSelectFormType, FunnelStepProps } from "src/types";
 import styled from "styled-components";
 
 export default function BirthdayStep({
