@@ -6,11 +6,10 @@ import {
   Button,
 } from "src/components/@common";
 import { KaKaoButton } from "src/components/auth";
+import { FunnelStepProps } from "src/pages/SignupPage";
 import styled from "styled-components";
 
-type BasicInfoStepProps = {};
-
-export default function BasicInfoStep({}: BasicInfoStepProps) {
+export default function BasicInfoStep({ onNextStep }: FunnelStepProps) {
   const error = "";
 
   return (
@@ -34,7 +33,9 @@ export default function BasicInfoStep({}: BasicInfoStepProps) {
         <Input startIcon="settings" placeholder="설정" />
         <PasswordInput />
       </InputContainer>
-      <Button style={{ marginBottom: "15px" }}>가입</Button>
+      <Button style={{ marginBottom: "15px" }} onClick={onNextStep}>
+        가입
+      </Button>
       {error && (
         <Typography type="body1SemiBold" color="error">
           {error}

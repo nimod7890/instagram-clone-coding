@@ -112,6 +112,8 @@ const StyledSelect = styled.select`
     display: none;
   }
 
+  cursor: pointer;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
