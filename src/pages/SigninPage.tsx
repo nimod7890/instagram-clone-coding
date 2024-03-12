@@ -1,48 +1,24 @@
-import { useMemo } from "react";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Button, Logo, Typography } from "src/components/@common";
-import { KaKaoButton, SignInUpLayout } from "src/components/auth";
-import LoginIdInputForm from "src/components/auth/form/LoginIdInputForm";
-import PasswordInputForm from "src/components/auth/form/PasswordInputForm";
-import { useSignin } from "src/hooks/mutation";
+import {
+  KaKaoButton,
+  SignInUpLayout,
+  LoginIdInputForm,
+  PasswordInputForm,
+} from "src/components/auth";
+import { useSigninPage } from "src/hooks/page";
 import { theme } from "src/styles";
-import { SigninFormInput } from "src/types";
 import styled from "styled-components";
 
 export default function SigninPage() {
-  const forms = useForm<SigninFormInput>({
-    mode: "onChange",
-    defaultValues: {
-      loginId: "",
-      password: "",
-    },
-  });
-
+  const { forms, errorMessage, handleSubmit } = useSigninPage();
   const {
-    handleSubmit,
-    formState: { isValid, errors },
+    formState: { isValid },
   } = forms;
-
-  const { signin } = useSignin();
-
-  const onSubmit = async (data: SigninFormInput) => signin(data);
-
-  const errorMessage = useMemo(() => {
-    const errorFields: (keyof SigninFormInput)[] = ["password", "loginId"];
-
-    for (const field of errorFields) {
-      if (errors[field]?.message) {
-        return errors[field]?.message;
-      }
-    }
-
-    return "";
-  }, [errors.password, errors.loginId]);
 
   return (
     <SignInUpLayout isSignInPage>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <HeaderContainer>
           <Logo width={217} />
         </HeaderContainer>
@@ -55,7 +31,9 @@ export default function SigninPage() {
           <Typography type="body1Light" color="gray500">
             or
           </Typography>
-          <Button type='submit' disabled={!isValid}>로그인</Button>
+          <Button type="submit" disabled={!isValid}>
+            로그인
+          </Button>
         </ButtonContainer>
       </form>
       <HelperTextContainer>
