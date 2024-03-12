@@ -90,6 +90,8 @@ export default function TermsAgreementStep({
   );
 }
 
+/** styles */
+
 const Stack = styled.div`
   display: flex;
   flex-direction: column;
