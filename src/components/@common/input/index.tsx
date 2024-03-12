@@ -1,10 +1,10 @@
+import { isEmpty } from "lodash";
 import { ForwardedRef, PropsWithChildren, forwardRef } from "react";
 import Icon, { KeyOfIcon } from "src/components/@common/Icon";
 import { theme } from "src/styles";
 import styled, { css } from "styled-components";
 
 export type InputProps = {
-  value?: string;
   isError?: boolean;
   startIcon: KeyOfIcon;
   displayErrorStatusIcon?: boolean;
@@ -17,7 +17,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
       value = "",
       startIcon,
       isError = false,
-      displayErrorStatusIcon = false,
+      displayErrorStatusIcon = true,
       containerStyles,
       children,
       ...props
@@ -32,7 +32,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
           ref={ref as ForwardedRef<HTMLInputElement>}
           {...props}
         />
-        {displayErrorStatusIcon && (
+        {!isEmpty(value) && displayErrorStatusIcon && (
           <Icon
             icon={isError ? "x-circle" : "check-circle"}
             color={isError ? "error" : "gray500"}
@@ -48,7 +48,7 @@ export default Input;
 
 /** styles */
 const Container = styled.div<{ css?: ReturnType<typeof css> }>`
-  width: calc(100% - 40px);
+  width: 280px;
   height: 28px;
 
   display: flex;
