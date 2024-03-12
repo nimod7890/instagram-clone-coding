@@ -9,7 +9,12 @@ type SearchInputProps = Omit<
 
 export default function SearchInput(props: SearchInputProps) {
   return (
-    <Input startIcon="search" containerStyles={containerStyles} {...props} />
+    <Input
+      startIcon="search"
+      containerStyles={containerStyles}
+      displayErrorStatusIcon={false}
+      {...props}
+    />
   );
 }
 

@@ -1,16 +1,29 @@
-import {
-  Logo,
-  Typography,
-  Input,
-  PasswordInput,
-  Button,
-} from "src/components/@common";
+import { useMemo } from "react";
+import { Logo, Typography, Button } from "src/components/@common";
 import { KaKaoButton } from "src/components/auth";
-import { FunnelStepProps } from "src/pages/SignupPage";
+import BasicInfo from "src/components/auth/signup/BasicInfo";
+import { FunnelStepProps, SignupFormInput } from "src/pages/SignupPage";
 import styled from "styled-components";
 
-export default function BasicInfoStep({ onNextStep }: FunnelStepProps) {
-  const error = "";
+export default function BasicInfoStep(props: FunnelStepProps) {
+  const {
+    onNextStep,
+    forms: {
+      formState: { isValid, errors },
+    },
+  } = props;
+
+  const errorMessage = useMemo(() => {
+    const errorFields: (keyof SignupFormInput)[] = ["phone", "loginId"];
+
+    for (const field of errorFields) {
+      if (errors[field]?.message) {
+        return errors[field]?.message;
+      }
+    }
+
+    return "";
+  }, [errors.phone, errors.loginId]);
 
   return (
     <>
@@ -25,25 +38,29 @@ export default function BasicInfoStep({ onNextStep }: FunnelStepProps) {
         <Typography type="body1Light" color="gray500">
           or
         </Typography>
-        <Input
-          startIcon="mail"
-          placeholder="전화번호, 사용자 이름 또는 이메일"
-        />
-        <Input startIcon="user" placeholder="성명" />
-        <Input startIcon="settings" placeholder="설정" />
-        <PasswordInput />
+        <BasicInfo {...props} />
       </InputContainer>
-      <Button style={{ marginBottom: "15px" }} onClick={onNextStep}>
+      <Button
+        disabled={!isValid}
+        style={{ marginBottom: "15px" }}
+        onClick={onNextStep}
+      >
         가입
       </Button>
-      {error && (
-        <Typography type="body1SemiBold" color="error">
-          {error}
+      {errorMessage && (
+        <Typography
+          type="body1SemiBold"
+          color="error"
+          style={{ maxWidth: "320px", textAlign: "center" }}
+        >
+          {errorMessage}
         </Typography>
       )}
     </>
   );
 }
+
+/** styles */
 
 const Stack = styled.div`
   display: flex;
