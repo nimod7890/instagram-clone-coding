@@ -12,4 +12,7 @@ export { default as Input } from "./input";
 export { default as PasswordInput } from "./input/PasswordInput";
 export { default as SearchInput } from "./input/SearchInput";
 
+export { default as Select } from "./select";
+export { default as DateSelect } from "./select/DateSelect";
+
 export { default as Avatar } from "./Avatar";
