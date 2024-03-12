@@ -15,13 +15,13 @@ export default function BasicInfoStep({}: BasicInfoStepProps) {
 
   return (
     <>
-      <Stack gap="10px" style={{ marginBottom: "30px" }}>
+      <HeaderContainer>
         <Logo width={217} />
         <Typography type="body1SemiBold" color="gray500">
           친구들과 함께 여행 이야기를 공유하고 보세요.
         </Typography>
-      </Stack>
-      <Stack gap="10px" style={{ marginBottom: "20px" }}>
+      </HeaderContainer>
+      <InputContainer>
         <KaKaoButton />
         <Typography type="body1Light" color="gray500">
           or
@@ -33,7 +33,7 @@ export default function BasicInfoStep({}: BasicInfoStepProps) {
         <Input startIcon="user" placeholder="성명" />
         <Input startIcon="settings" placeholder="설정" />
         <PasswordInput />
-      </Stack>
+      </InputContainer>
       <Button style={{ marginBottom: "15px" }}>가입</Button>
       {error && (
         <Typography type="body1SemiBold" color="error">
@@ -44,11 +44,19 @@ export default function BasicInfoStep({}: BasicInfoStepProps) {
   );
 }
 
-export const Stack = styled.div<{ gap?: string }>`
+const Stack = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
 
-  gap: ${({ gap }) => gap};
+const HeaderContainer = styled(Stack)`
+  gap: 10px;
+  margin-bottom: 30px;
+`;
+
+const InputContainer = styled(Stack)`
+  gap: 10px;
+  margin-bottom: 20px;
 `;
