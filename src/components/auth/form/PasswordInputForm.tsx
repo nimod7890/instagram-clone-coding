@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import { PasswordInput } from "src/components/@common";
-import { SigninFormInput, SignupFormInput } from "src/types";
 
 type PasswordInputFormProps = {
-  forms: ReturnType<typeof useForm<SigninFormInput & SignupFormInput>>;
+  forms: ReturnType<typeof useForm<any>>;
 };
 
 export default function PasswordInputForm({ forms }: PasswordInputFormProps) {
