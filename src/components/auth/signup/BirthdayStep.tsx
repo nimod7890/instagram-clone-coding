@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BirthdayIcon from "src/assets/birthday.svg";
 import { Typography, Button } from "src/components/@common";
 import DateSelect from "src/components/@common/select/DateSelect";
-import { FunnelStepProps } from "src/pages/SignupPage";
+import { FunnelStepProps } from "src/hooks/page/useSignupPage";
 import { theme } from "src/styles";
 import { DateSelectFormType } from "src/types";
 import styled from "styled-components";

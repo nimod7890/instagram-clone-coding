@@ -1,15 +1,5 @@
-import { UseFormReturn } from "react-hook-form";
 import { SignInUpLayout } from "src/components/auth";
 import { useSignupPage } from "src/hooks/page";
-import { SignupFormInput } from "src/hooks/page/useSignupPage";
-
-export type FunnelStepProps = {
-  forms: UseFormReturn<SignupFormInput, any, undefined>;
-
-  onPrevStep?: () => void;
-  onNextStep?: () => void;
-  onSubmit?: () => Promise<void> | undefined;
-};
 
 export default function SignupPage() {
   const { forms, CurrentStep, handlePrevStep, handleNextStep, handleSubmit } =
