@@ -36,6 +36,13 @@ const typography = {
     font-family: "Sofia Pro SemiBold";
     line-height: 24px;
   `,
+  /** size 14; weight 400 */
+  body2Light: css`
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Sofia Pro Regular";
+    line-height: 20px;
+  `,
   /** size 14; weight 500 */
   body2Regular: css`
     font-size: 14px;
