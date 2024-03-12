@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import * as jsonwebtoken from "jsonwebtoken";
-import { JwtPayload } from "jsonwebtoken";
+import { jwtDecode } from "jwt-decode";
 import { useAuthStorage } from "src/hooks/@common";
 import lStorage, { StorageKeys } from "src/utils/storage";
 
@@ -17,7 +16,7 @@ const apiClient: AxiosInstance = axios.create({
 apiClient.interceptors.request.use(
   async (config) => {
     const jwt = lStorage.get(StorageKeys.Token);
-    const { exp: expiredDate } = jsonwebtoken.decode(jwt) as JwtPayload;
+    const { exp: expiredDate } = jwtDecode(jwt);
     const currentTime = new Date().getTime() / 1000;
 
     /** token 재발급 */
