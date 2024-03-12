@@ -2,11 +2,10 @@ import { debounce } from "lodash";
 import { useForm } from "react-hook-form";
 import { checkUserIdIsExist } from "src/apis/auth";
 import { Input } from "src/components/@common";
-import { SigninFormInput, SignupFormInput } from "src/types";
 
 type LoginIdInputFormProps = {
   isSignInPage?: boolean;
-  forms: ReturnType<typeof useForm<SigninFormInput & SignupFormInput>>;
+  forms: ReturnType<typeof useForm<any>>;
 };
 
 export default function LoginIdInputForm({
