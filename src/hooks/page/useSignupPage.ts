@@ -25,10 +25,10 @@ export default function useSignupPage() {
   });
 
   const { handleSubmit } = forms;
-  const { signin } = useSignup();
+  const { signup } = useSignup();
 
   const onSubmit = async (data: SignupFormInput) => {
-    signin(data);
+    signup(data);
   };
 
   const CurrentStep = Steps[step];

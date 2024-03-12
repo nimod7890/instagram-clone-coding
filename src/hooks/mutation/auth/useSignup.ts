@@ -2,14 +2,13 @@ import { useMutation } from "@tanstack/react-query";
 import { padStart } from "lodash";
 import { useNavigate } from "react-router-dom";
 import apiClient from "src/apis";
-import { SignupFormInput } from "src/hooks/page/useSignupPage";
 import RoutePath from "src/routes/routePath";
-import { DateSelectFormType } from "src/types";
+import { DateSelectFormType, SignupFormInput } from "src/types";
 
 export default function useSignup() {
   const navigate = useNavigate();
 
-  const { mutate: signin, ...rest } = useMutation({
+  const { mutate: signup, ...rest } = useMutation({
     mutationFn: async ({
       birthDate,
       loginId,
@@ -28,7 +27,7 @@ export default function useSignup() {
     onSuccess: () => navigate(RoutePath.Signin),
   });
 
-  return { signin, ...rest };
+  return { signup, ...rest };
 }
 
 /** utils */
