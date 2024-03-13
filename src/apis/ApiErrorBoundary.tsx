@@ -36,6 +36,8 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
         }, 2000);
 
         break;
+      case 404:
+        break;
       default:
         messages.forEach((message) => toast.error(message));
         break;
