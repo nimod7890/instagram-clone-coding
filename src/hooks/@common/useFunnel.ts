@@ -6,5 +6,5 @@ export default function useFunnel() {
   const handlePrevStep = () => setStep((prevStep) => prevStep - 1);
   const handleNextStep = () => setStep((prevStep) => prevStep + 1);
 
-  return { step, handlePrevStep, handleNextStep };
+  return { step, handlePrevStep, handleNextStep, handleChangeStep: setStep };
 }

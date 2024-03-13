@@ -78,8 +78,7 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
 });
 
 const BodyContainer = styled.div`
-  height: 100%;
-
+  height: calc(100% - 60px);
   overflow-y: "auto";
   overflow-x: "hidden";
 `;
