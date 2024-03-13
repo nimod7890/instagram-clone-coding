@@ -1,21 +1,18 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { theme } from "src/styles";
 
-export default function useFileInput({
-  onFileInput,
-}: {
-  onFileInput: (File: File) => void;
-}) {
+type UseFileInputProps = { onFileInput: (files: FileList) => void };
+
+export default function useFileInput({ onFileInput }: UseFileInputProps) {
   const [dragOver, setDragOver] = useState(false);
 
-  // handling file uploads with <input />
   const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     handleFileUpload(files);
     setDragOver(false);
   };
 
-  // handling file uploads with <Dropzone />
   const handleDrop = (event: React.DragEvent) => {
     preventDefaults(event);
 
@@ -24,15 +21,13 @@ export default function useFileInput({
     setDragOver(false);
   };
 
-  // handling file uploads
   function handleFileUpload(files: FileList | null) {
     if (!files || files.length === 0) {
-      console.error("No files uploaded. Please try again.");
+      toast.error("No files uploaded. Please try again.");
       return;
     }
 
-    const file = files[0];
-    onFileInput(file);
+    onFileInput(files);
   }
 
   function handleDragEnter(event: React.DragEvent<HTMLDivElement>) {
@@ -52,11 +47,6 @@ export default function useFileInput({
     }
   }
 
-  function preventDefaults(e: React.DragEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
   const dropZoneStyles = dragOver
     ? { backgroundColor: theme.palette.gray50 }
     : {};
@@ -71,4 +61,10 @@ export default function useFileInput({
     },
     handleFileInput,
   };
+}
+
+/** utils */
+function preventDefaults(e: React.DragEvent) {
+  e.preventDefault();
+  e.stopPropagation();
 }
