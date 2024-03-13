@@ -49,7 +49,7 @@ export default function useSigninPage() {
   return {
     forms,
     errorMessage,
-    handleSubmit: handleSubmit(onSubmit, () => onSubmit()),
+    handleSubmit: handleSubmit(onSubmit, onSubmit),
     disabledSubmitButton,
   };
 }

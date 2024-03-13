@@ -1,17 +1,17 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   BasicInfoStep,
   BirthdayStep,
   TermsAgreementStep,
 } from "src/components/auth/signup";
+import { useFunnel } from "src/hooks/@common";
 import { useSignup } from "src/hooks/mutation";
 import { SignupFormInput } from "src/types";
 
 const Steps = [BasicInfoStep, BirthdayStep, TermsAgreementStep];
 
 export default function useSignupPage() {
-  const [step, setStep] = useState<number>(0);
+  const { step, handleNextStep, handlePrevStep } = useFunnel();
 
   const forms = useForm<SignupFormInput>({
     mode: "onChange",
@@ -27,18 +27,13 @@ export default function useSignupPage() {
   const { handleSubmit } = forms;
   const { signup } = useSignup();
 
-  const onSubmit = async (data: SignupFormInput) => {
+  const onSubmit = (data: SignupFormInput) => {
     signup(data);
   };
 
-  const CurrentStep = Steps[step];
-
-  const handlePrevStep = () => setStep((prevStep) => prevStep - 1);
-  const handleNextStep = () => setStep((prevStep) => prevStep + 1);
-
   return {
     forms,
-    CurrentStep,
+    CurrentStep: Steps[step],
     handlePrevStep: step === 0 ? undefined : handlePrevStep,
     handleNextStep: step === 2 ? undefined : handleNextStep,
     handleSubmit: step === 2 ? handleSubmit(onSubmit) : undefined,
