@@ -1,6 +1,6 @@
-import { NavIconButton, IconButton } from "src/components/@common";
+import { NavIconButton, AppMenu } from "src/components/@common";
 import { useWindowSize } from "src/hooks/@common";
-import RoutePath, { getUserPagePath } from "src/routes/routePath";
+import { getUserPagePath } from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
@@ -16,10 +16,7 @@ export default function TabBar() {
 
   return (
     <Container>
-      <NavIconButton icon="home" to={RoutePath.Home} />
-      <NavIconButton icon="send" to={RoutePath.DirectMessage} />
-      <IconButton icon="plus-square" />
-      <NavIconButton icon="heart" />
+      <AppMenu />
       <NavIconButton icon="user" to={getUserPagePath(USER_ID)} />
     </Container>
   );

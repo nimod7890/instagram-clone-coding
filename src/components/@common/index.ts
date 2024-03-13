@@ -4,6 +4,8 @@ export { default as Typography } from "./Typography";
 export { default as Logo } from "./Logo";
 export { default as HomeMockup } from "./HomeMockup";
 
+export { default as AppMenu } from "./AppMenu";
+
 export { default as Button } from "./button/Button";
 export { default as IconButton } from "./button/IconButton";
 export { default as NavIconButton } from "./button/NavIconButton";
