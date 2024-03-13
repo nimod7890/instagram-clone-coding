@@ -25,7 +25,9 @@ export type KeyOfIcon =
   | "send"
   | "settings"
   | "user"
-  | "x-circle";
+  | "x-circle"
+  | "arrow-left-circle"
+  | "arrow-right-circle";
 
 export type IconProps = {
   icon: KeyOfIcon;
@@ -42,6 +44,51 @@ export default function Icon({
     <Container size={size}>
       {(() => {
         switch (icon) {
+          case "arrow-left-circle":
+            return (
+              <svg
+                width={size}
+                height={size}
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.4" />
+                <path
+                  d="M17.1429 20.5714L12 15.4285L17.1429 10.2856"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            );
+          case "arrow-right-circle":
+            return (
+              <svg
+                width={size}
+                height={size}
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="15"
+                  cy="15"
+                  r="15"
+                  fill="black"
+                  fill-opacity="0.4"
+                />
+                <path
+                  d="M12.8571 20.5714L17.9999 15.4285L12.8571 10.2856"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            );
+
           case "arrow-left":
             return (
               <svg
