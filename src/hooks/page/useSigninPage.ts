@@ -15,12 +15,18 @@ export default function useSigninPage() {
   const {
     handleSubmit,
     getValues,
-    formState: { errors, isSubmitted, isSubmitSuccessful, isSubmitting },
+    clearErrors,
+    formState: { errors, isSubmitted, isSubmitting },
   } = forms;
 
   const { signin, isPending } = useSignin();
 
-  const onSubmit = (data: SigninFormInput) => signin(data);
+  const onSubmit = () => {
+    clearErrors();
+
+    const [loginId, password] = getValues(["loginId", "password"]);
+    signin({ loginId, password });
+  };
 
   const errorMessage = useMemo(() => {
     const errorFields: (keyof SigninFormInput)[] = ["password", "loginId"];
@@ -30,8 +36,9 @@ export default function useSigninPage() {
         return errors[field]?.message;
       }
     }
+
     return "";
-  }, [isSubmitted, isSubmitSuccessful, isSubmitting]);
+  }, [isSubmitted, isSubmitting]);
 
   const disabledSubmitButton = useMemo(() => {
     const [loginId, password] = getValues(["loginId", "password"]);
@@ -42,7 +49,7 @@ export default function useSigninPage() {
   return {
     forms,
     errorMessage,
-    handleSubmit: handleSubmit(onSubmit),
+    handleSubmit: handleSubmit(onSubmit, () => onSubmit()),
     disabledSubmitButton,
   };
 }
