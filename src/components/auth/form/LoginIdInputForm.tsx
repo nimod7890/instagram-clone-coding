@@ -1,4 +1,3 @@
-import { debounce } from "lodash";
 import { useForm } from "react-hook-form";
 import { checkUserIdIsExist } from "src/apis/auth";
 import { Input } from "src/components/@common";
@@ -25,7 +24,7 @@ export default function LoginIdInputForm({
       placeholder={
         isSignInPage ? "전화번호, 사용자 이름 또는 이메일" : "사용자 이름"
       }
-      isError={Boolean(errors.loginId)}
+      isError={isSignInPage ? false : Boolean(errors.loginId)}
       value={watch("loginId")}
       {...register("loginId", {
         required: true,
@@ -35,17 +34,20 @@ export default function LoginIdInputForm({
           message:
             "사용자 이름에는 문자(영문), 숫자, 밑줄 및 마침표만 사용할 수 있습니다.",
         },
-        validate: debounce(async (loginId) => {
-          if (isSignInPage) {
-            return true;
+        validate: async (loginId) => {
+          const { isExist } = await checkUserIdIsExist(loginId);
+
+          if (isExist) {
+            return isSignInPage
+              ? "잘못된 비밀번호입니다. 다시 확인하세요."
+              : `사용할 수 없는 사용자 이름입니다. 다른 이름을 사용하세요.`;
           }
 
-          const { isExist } = await checkUserIdIsExist(loginId);
           return (
-            !isExist ||
-            `사용할 수 없는 사용자 이름입니다. 다른 이름을 사용하세요.`
+            !isSignInPage ||
+            "입력한 사용자 이름을 사용하는 계정을 찾을 수 없습니다. 사용자 입름을 확인하고 다시 시도하세요."
           );
-        }, 2000),
+        },
         maxLength: 20,
       })}
       maxLength={20}

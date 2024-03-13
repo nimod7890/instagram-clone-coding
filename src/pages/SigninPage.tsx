@@ -11,10 +11,8 @@ import { theme } from "src/styles";
 import styled from "styled-components";
 
 export default function SigninPage() {
-  const { forms, errorMessage, handleSubmit } = useSigninPage();
-  const {
-    formState: { isValid },
-  } = forms;
+  const { forms, errorMessage, handleSubmit, disabledSubmitButton } =
+    useSigninPage();
 
   return (
     <SignInUpLayout isSignInPage>
@@ -31,7 +29,7 @@ export default function SigninPage() {
           <Typography type="body1Light" color="gray500">
             or
           </Typography>
-          <Button type="submit" disabled={!isValid}>
+          <Button type="submit" disabled={disabledSubmitButton}>
             로그인
           </Button>
         </ButtonContainer>
