@@ -37,5 +37,6 @@ const SideButton = styled.button`
   min-width: 40px;
 
   ${theme.typography.TitleSemiBold};
-  ${theme.palette.gray200}
+
+  color: ${theme.palette.primary500};
 `;
