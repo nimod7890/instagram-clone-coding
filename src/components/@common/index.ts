@@ -18,3 +18,5 @@ export { default as Select } from "./select";
 export { default as DateSelect } from "./select/DateSelect";
 
 export { default as Avatar } from "./Avatar";
+
+export { default as Modal } from "./modal";
