@@ -51,18 +51,21 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
     borderRadius: "10px",
     border: "none",
 
-    width: width ?? "fit-content",
-    height: height ?? "fit-content",
-    maxHeight: `min(calc(100vh - 64px), 716px)`,
-    maxWidth: `min(calc(100vw - 32px), 1000px)`,
+    width: "100%",
+    height: "100%",
 
+    minWidth: "300px",
+    minHeight: "300px",
+
+    maxHeight: `min(calc(100vh - 64px), ${height ?? "716px"})`,
+    maxWidth: `min(calc(100vw - 32px), ${width ?? "656px"})`,
+
+    overflow: "hidden",
     display: "flex",
     flexDirection: "column",
 
     padding: 0,
-
     backgroundColor: theme.palette.white,
-    overflow: "hidden",
   },
   overlay: {
     padding: 100,
@@ -75,10 +78,8 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
 });
 
 const BodyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 
-  overflow: auto;
-  width: "100%";
-  height: "100%";
+  overflow-y: "auto";
+  overflow-x: "hidden";
 `;
