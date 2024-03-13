@@ -5,7 +5,7 @@ import { SigninFormInput } from "src/types";
 
 export default function useSigninPage() {
   const forms = useForm<SigninFormInput>({
-    mode: "onChange",
+    mode: "onSubmit",
     defaultValues: {
       loginId: "",
       password: "",
@@ -14,12 +14,13 @@ export default function useSigninPage() {
 
   const {
     handleSubmit,
-    formState: { errors },
+    getValues,
+    formState: { errors, isSubmitted, isSubmitSuccessful, isSubmitting },
   } = forms;
 
-  const { signin } = useSignin();
+  const { signin, isPending } = useSignin();
 
-  const onSubmit = async (data: SigninFormInput) => signin(data);
+  const onSubmit = (data: SigninFormInput) => signin(data);
 
   const errorMessage = useMemo(() => {
     const errorFields: (keyof SigninFormInput)[] = ["password", "loginId"];
@@ -29,9 +30,19 @@ export default function useSigninPage() {
         return errors[field]?.message;
       }
     }
-
     return "";
-  }, [errors.password, errors.loginId]);
+  }, [isSubmitted, isSubmitSuccessful, isSubmitting]);
 
-  return { forms, errorMessage, handleSubmit: handleSubmit(onSubmit) };
+  const disabledSubmitButton = useMemo(() => {
+    const [loginId, password] = getValues(["loginId", "password"]);
+
+    return loginId.length < 2 || password.length < 8 || isPending;
+  }, [isPending, getValues(["loginId", "password"])]);
+
+  return {
+    forms,
+    errorMessage,
+    handleSubmit: handleSubmit(onSubmit),
+    disabledSubmitButton,
+  };
 }
