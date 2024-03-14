@@ -1,9 +1,10 @@
-import ImageInputStep from "./step/ImageInputStep";
 import { useState } from "react";
-import { Modal, Icon } from "src/components/@common";
-import { ModalProps } from "src/components/@common/modal";
-import ImagePreviewStep from "src/components/post/create/step/ImagePreviewStep";
-import WriteTextStep from "src/components/post/create/step/WriteTextStep";
+import { Modal, ModalProps, Icon } from "src/components/@common";
+import {
+  ImageInputStep,
+  ImagePreviewStep,
+  WriteTextStep,
+} from "src/components/post/create/step";
 import { useFunnel, useWindowSize } from "src/hooks/@common";
 import { UploadImageFileType } from "src/types";
 
