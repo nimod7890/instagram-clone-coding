@@ -82,9 +82,9 @@ export default function Icon({
                 <path
                   d="M12.8571 20.5714L17.9999 15.4285L12.8571 10.2856"
                   stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             );
