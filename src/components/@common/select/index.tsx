@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from "react";
-import ChevronDown from "src/assets/chevron-down.svg";
+import { Icon } from "src/components/@common";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
@@ -63,7 +63,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             );
           })}
         </StyledSelect>
-        <img src={ChevronDown} alt="옵션 펼치기" />
+        <Icon icon="chevron-down" size="20px" />
       </Container>
     );
   }
