@@ -26,6 +26,7 @@ export type KeyOfIcon =
   | "settings"
   | "user"
   | "x-circle"
+  | "chevron-down"
   | "arrow-left-circle"
   | "arrow-right-circle";
 
@@ -242,6 +243,25 @@ export default function Icon({
                 />
               </svg>
             );
+          case "chevron-down":
+            return (
+              <svg
+                width={size}
+                height={size}
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 7.5L10 12.5L15 7.5"
+                  stroke={theme.palette[color]}
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            );
+
           case "grid":
             return (
               <svg
