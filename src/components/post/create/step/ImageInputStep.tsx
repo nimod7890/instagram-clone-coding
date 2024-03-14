@@ -6,6 +6,8 @@ import { useFileInput } from "src/hooks/@common";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
+const IMAGE_UPLOAD_LIMIT = 5;
+
 type ImageInputStepProps = {
   onImagesInput: (images: ImageFileType[]) => void;
 };
@@ -18,7 +20,7 @@ export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
   function handleImageInput(files: FileList) {
     const images: ImageFileType[] = chain([...files])
       .filter(validateImage)
-      .take(10)
+      .take(IMAGE_UPLOAD_LIMIT)
       .map((file) => ({ file, imageUrl: URL.createObjectURL(file) }))
       .value();
 
@@ -65,6 +67,7 @@ function validateImage(file: File): boolean {
 }
 
 /** styles */
+
 const Container = styled.div`
   height: calc(100% - 40px);
 
