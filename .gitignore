@@ -9,3 +9,5 @@ build-dev/*
 build-stage/*
 build/*
 node_modules
+
+.env*

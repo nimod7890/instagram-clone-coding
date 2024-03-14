@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useAuthStorage } from "src/hooks/@common";
-import lStorage, { StorageKeys } from "src/utils/storage";
+import { lStorage, StorageKeys } from "src/utils/storage";
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API,
