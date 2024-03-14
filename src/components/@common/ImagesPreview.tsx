@@ -9,6 +9,7 @@ export default function ImagesPreview({ imageUrls }: ImagesPreviewProps) {
     useFunnel();
 
   const totalSteps = imageUrls.length;
+  const hideButton = totalSteps === 1;
 
   const handlePrevButtonClick = () =>
     step === 0 ? handleChangeStep(totalSteps - 1) : handlePrevStep();
@@ -18,25 +19,29 @@ export default function ImagesPreview({ imageUrls }: ImagesPreviewProps) {
 
   return (
     <Container>
-      <IconButton
-        onClick={handlePrevButtonClick}
-        icon="arrow-left-circle"
-        size="30"
-        style={{
-          position: "absolute",
-          left: "15px",
-        }}
-      />
+      {hideButton ? null : (
+        <IconButton
+          onClick={handlePrevButtonClick}
+          icon="arrow-left-circle"
+          size="30"
+          style={{
+            position: "absolute",
+            left: "15px",
+          }}
+        />
+      )}
       <Image src={imageUrls[step]} alt={imageUrls[step]} />
-      <IconButton
-        onClick={handleNextButtonClick}
-        icon="arrow-right-circle"
-        size="30"
-        style={{
-          position: "absolute",
-          right: "15px",
-        }}
-      />
+      {hideButton ? null : (
+        <IconButton
+          onClick={handleNextButtonClick}
+          icon="arrow-right-circle"
+          size="30"
+          style={{
+            position: "absolute",
+            right: "15px",
+          }}
+        />
+      )}
     </Container>
   );
 }
