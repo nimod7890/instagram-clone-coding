@@ -1,20 +1,18 @@
+import InputBox from "./InputBox";
 import { IconButton, ImagesPreview, Typography } from "src/components/@common";
-import PostProfile from "src/components/post/PostProfile";
-import InputBox from "src/components/post/create/step/input/InputBox";
+import { PostProfile } from "src/components/post";
 import { useAppRepository, useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
-import { UploadImageFileType } from "src/types";
+import { UploadPostType } from "src/types";
 import styled from "styled-components";
 
 type WriteTextStepProps = {
-  images: UploadImageFileType[];
-  feedText: string;
+  post: UploadPostType;
   onInputText: (text: string) => void;
 };
 
 export default function WriteTextStep({
-  images,
-  feedText,
+  post: { images, feedText },
   onInputText,
 }: WriteTextStepProps) {
   const { userData } = useAppRepository();
