@@ -1,4 +1,4 @@
-import lStorage from "src/utils/storage";
+import { lStorage } from "src/utils/storage";
 
 export const localStorageEffect =
   (key: string) =>
