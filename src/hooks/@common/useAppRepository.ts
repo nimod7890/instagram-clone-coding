@@ -2,14 +2,14 @@ import { useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { useAuthStorage } from "src/hooks/@common";
 import { userState } from "src/libraries/recoil/state/user";
-import { UserType } from "src/types";
+import { UserStateType } from "src/types";
 
 export default function useAppRepository() {
   const [userDataState, setUserDataState] = useRecoilState(userState);
   const { clear: clearAuthStorage } = useAuthStorage();
 
   const syncRepository = useCallback(
-    ({ userData }: { userData?: UserType }) => {
+    ({ userData }: { userData?: UserStateType }) => {
       if (userData) {
         setUserDataState(userData);
       }
