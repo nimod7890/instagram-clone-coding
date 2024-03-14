@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import apiClient from "src/apis";
 import invalidateQueries from "src/libraries/reactQuery/invalidateQueries";
 import QueryKeys from "src/libraries/reactQuery/keys";
 import { showToastPromise } from "src/libraries/toast";
@@ -14,10 +13,10 @@ export default function useCreatePost() {
       feedText: string;
       images: UploadImageFileType[];
     }) => {
+      // Todo: use Firebase
       const contentUrls: string[] = images.map(({ imageUrl }) => imageUrl);
-
-      return (await apiClient.post(`/feeds`, { feedText, contentUrls })).data
-        .result;
+      contentUrls;
+      feedText;
     },
     onSuccess: () => {
       const invalidationPromise = invalidateQueries({
