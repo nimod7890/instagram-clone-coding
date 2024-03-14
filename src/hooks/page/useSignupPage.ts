@@ -5,7 +5,7 @@ import {
   TermsAgreementStep,
 } from "src/components/auth/signup";
 import { useFunnel } from "src/hooks/@common";
-import { useSignup } from "src/hooks/mutation";
+import { useSignup } from "src/hooks/mutation/auth";
 import { SignupFormInput } from "src/types";
 
 const Steps = [BasicInfoStep, BirthdayStep, TermsAgreementStep];
