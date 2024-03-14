@@ -21,5 +21,6 @@ export { default as Avatar } from "./Avatar";
 
 export { default as Modal } from "./modal";
 export * from "./modal";
+export * from "./modal/ModalHeader";
 
 export { default as ImagesPreview } from "./ImagesPreview";
