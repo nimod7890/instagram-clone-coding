@@ -1,13 +1,13 @@
 import { IconButton, ImagesPreview, Typography } from "src/components/@common";
 import PostProfile from "src/components/post/PostProfile";
-import { ImageFileType } from "src/components/post/create/CreatePostModal";
 import InputBox from "src/components/post/create/step/input/InputBox";
 import { useAppRepository, useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
+import { UploadImageFileType } from "src/types";
 import styled from "styled-components";
 
 type WriteTextStepProps = {
-  images: ImageFileType[];
+  images: UploadImageFileType[];
   feedText: string;
   onInputText: (text: string) => void;
 };
