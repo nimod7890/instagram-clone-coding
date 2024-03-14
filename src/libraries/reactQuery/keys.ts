@@ -1,5 +1,5 @@
 const enum QueryKeys {
-  User = "USER",
+  Posts = "Posts",
 }
 
 export default QueryKeys;
