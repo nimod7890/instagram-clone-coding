@@ -5,14 +5,14 @@ import { ModalProps } from "src/components/@common/modal";
 import ImagePreviewStep from "src/components/post/create/step/ImagePreviewStep";
 import WriteTextStep from "src/components/post/create/step/WriteTextStep";
 import { useFunnel, useWindowSize } from "src/hooks/@common";
-
-export type ImageFileType = { imageUrl: string; file: File };
+import { UploadImageFileType } from "src/types";
 
 const enum CreatePostStep {
   InputImage,
   PreviewImage,
   WriteText,
 }
+
 export default function CreatePostModal({
   isOpen,
   close,
@@ -20,11 +20,11 @@ export default function CreatePostModal({
   const { step, handleNextStep, handlePrevStep } = useFunnel();
 
   const [feedText, setFeedText] = useState<string>("");
-  const [images, setImages] = useState<ImageFileType[]>([]);
+  const [images, setImages] = useState<UploadImageFileType[]>([]);
 
   const handleSubmit = () => {};
 
-  const handleImagesInput = (images: ImageFileType[]) => {
+  const handleImagesInput = (images: UploadImageFileType[]) => {
     setImages(images);
     handleNextStep();
   };

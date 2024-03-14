@@ -1,15 +1,15 @@
 import { chain } from "lodash";
 import { toast } from "react-toastify";
 import ImageIcon from "src/assets/image.svg";
-import { ImageFileType } from "src/components/post/create/CreatePostModal";
 import { useFileInput } from "src/hooks/@common";
 import { theme } from "src/styles";
+import { UploadImageFileType } from "src/types";
 import styled from "styled-components";
 
 const IMAGE_UPLOAD_LIMIT = 5;
 
 type ImageInputStepProps = {
-  onImagesInput: (images: ImageFileType[]) => void;
+  onImagesInput: (images: UploadImageFileType[]) => void;
 };
 
 export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
@@ -18,7 +18,7 @@ export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
   });
 
   function handleImageInput(files: FileList) {
-    const images: ImageFileType[] = chain([...files])
+    const images: UploadImageFileType[] = chain([...files])
       .filter(validateImage)
       .take(IMAGE_UPLOAD_LIMIT)
       .map((file) => ({ file, imageUrl: URL.createObjectURL(file) }))
