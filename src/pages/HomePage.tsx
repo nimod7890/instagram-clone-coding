@@ -11,19 +11,23 @@ export default function HomePage() {
       <Suspense>
         <Feed />
       </Suspense>
-      {isMobileSize ? null : <div>meta</div>}
+      {isMobileSize ? null : <div>meta data</div>}
     </Container>
   );
 }
 
 const Container = styled.div`
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
 
-  gap: 104px;
-  padding: 0 40px;
+  overflow: auto;
 
-  width: 100%;
-  height: 100%;
+  gap: 100px;
+
+  padding: 20px 40px;
+  padding-bottom: 100px;
 `;
