@@ -22,7 +22,7 @@ export default function ImagePreview({
     useFunnel();
 
   const height =
-    width && width < 600 && loginId ? `calc(100vw - 45px)` : `100%`;
+    width && width < 600 && loginId ? `max(calc(100vw - 42px),100%)` : `518px`;
 
   const totalSteps = imageUrls.length;
   const onlyOneImage = totalSteps === 1;
