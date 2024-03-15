@@ -74,13 +74,7 @@ export default function Icon({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle
-                  cx="15"
-                  cy="15"
-                  r="15"
-                  fill="black"
-                  fill-opacity="0.4"
-                />
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.4" />
                 <path
                   d="M12.8571 20.5714L17.9999 15.4285L12.8571 10.2856"
                   stroke="white"
