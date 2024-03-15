@@ -1,11 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
-import invalidateQueries from "src/libraries/reactQuery/invalidateQueries";
-import QueryKeys from "src/libraries/reactQuery/keys";
+import { createPost } from "src/apis/post";
+import { useAppRepository } from "src/hooks/@common";
+import { uploadImage } from "src/libraries/firebase/storage";
+import { QueryKeys, invalidateQueries } from "src/libraries/reactQuery";
 import { showToastPromise } from "src/libraries/toast";
 import { UploadImageFileType } from "src/types";
 
 export default function useCreatePost() {
-  const { mutate: createPost, ...rest } = useMutation({
+  const { userData } = useAppRepository();
+  const { mutate, ...rest } = useMutation({
     mutationFn: async ({
       feedText,
       images,
@@ -13,10 +16,17 @@ export default function useCreatePost() {
       feedText: string;
       images: UploadImageFileType[];
     }) => {
-      // Todo: use Firebase
-      const contentUrls: string[] = images.map(({ imageUrl }) => imageUrl);
-      contentUrls;
-      feedText;
+      if (!userData?.loginId) {
+        return Promise.reject(`로그인 아이디가 존재하지 않습니다.`);
+      }
+
+      const contentUrls = await Promise.all(
+        images.map(({ file }) =>
+          uploadImage({ baseUrl: `오드/${userData.loginId}/오드_`, file })
+        )
+      );
+
+      return createPost({ contentUrls, feedText });
     },
     onSuccess: () => {
       const invalidationPromise = invalidateQueries({
@@ -27,5 +37,7 @@ export default function useCreatePost() {
     },
   });
 
-  return { createPost, ...rest };
+  return { createPost: mutate, ...rest };
 }
+
+/** utils */
