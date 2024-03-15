@@ -1,6 +1,5 @@
 import { Icon } from "src/components/@common";
 import { IconProps } from "src/components/@common/Icon";
-import { theme } from "src/styles";
 import styled from "styled-components";
 
 type IconButtonProps = IconProps &
@@ -22,10 +21,6 @@ export default function IconButton({
 const StyledButton = styled.button`
   padding: 5px;
   border-radius: 8px;
-
-  :hover {
-    background-color: ${theme.palette.gray50};
-  }
 
   :disabled {
     opacity: 0.5;
