@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { IconButton } from "src/components/@common";
 import { PostProfile } from "src/components/post";
-import { useAppRepository, useFunnel } from "src/hooks/@common";
+import { useAppRepository, useFunnel, useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
@@ -16,9 +16,13 @@ export default function ImagePreview({
   imageUrls,
   loginId,
 }: ImagePreviewProps) {
+  const { width } = useWindowSize();
   const { userData } = useAppRepository();
   const { step, handlePrevStep, handleNextStep, handleChangeStep } =
     useFunnel();
+
+  const height =
+    width && width < 600 && loginId ? `calc(100vw - 45px)` : `100%`;
 
   const totalSteps = imageUrls.length;
   const onlyOneImage = totalSteps === 1;
@@ -42,7 +46,7 @@ export default function ImagePreview({
 
   return (
     <Container>
-      <Image src={imageUrls[step]} alt={imageUrls[step]} />
+      <Image height={height} src={imageUrls[step]} alt={imageUrls[step]} />
       {loginId && (
         <UserContainer
           style={{
@@ -107,9 +111,10 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Image = styled.img`
+const Image = styled.img<{ height: string }>`
   width: 100%;
-  height: 100%;
+
+  height: ${({ height }) => height};
 
   object-fit: contain;
 `;
