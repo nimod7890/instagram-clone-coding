@@ -21,6 +21,7 @@ export default function Stories() {
 
 const Container = styled.div`
   height: 80px;
+  min-height: 80px;
   width: calc(100% - 50px);
 
   display: flex;
@@ -28,7 +29,8 @@ const Container = styled.div`
 
   padding: 25px;
 
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   gap: 8px;
 
@@ -36,6 +38,13 @@ const Container = styled.div`
   border-radius: 10px;
 
   background-color: ${theme.palette.white};
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StoryContainer = styled.div`
@@ -55,6 +64,7 @@ const StoryContainer = styled.div`
 const ProfileImage = styled.img`
   width: 80px;
   height: 80px;
+
   background-color: ${theme.palette.white};
   padding: 2.5px;
 

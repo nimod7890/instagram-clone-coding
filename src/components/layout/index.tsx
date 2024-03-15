@@ -41,7 +41,7 @@ const BodyContainer = styled.div`
   max-width: ${GlobalSize.WindowWidthMax};
   height: 100%;
 
-  overflow: auto;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
