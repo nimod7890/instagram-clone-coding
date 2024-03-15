@@ -4,5 +4,5 @@ export const enum RecoilKeys {
   /** StorageKeys.Token */
   Token = StorageKeys.Token,
 
-  User = "user",
+  User = StorageKeys.User,
 }
