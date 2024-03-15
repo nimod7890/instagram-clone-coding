@@ -79,8 +79,8 @@ export default function ImagePreview({
               bottom: 0,
             }}
           >
-            {imageUrls.map((_, index) => (
-              <Step currentStep={index === step} />
+            {imageUrls.map((url, index) => (
+              <Step key={url} currentStep={index === step} />
             ))}
           </StepContainer>
           <IconButton
