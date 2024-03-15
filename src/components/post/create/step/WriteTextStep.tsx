@@ -1,5 +1,5 @@
 import InputBox from "./InputBox";
-import { IconButton, ImagesPreview, Typography } from "src/components/@common";
+import { IconButton, ImagePreview, Typography } from "src/components/@common";
 import { PostProfile } from "src/components/post";
 import { useAppRepository, useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
@@ -25,7 +25,7 @@ export default function WriteTextStep({
       <ImageContainer
         height={isAlignColumn ? `max(calc(100% - 300px),300px)` : "100%"}
       >
-        <ImagesPreview imageUrls={images.map(({ imageUrl }) => imageUrl)} />
+        <ImagePreview imageUrls={images.map(({ imageUrl }) => imageUrl)} />
       </ImageContainer>
       <InputContainer
         width={isAlignColumn ? `100%` : "300px"}

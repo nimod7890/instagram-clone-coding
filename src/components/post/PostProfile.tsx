@@ -1,13 +1,21 @@
 import { Avatar, Typography } from "src/components/@common";
+import { KeyOfPalette } from "src/styles";
 import styled from "styled-components";
 
-type PostProfileProps = { loginId: string | undefined };
+type PostProfileProps = {
+  loginId: string | undefined;
+  color?: KeyOfPalette;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export default function PostProfile({ loginId }: PostProfileProps) {
+export default function PostProfile({
+  loginId,
+  color = "black",
+  ...props
+}: PostProfileProps) {
   return (
-    <ProfileContainer>
+    <ProfileContainer {...props}>
       <Avatar size={35} />
-      <Typography>{loginId}</Typography>
+      <Typography color={color}>{loginId}</Typography>
     </ProfileContainer>
   );
 }
@@ -15,6 +23,7 @@ export default function PostProfile({ loginId }: PostProfileProps) {
 const ProfileContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   padding: 20px;
   gap: 11px;
