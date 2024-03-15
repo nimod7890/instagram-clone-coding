@@ -29,25 +29,15 @@ export default function Feed() {
 }
 
 const FeedContainer = styled.div`
-  width: 100%;
-  max-width: 520px;
+  width: calc(100% - 40px);
 
-  overflow: auto;
+  max-width: 520px;
+  height: max-content;
 
   display: flex;
   flex-direction: column;
 
-  padding: 20px;
-  padding-bottom: 100px;
-
   gap: 20px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 const Skeleton = styled.div`
