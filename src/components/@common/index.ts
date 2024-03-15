@@ -23,6 +23,6 @@ export { default as Modal } from "./modal";
 export * from "./modal";
 export * from "./modal/ModalHeader";
 
-export { default as ImagesPreview } from "./ImagesPreview";
+export { default as ImagePreview } from "./ImagePreview";
 
 export { default as DeferredWrapper } from "./DeferredWrapper";
