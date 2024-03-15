@@ -48,6 +48,9 @@ export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
 
 /** utils */
 
+/** 5MB */
+const FILE_SIZE = 5 * 1024 * 1024;
+
 function validateImage(file: File): boolean {
   const validImageTypes = [
     "image/jpeg",
@@ -57,13 +60,19 @@ function validateImage(file: File): boolean {
     "image/svg+xml",
   ];
 
-  if (file && validImageTypes.includes(file.type)) {
-    return true;
+  const fileName = file.name;
+
+  if (!validImageTypes.includes(file.type)) {
+    toast.error(`유효하지 않은 파일 유형입니다. (file: ${fileName})`);
+    return false;
   }
 
-  toast.error("Invalid file type. Only Image available.");
+  if (file.size > FILE_SIZE) {
+    toast.error(`5MB의 이하의 이미지를 업로드해주세요. (file: ${fileName})`);
+    return false;
+  }
 
-  return false;
+  return true;
 }
 
 /** styles */
