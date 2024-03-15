@@ -6,6 +6,7 @@ import { theme } from "src/styles";
 import { UploadImageFileType } from "src/types";
 import styled from "styled-components";
 
+/** 5 */
 const IMAGE_UPLOAD_LIMIT = 5;
 
 type ImageInputStepProps = {
@@ -18,6 +19,12 @@ export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
   });
 
   function handleImageInput(files: FileList) {
+    if (files.length > IMAGE_UPLOAD_LIMIT) {
+      toast.error(
+        `최대 ${IMAGE_UPLOAD_LIMIT}개의 파일을 업로드할 수 있습니다.`
+      );
+    }
+
     const images: UploadImageFileType[] = chain([...files])
       .filter(validateImage)
       .take(IMAGE_UPLOAD_LIMIT)
@@ -63,12 +70,16 @@ function validateImage(file: File): boolean {
   const fileName = file.name;
 
   if (!validImageTypes.includes(file.type)) {
-    toast.error(`유효하지 않은 파일 유형입니다. (file: ${fileName})`);
+    toast.error(
+      `유효하지 않은 파일 유형을 제외하고 업로드합니다. (file: ${fileName})`
+    );
     return false;
   }
 
   if (file.size > FILE_SIZE) {
-    toast.error(`5MB의 이하의 이미지를 업로드해주세요. (file: ${fileName})`);
+    toast.error(
+      `업로드 가능한 범위(최대 5MB)를 넘는 이미지를 제외하고 업로드합니다. (file: ${fileName})`
+    );
     return false;
   }
 
