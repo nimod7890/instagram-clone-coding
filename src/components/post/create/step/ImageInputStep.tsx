@@ -6,7 +6,6 @@ import { theme } from "src/styles";
 import { UploadImageFileType } from "src/types";
 import styled from "styled-components";
 
-/** 5 */
 const IMAGE_UPLOAD_LIMIT = 5;
 
 type ImageInputStepProps = {
@@ -31,7 +30,9 @@ export default function ImageInputStep({ onImagesInput }: ImageInputStepProps) {
       .map((file) => ({ file, imageUrl: URL.createObjectURL(file) }))
       .value();
 
-    onImagesInput(images);
+    if (images.length > 0) {
+      onImagesInput(images);
+    }
   }
 
   return (
