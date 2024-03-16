@@ -1,5 +1,5 @@
-import Post from "./Post";
 import Stories from "./Stories";
+import Post from "./post";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGetPosts } from "src/hooks/query";
@@ -23,7 +23,10 @@ export default function Feed() {
         <Post key={post.id} post={post} />
       ))}
       <div ref={ref} />
-      {isFetchingNextPage && <Skeleton />}
+      {isFetchingNextPage &&
+        Array(5)
+          .fill(1)
+          .map((_, index) => <Skeleton key={index} />)}
     </FeedContainer>
   );
 }
@@ -41,7 +44,9 @@ const FeedContainer = styled.div`
 `;
 
 const Skeleton = styled.div`
-  background-color: ${theme.palette.gray100};
   width: 100%;
-  height: 30px;
+  height: 500px;
+
+  background-color: ${theme.palette.gray100};
+  border-radius: 10px;
 `;

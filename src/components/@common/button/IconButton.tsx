@@ -9,11 +9,12 @@ export default function IconButton({
   icon,
   size,
   color,
+  fill,
   ...props
 }: IconButtonProps) {
   return (
     <StyledButton {...props}>
-      <Icon icon={icon} size={size} color={color} />
+      <Icon icon={icon} size={size} color={color} fill={fill} />
     </StyledButton>
   );
 }

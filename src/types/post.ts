@@ -24,7 +24,7 @@ export type PostType = {
   createdAt: Date;
   updatedAt: Date;
   feedCommentCount: number;
-  isLiked: number;
+  isLiked: boolean;
   isBookMarked: boolean;
   contentList: PostImageType[];
 };

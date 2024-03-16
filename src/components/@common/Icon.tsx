@@ -35,12 +35,14 @@ export type IconProps = {
   icon: KeyOfIcon;
   color?: KeyOfPalette;
   size?: string;
+  fill?: string;
 };
 
 export default function Icon({
   icon,
   color = "gray500",
   size = "24",
+  fill = "none",
 }: IconProps) {
   return (
     <Container size={size}>
@@ -146,7 +148,7 @@ export default function Icon({
                 width={size}
                 height={size}
                 viewBox="0 0 24 24"
-                fill="none"
+                fill={fill}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -302,7 +304,7 @@ export default function Icon({
                 width={size}
                 height={size}
                 viewBox="0 0 24 24"
-                fill="none"
+                fill={fill}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
