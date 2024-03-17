@@ -21,8 +21,11 @@ export default function ImagePreview({
   const { step, handlePrevStep, handleNextStep, handleChangeStep } =
     useFunnel();
 
-  const height =
-    width && width < 600 && loginId ? `max(calc(100vw - 42px),100%)` : `518px`;
+  const height = loginId
+    ? width && width < 600
+      ? `max(calc(100vw - 42px),100%)`
+      : "518px"
+    : `100%`;
 
   const totalSteps = imageUrls.length;
   const onlyOneImage = totalSteps === 1;
