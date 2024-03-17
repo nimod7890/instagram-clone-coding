@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import { IconButton } from "src/components/@common";
 import { PostProfile } from "src/components/post";
 import { useAppRepository, useFunnel, useWindowSize } from "src/hooks/@common";
@@ -37,16 +37,6 @@ export default function ImagePreview({
     return false;
   }, [userData?.loginId]);
 
-  const handlePrevButtonClick = useCallback(
-    () => (step === 0 ? handleChangeStep(totalSteps - 1) : handlePrevStep()),
-    [step, totalSteps]
-  );
-
-  const handleNextButtonClick = useCallback(
-    () => (step === totalSteps - 1 ? handleChangeStep(0) : handleNextStep()),
-    [step, totalSteps]
-  );
-
   return (
     <Container>
       <Image height={height} src={imageUrls[step]} alt={imageUrls[step]} />
@@ -67,7 +57,8 @@ export default function ImagePreview({
       {onlyOneImage ? null : (
         <>
           <IconButton
-            onClick={handlePrevButtonClick}
+            disabled={step === 0}
+            onClick={handlePrevStep}
             icon="arrow-left-circle"
             size="30"
             style={{
@@ -83,11 +74,16 @@ export default function ImagePreview({
             }}
           >
             {imageUrls.map((url, index) => (
-              <Step key={url} currentStep={index === step} />
+              <Step
+                key={url}
+                currentStep={index === step}
+                onClick={() => handleChangeStep(index)}
+              />
             ))}
           </StepContainer>
           <IconButton
-            onClick={handleNextButtonClick}
+            disabled={step === totalSteps - 1}
+            onClick={handleNextStep}
             icon="arrow-right-circle"
             size="30"
             style={{
@@ -143,7 +139,7 @@ const StepContainer = styled.div`
   gap: 2px;
 `;
 
-const Step = styled.div<{ currentStep: boolean }>`
+const Step = styled.button<{ currentStep: boolean }>`
   width: 5px;
   height: 5px;
 
