@@ -6,7 +6,7 @@ import styled, { css } from "styled-components";
 
 export type InputProps = {
   isError?: boolean;
-  startIcon: KeyOfIcon;
+  startIcon?: KeyOfIcon;
   displayErrorStatusIcon?: boolean;
   containerStyles?: ReturnType<typeof css>;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "children">;
@@ -26,7 +26,7 @@ const Input = forwardRef<HTMLInputElement, PropsWithChildren<InputProps>>(
   ) => {
     return (
       <Container css={containerStyles}>
-        <Icon icon={startIcon} size={"20"} />
+        {startIcon && <Icon icon={startIcon} size={"20"} />}
         <StyledInput
           value={value}
           ref={ref as ForwardedRef<HTMLInputElement>}
