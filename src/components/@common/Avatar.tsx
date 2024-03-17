@@ -6,7 +6,7 @@ type AvatarProps = {
   size?: number;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
-export default function Avatar({ size = 30, src, ...props }: AvatarProps) {
+export default function Avatar({ size = 35, src, ...props }: AvatarProps) {
   return (
     <Container size={size}>
       {src ? (
