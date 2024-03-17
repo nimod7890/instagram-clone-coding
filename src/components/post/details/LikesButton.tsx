@@ -20,7 +20,12 @@ export default function LikesButton({ postId, ...props }: LikesButtonProps) {
       <Button {...props} disabled={isPending} onClick={open}>
         좋아요 {likes?.totalCount}개
       </Button>
-      <LikesModal users={likes.feedLikeList} isOpen={isOpen} close={close} />
+      <LikesModal
+        users={likes.feedLikeList}
+        isOpen={isOpen}
+        close={close}
+        header={{ title: `좋아요 ${likes.totalCount}개` }}
+      />
     </>
   );
 }
