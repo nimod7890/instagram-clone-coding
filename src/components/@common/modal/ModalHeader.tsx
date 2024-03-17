@@ -4,16 +4,43 @@ import styled from "styled-components";
 
 export type ModalHeaderProps = {
   title: string;
-  left?: React.ButtonHTMLAttributes<HTMLButtonElement> | undefined;
-  right?: React.ButtonHTMLAttributes<HTMLButtonElement> | undefined;
+  left?: {
+    props:
+      | Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children">
+      | undefined;
+    child: React.ComponentType | string;
+  };
+  right?: {
+    props:
+      | Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children">
+      | undefined;
+    child: React.ComponentType | string;
+  };
 };
 
 export default function ModalHeader({ left, right, title }: ModalHeaderProps) {
+  console.log(left?.child, right);
   return (
     <Container>
-      <SideButton {...left} />
+      <SideButton {...left?.props}>
+        {left?.child ? (
+          typeof left.child === "string" ? (
+            left.child
+          ) : (
+            <left.child />
+          )
+        ) : null}
+      </SideButton>
       <Typography type="TitleSemiBold">{title}</Typography>
-      <SideButton {...right} />
+      <SideButton {...right?.props}>
+        {right?.child ? (
+          typeof right.child === "string" ? (
+            right.child
+          ) : (
+            <right.child />
+          )
+        ) : null}
+      </SideButton>
     </Container>
   );
 }
