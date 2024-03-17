@@ -11,8 +11,17 @@ export type QueryLikesResponse = {
 export default function useGetLikes(feedId: number) {
   const { data: likes, ...rest } = useSuspenseQuery({
     queryKey: [QueryKeys.Like, feedId],
-    queryFn: getLikes,
-    initialData: { totalCount: 0, feedLikeList: [] },
+    queryFn: async (context) => {
+      const { totalCount, feedLikeList } = await getLikes(context);
+
+      /** parsing */
+      return {
+        totalCount,
+        feedLikeList: feedLikeList.map(
+          ({ userId: id, userLoginId: loginId }) => ({ id, loginId })
+        ),
+      };
+    },
   });
 
   return { likes, ...rest };
