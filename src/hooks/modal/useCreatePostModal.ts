@@ -67,7 +67,6 @@ export default function useCreatePostModal(close: () => void) {
         },
       });
     }
-    console.log(options);
 
     switch (step) {
       case CreatePostStep.InputImage:
