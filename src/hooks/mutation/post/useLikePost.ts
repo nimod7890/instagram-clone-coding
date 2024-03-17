@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { likePost } from "src/apis/post";
 import { useAppRepository } from "src/hooks/@common";
-import { QueryLikeParticipantsResponse } from "src/hooks/query/useGetLikeParticipants";
+import { QueryLikesResponse } from "src/hooks/query/useGetLikes";
 import { QueryPostsResponse } from "src/hooks/query/useGetPosts";
 import { QueryKeys } from "src/libraries/reactQuery";
 
@@ -26,7 +26,7 @@ export default function useLikePost(postId: number) {
         queryKeys[0]
       );
       const prevLikeParticipantsResponse =
-        queryClient.getQueryData<QueryLikeParticipantsResponse>(queryKeys[1]);
+        queryClient.getQueryData<QueryLikesResponse>(queryKeys[1]);
 
       if (prevPostsResponse) {
         const updatedPostsResponse = prevPostsResponse.pages.map(
