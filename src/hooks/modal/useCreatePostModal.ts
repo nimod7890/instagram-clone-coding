@@ -11,11 +11,11 @@ export const enum CreatePostStep {
   WriteText,
 }
 
-export default function useCreatePostModal() {
+export default function useCreatePostModal(close: () => void) {
   const { width } = useWindowSize();
   const { step, handleNextStep, handlePrevStep } = useFunnel();
 
-  const { createPost, isPending } = useCreatePost();
+  const { createPost, isPending } = useCreatePost(close);
 
   const [post, setPost] = useState<UploadPostType>({
     feedText: "",

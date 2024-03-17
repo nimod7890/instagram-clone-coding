@@ -6,7 +6,7 @@ import { QueryKeys, invalidateQueries } from "src/libraries/reactQuery";
 import { showToastPromise } from "src/libraries/toast";
 import { UploadImageFileType } from "src/types";
 
-export default function useCreatePost() {
+export default function useCreatePost(onSuccess: () => void) {
   const { userData } = useAppRepository();
   const { mutate, ...rest } = useMutation({
     mutationFn: async ({
@@ -34,6 +34,7 @@ export default function useCreatePost() {
       });
 
       showToastPromise(invalidationPromise, "게시글 업로드");
+      onSuccess();
     },
   });
 
