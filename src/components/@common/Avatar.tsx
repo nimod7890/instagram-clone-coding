@@ -19,13 +19,14 @@ export default function Avatar({ size = 35, src, ...props }: AvatarProps) {
 }
 
 const Container = styled.div<{ size: number }>`
-  background-color: ${theme.palette.gray50};
+  background-color: ${theme.palette.white};
 
   color: ${theme.palette.gray500};
 
   width: ${({ size }) => size};
   height: ${({ size }) => size};
 
+  border: 1px solid ${theme.palette.gray300};
   border-radius: 100px;
 
   overflow: hidden;
