@@ -1,6 +1,6 @@
+import ProfileMenu from "./ProfileMenu";
 import Dropdown from "rc-dropdown";
-import AvatarButton from "src/components/layout/header/menubar/AvatarButton";
-import ProfileMenu from "src/components/layout/header/menubar/dropdown/ProfileMenu";
+import { AvatarButton } from "src/components/@common";
 
 export default function ProfileDropdown() {
   return (

@@ -20,6 +20,7 @@ export { default as Select } from "./select";
 export { default as DateSelect } from "./select/DateSelect";
 
 export { default as Avatar } from "./Avatar";
+export { default as AvatarButton } from "./AvatarButton";
 
 export { default as Modal } from "./modal";
 export * from "./modal";
