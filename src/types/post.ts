@@ -28,3 +28,10 @@ export type PostType = {
   isBookMarked: boolean;
   contentList: PostImageType[];
 };
+
+/** 댓글 */
+export type CommentType = {
+  id: number;
+  writeUserLoginId: string;
+  commentText: string;
+};
