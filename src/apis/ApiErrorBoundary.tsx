@@ -7,7 +7,7 @@ import RoutePath from "src/routes/routePath";
 type ErrorResponseType = {
   statusCode: number;
   error: string;
-  message: string[];
+  message: string;
 };
 
 export default function ApiErrorBoundary({ children }: PropsWithChildren) {
@@ -29,20 +29,20 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
     switch (errorResponse.statusCode) {
       case 401:
       case 403:
-        messages.forEach((message) => toast.error(message));
-
+        toast.error(messages);
         setTimeout(() => {
           window.location.href = RoutePath.Signout;
         }, 2000);
-
         break;
       case 404:
+        toast.error(messages);
+        window.location.href = RoutePath.Home;
         break;
       default:
-        messages.forEach((message) => toast.error(message));
+        toast.error(messages);
         break;
     }
   }
 
-  return children;
+  return <>{children}</>;
 }

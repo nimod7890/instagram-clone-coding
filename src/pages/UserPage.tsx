@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { Profile } from "src/components/user";
 import styled from "styled-components";
@@ -12,9 +11,7 @@ export default function UserPage() {
 
   return (
     <Container>
-      <Suspense>
-        <Profile loginId={loginId} />
-      </Suspense>
+      <Profile loginId={loginId} />
     </Container>
   );
 }
