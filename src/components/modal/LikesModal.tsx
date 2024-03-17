@@ -22,7 +22,11 @@ export default function LikesModal({
             key={id}
             onClick={() => navigate(getUserPagePath(loginId))}
           >
-            <PostProfile loginId={loginId} style={{ padding: "15px" }} />
+            <PostProfile
+              key={id}
+              loginId={loginId}
+              style={{ padding: "15px" }}
+            />
           </NavigateProfileButton>
           <HDivider key={id} />
         </>
