@@ -1,5 +1,10 @@
 import InputBox from "./InputBox";
-import { IconButton, ImagePreview, Typography } from "src/components/@common";
+import {
+  HDivider,
+  IconButton,
+  ImagePreview,
+  Typography,
+} from "src/components/@common";
 import { PostProfile } from "src/components/post";
 import { useAppRepository, useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
@@ -45,7 +50,7 @@ export default function WriteTextStep({
           고급 설정
           <IconButton icon="chevron-down" color="gray500" />
         </MetaInfo>
-        <Divider />
+        <HDivider />
       </InputContainer>
     </Container>
   );
@@ -82,13 +87,6 @@ const InputContainer = styled.div<{
 
   ${({ borderPosition }) =>
     `border-${borderPosition}: 1px solid ${theme.palette.gray300}`};
-`;
-
-const Divider = styled.hr`
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid ${theme.palette.gray300};
 `;
 
 const MetaInfo = styled.div`
