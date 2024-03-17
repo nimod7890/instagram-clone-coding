@@ -23,7 +23,7 @@ export default function BirthdayStep({
     <>
       <TitleContainer>
         <img src={BirthdayIcon} alt="생일 케이크와 숟가락" />
-        <Typography type="TitleSemiBold">생일추가</Typography>
+        <Typography type="Title2SemiBold">생일추가</Typography>
       </TitleContainer>
       <DescriptionContainer>
         <Typography type="body2Regular" color="gray500">

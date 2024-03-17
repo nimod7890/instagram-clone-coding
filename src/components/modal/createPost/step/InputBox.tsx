@@ -39,7 +39,7 @@ const InputArea = styled.textarea`
   margin: 0 2px;
   padding: 0 18px;
 
-  ${theme.typography.TitleRegular}
+  ${theme.typography.Title2Regular}
 
   ::placeholder {
     color: ${theme.palette.gray500};

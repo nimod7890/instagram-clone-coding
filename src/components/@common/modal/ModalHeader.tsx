@@ -31,7 +31,7 @@ export default function ModalHeader({ left, right, title }: ModalHeaderProps) {
           )
         ) : null}
       </SideButton>
-      <Typography type="TitleSemiBold">{title}</Typography>
+      <Typography type="Title2SemiBold">{title}</Typography>
       <SideButton {...right?.props}>
         {right?.child ? (
           typeof right.child === "string" ? (
@@ -63,7 +63,7 @@ const Container = styled.div`
 const SideButton = styled.button`
   min-width: 40px;
 
-  ${theme.typography.TitleSemiBold};
+  ${theme.typography.Title2SemiBold};
 
   color: ${theme.palette.primary500};
 `;

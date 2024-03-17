@@ -48,7 +48,7 @@ export default function TermsAgreementStep({
   return (
     <>
       <TitleContainer>
-        <Typography type="TitleSemiBold" style={{ marginBottom: "15px" }}>
+        <Typography type="Title2SemiBold" style={{ marginBottom: "15px" }}>
           이용 약관에 동의
         </Typography>
         <Typography type="body2Light" color="gray500">
