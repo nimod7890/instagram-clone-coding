@@ -14,7 +14,7 @@ export default function PostProfile({
 }: PostProfileProps) {
   return (
     <ProfileContainer {...props}>
-      <Avatar size={35} />
+      <Avatar />
       <Typography color={color}>{loginId}</Typography>
     </ProfileContainer>
   );

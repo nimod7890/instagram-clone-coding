@@ -1,3 +1,4 @@
+import FeedComments from "./FeedComments";
 import PostContent from "./PostContent";
 import { Suspense } from "react";
 import {
@@ -21,7 +22,7 @@ export default function PostDetails({ post }: PostDetailProps) {
           <LikesButton postId={post.id} />
         </Suspense>
         <PostContent post={post} />
-        {/* Todo: 댓글 리스트 */}
+        <FeedComments post={post} />
         <PostCreatedAt date={post.createdAt} />
       </DetailsContainer>
     </Container>
