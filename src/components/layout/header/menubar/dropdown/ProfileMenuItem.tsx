@@ -14,7 +14,7 @@ export default function ProfileMenuItem({
   return (
     <StyledButton {...props}>
       <Icon icon={icon} color="gray900" />
-      <Typography type="body1Bold">{children}</Typography>
+      <Typography type="body1SemiBold">{children}</Typography>
     </StyledButton>
   );
 }
