@@ -5,18 +5,14 @@ import { getUserPagePath } from "src/routes/routePath";
 import { UserType } from "src/types";
 import styled from "styled-components";
 
-type LikesModalProps = { participants: UserType[] } & ModalProps;
+type UsersModalProps = { users: UserType[] } & ModalProps;
 
-export default function LikesModal({
-  participants,
-  isOpen,
-  close,
-}: LikesModalProps) {
+export default function UsersModal({ users, isOpen, close }: UsersModalProps) {
   const navigate = useNavigate();
 
   return (
     <Modal isOpen={isOpen} close={close}>
-      {participants.map(({ id, loginId }) => (
+      {users.map(({ id, loginId }) => (
         <>
           <NavigateProfileButton
             key={id}
