@@ -4,7 +4,7 @@ import apiClient from "src/apis";
 export default async function getFollowings({
   queryKey,
 }: QueryFunctionContext): Promise<{
-  followingUserList: {
+  users: {
     userId: number;
     loginId: string;
     realName: string;
@@ -12,5 +12,7 @@ export default async function getFollowings({
   totalCount: number;
 }> {
   const [, loginId] = queryKey;
-  return (await apiClient.get(`/users/${loginId}/following-user`)).data.result;
+  const data = (await apiClient.get(`/users/${loginId}/following-user`)).data
+    .result;
+  return { ...data, users: data.followingUserList };
 }
