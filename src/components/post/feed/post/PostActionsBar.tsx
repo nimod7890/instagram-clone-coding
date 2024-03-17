@@ -1,4 +1,4 @@
-import LikeButton from "./action/LikeButton";
+import LikeButton from "./LikeButton";
 import { IconButton } from "src/components/@common";
 import { PostType } from "src/types";
 import styled from "styled-components";

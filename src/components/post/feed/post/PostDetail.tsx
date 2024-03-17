@@ -1,4 +1,5 @@
-import PostActionsBar from "src/components/post/feed/post/PostActionsBar";
+import LikeListButton from "./LikeListButton";
+import PostActionsBar from "./PostActionsBar";
 import { PostType } from "src/types";
 import styled from "styled-components";
 
@@ -8,17 +9,18 @@ type PostDetailProps = {
 
 export default function PostDetail({ post }: PostDetailProps) {
   return (
-    <>
-      <Container>
-        <PostActionsBar post={post} />
-      </Container>
-    </>
+    <Container>
+      <PostActionsBar post={post} />
+      <LikeListButton postId={post.id} />
+    </Container>
   );
 }
 
 /** styles */
 
 const Container = styled.div`
+  width: calc(100% - 30px);
+
   display: flex;
   flex-direction: column;
 
