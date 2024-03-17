@@ -4,16 +4,16 @@ import { QueryKeys } from "src/libraries/reactQuery";
 
 export default function useGetFollows({
   loginId: userId,
-  key,
+  state,
 }: {
   loginId: string;
-  key: "팔로워" | "팔로잉";
+  state: "팔로워" | "팔로잉";
 }) {
   const { data: follows, ...rest } = useSuspenseQuery({
-    queryKey: [QueryKeys.User, userId, key],
+    queryKey: [QueryKeys.User, userId, state],
     queryFn: async (context) => {
       const { totalCount, users } =
-        key === "팔로잉"
+        state === "팔로잉"
           ? await getFollowings(context)
           : await getFollowers(context);
 
