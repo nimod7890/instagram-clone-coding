@@ -7,11 +7,11 @@ import styled from "styled-components";
 
 type UsersModalProps = { users: UserType[] } & ModalProps;
 
-export default function UsersModal({ users, isOpen, close }: UsersModalProps) {
+export default function UsersModal({ users, ...props }: UsersModalProps) {
   const navigate = useNavigate();
 
   return (
-    <Modal isOpen={isOpen} close={close}>
+    <Modal {...props}>
       {users.map(({ id, loginId }) => (
         <>
           <NavigateProfileButton
