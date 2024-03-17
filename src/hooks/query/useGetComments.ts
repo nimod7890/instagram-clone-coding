@@ -11,7 +11,7 @@ export default function useGetComments({
   postId?: number;
 } = {}) {
   const { data, ...rests } = useSuspenseInfiniteQuery({
-    queryKey: [QueryKeys.Comment, size, postId],
+    queryKey: [QueryKeys.Comment, postId, size],
     queryFn: getComments,
     initialPageParam: 1,
     getNextPageParam: (

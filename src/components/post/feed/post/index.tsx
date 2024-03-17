@@ -1,5 +1,6 @@
 import PostDetails from "./PostDetails";
-import { ImagePreview } from "src/components/@common";
+import { HDivider, ImagePreview } from "src/components/@common";
+import CommentInput from "src/components/post/CommentInput";
 import { theme } from "src/styles";
 import { PostType } from "src/types";
 import styled from "styled-components";
@@ -18,7 +19,8 @@ export default function Post({ post }: PostProps) {
         loginId={feedLoginId}
       />
       <PostDetails post={post} />
-      {/* Todo: 댓글 입력 부분 */}
+      <HDivider />
+      <CommentInput post={post} />
     </Container>
   );
 }

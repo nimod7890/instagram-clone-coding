@@ -4,7 +4,7 @@ export default async function createComment({
   postId,
   commentText,
 }: {
-  postId: string;
+  postId: number;
   commentText: string;
 }): Promise<{ feedCommentId: number }> {
   return (await apiClient.post(`/feeds/${postId}/comment`, { commentText }))
