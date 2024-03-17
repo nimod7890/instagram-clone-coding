@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconButton } from "src/components/@common";
 import { useLikePost } from "src/hooks/mutation/post";
 import { PostType } from "src/types";
@@ -10,6 +10,10 @@ export default function LikeButton({ post }: LikeButtonProps) {
 
   const { likePost } = useLikePost(postId);
   const [like, setLike] = useState<boolean>(isLiked);
+
+  useEffect(() => {
+    setLike(isLiked);
+  }, [postId, isLiked]);
 
   return (
     <IconButton

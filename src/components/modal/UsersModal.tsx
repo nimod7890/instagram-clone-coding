@@ -1,4 +1,5 @@
 import { isEmpty } from "lodash";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HDivider, Modal, ModalProps } from "src/components/@common";
 import { PostProfile } from "src/components/post";
@@ -21,19 +22,14 @@ export default function UsersModal({ users, ...props }: UsersModalProps) {
         }
 
         return users.map(({ loginId }) => (
-          <>
+          <React.Fragment key={loginId}>
             <NavigateProfileButton
-              key={loginId}
               onClick={() => navigate(getUserPagePath(loginId))}
             >
-              <PostProfile
-                key={loginId}
-                loginId={loginId}
-                style={{ padding: "15px" }}
-              />
+              <PostProfile loginId={loginId} style={{ padding: "15px" }} />
             </NavigateProfileButton>
-            <HDivider key={loginId} />
-          </>
+            <HDivider />
+          </React.Fragment>
         ));
       })()}
     </Modal>
