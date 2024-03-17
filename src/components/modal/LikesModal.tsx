@@ -16,14 +16,13 @@ export default function LikesModal({
 
   return (
     <Modal isOpen={isOpen} close={close}>
-      <HDivider />
       {participants.map(({ id, loginId }) => (
         <>
           <NavigateProfileButton
             key={id}
             onClick={() => navigate(getUserPagePath(loginId))}
           >
-            <PostProfile loginId={loginId} />
+            <PostProfile loginId={loginId} style={{ padding: "15px" }} />
           </NavigateProfileButton>
           <HDivider key={id} />
         </>
@@ -34,4 +33,5 @@ export default function LikesModal({
 
 const NavigateProfileButton = styled.button`
   width: 100%;
+  height: fit-content;
 `;
