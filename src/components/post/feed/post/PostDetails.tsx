@@ -1,4 +1,5 @@
 import PostContent from "./PostContent";
+import { Suspense } from "react";
 import {
   PostActionsBar,
   LikesButton,
@@ -16,7 +17,9 @@ export default function PostDetails({ post }: PostDetailProps) {
     <Container>
       <PostActionsBar post={post} />
       <DetailsContainer>
-        <LikesButton postId={post.id} />
+        <Suspense>
+          <LikesButton postId={post.id} />
+        </Suspense>
         <PostContent post={post} />
         {/* Todo: 댓글 리스트 */}
         <PostCreatedAt date={post.createdAt} />
