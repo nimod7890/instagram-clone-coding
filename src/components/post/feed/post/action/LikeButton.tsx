@@ -8,7 +8,7 @@ type LikeButtonProps = { post: PostType };
 export default function LikeButton({ post }: LikeButtonProps) {
   const { isLiked, id: postId } = post;
 
-  const { likePost } = useLikePost();
+  const { likePost } = useLikePost(postId);
   const [like, setLike] = useState<boolean>(isLiked);
 
   return (
@@ -17,7 +17,7 @@ export default function LikeButton({ post }: LikeButtonProps) {
       icon="heart"
       fill={like ? "red" : "none"}
       onClick={() => {
-        likePost(postId);
+        likePost();
         setLike((prev) => !prev);
       }}
     />

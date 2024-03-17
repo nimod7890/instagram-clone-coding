@@ -1,7 +1,14 @@
-import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { InfiniteData, useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { chain } from "lodash";
 import { getPosts } from "src/apis/post";
 import { QueryKeys } from "src/libraries/reactQuery";
+import { PostType } from "src/types";
+
+export type QueryPostsResponse = InfiniteData<{
+  feedList: PostType[];
+  totalCount: number;
+  lastPage: number;
+}>;
 
 export default function useGetPosts({
   size = 10,
