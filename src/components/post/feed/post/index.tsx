@@ -30,4 +30,6 @@ const Container = styled.div`
   border-radius: 10px;
 
   overflow: hidden;
+
+  background-color: ${theme.palette.white};
 `;
