@@ -6,7 +6,7 @@ const Typography = styled.p<{
   color?: KeyOfPalette;
 }>`
   ${({ type = "body1Regular" }) => theme.typography[type]};
-  color: ${({ color = "black" }) => theme.palette[color]};
+  color: ${({ color = "gray900" }) => theme.palette[color]};
 `;
 
 export default Typography;
