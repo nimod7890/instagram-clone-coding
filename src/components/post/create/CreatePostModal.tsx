@@ -14,7 +14,7 @@ export default function CreatePostModal({
     modalStyles,
     handleImagesInput,
     handleInputText,
-  } = useCreatePostModal();
+  } = useCreatePostModal(close);
 
   const { images } = post;
 
