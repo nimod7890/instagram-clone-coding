@@ -1,5 +1,5 @@
+import Post from "./Post";
 import Stories from "./Stories";
-import Post from "./post";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGetPosts } from "src/hooks/query";

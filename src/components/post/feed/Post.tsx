@@ -1,5 +1,5 @@
+import PostDetail from "../details";
 import { ImagePreview } from "src/components/@common";
-import PostDetail from "src/components/post/feed/post/PostDetail";
 import { theme } from "src/styles";
 import { PostType } from "src/types";
 import styled from "styled-components";
