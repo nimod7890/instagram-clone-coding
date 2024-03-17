@@ -1,11 +1,12 @@
-import Post from "./Post";
 import Stories from "./Stories";
+import Post from "./post";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useGetPosts } from "src/hooks/query";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
+/** suspense */
 export default function Feed() {
   const { ref, inView } = useInView();
   const { posts, isFetchingNextPage, fetchNextPage } = useGetPosts();

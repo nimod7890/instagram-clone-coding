@@ -10,6 +10,7 @@ type LikesButtonProps = { postId: number } & Omit<
   "children" | "onClick"
 >;
 
+/** suspense */
 export default function LikesButton({ postId, ...props }: LikesButtonProps) {
   const { isOpen, open, close } = useModal();
   const { likes, isPending } = useGetLikes(postId);

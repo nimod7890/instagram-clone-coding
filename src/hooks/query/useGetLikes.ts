@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getLikes } from "src/apis/post";
 import { QueryKeys } from "src/libraries/reactQuery";
 import { UserType } from "src/types";
@@ -9,7 +9,7 @@ export type QueryLikesResponse = {
 };
 
 export default function useGetLikes(feedId: number) {
-  const { data: likes, ...rest } = useQuery({
+  const { data: likes, ...rest } = useSuspenseQuery({
     queryKey: [QueryKeys.Like, feedId],
     queryFn: getLikes,
     initialData: { totalCount: 0, feedLikeList: [] },
