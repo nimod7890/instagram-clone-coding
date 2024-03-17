@@ -31,7 +31,5 @@ export default function LikesButton({ postId, ...props }: LikesButtonProps) {
 const Button = styled.button`
   align-self: flex-start;
 
-  margin-left: 5px;
-
   ${theme.typography.body2Bold}
 `;

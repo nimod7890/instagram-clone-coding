@@ -44,8 +44,6 @@ export default function PostContent({ post }: PostContentProps) {
 }
 
 const Container = styled.div`
-  margin-left: 5px;
-
   ${theme.typography.body2Regular}
 `;
 

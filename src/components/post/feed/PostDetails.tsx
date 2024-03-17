@@ -1,5 +1,9 @@
-import { PostActionsBar, LikesButton } from "src/components/post";
-import PostContent from "src/components/post/feed/PostContent";
+import PostContent from "./PostContent";
+import {
+  PostActionsBar,
+  LikesButton,
+  PostCreatedAt,
+} from "src/components/post";
 import { PostType } from "src/types";
 import styled from "styled-components";
 
@@ -14,6 +18,8 @@ export default function PostDetails({ post }: PostDetailProps) {
       <DetailsContainer>
         <LikesButton postId={post.id} />
         <PostContent post={post} />
+        {/* Todo: 댓글 리스트 */}
+        <PostCreatedAt date={post.createdAt} />
       </DetailsContainer>
     </Container>
   );
@@ -34,6 +40,8 @@ const Container = styled.div`
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-left: 5px;
 
   gap: 5px;
 `;
