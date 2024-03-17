@@ -1,5 +1,5 @@
-import LikesModal from "./LikesModal";
 import React from "react";
+import { LikesModal } from "src/components/modal";
 import { useModal } from "src/hooks/@common";
 import { useGetLikes } from "src/hooks/query";
 import { theme } from "src/styles";
