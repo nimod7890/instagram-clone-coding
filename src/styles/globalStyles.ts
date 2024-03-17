@@ -96,6 +96,7 @@ export const GlobalStyle = createGlobalStyle`
   textarea {
     border: none;
     margin: 0;
+    padding:0;
 
     *:required {
       background-color: ${theme.palette.white};

@@ -11,7 +11,7 @@ export default async function getComments({
   totalCount: number;
   lastPage: number;
 }> {
-  const [, size, feedId] = queryKey;
+  const [, feedId, size] = queryKey;
 
   return (
     await apiClient.get(`/feeds/${feedId}/comments`, {
