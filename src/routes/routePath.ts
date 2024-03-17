@@ -6,14 +6,14 @@ const enum RoutePath {
   Signup = "/signup",
   Signout = "/signout",
 
-  User = "/:userId",
-
   DirectMessage = "/direct",
   Notification = "/notifications",
+
+  User = "/:loginId",
 }
 
 export default RoutePath;
 
 export function getUserPagePath(id: string) {
-  return RoutePath.User.replace(":userId", String(id));
+  return RoutePath.User.replace(":loginId", String(id));
 }
