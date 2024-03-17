@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
-import { ModalHeaderProps } from "src/components/@common";
-import { ArrowLeftIcon } from "src/components/post";
+import { ArrowLeftIcon, ModalHeaderProps } from "src/components/@common";
 import { useFunnel, useWindowSize } from "src/hooks/@common";
 import { useCreatePost } from "src/hooks/mutation/post";
 import { UploadImageFileType, UploadPostType } from "src/types";

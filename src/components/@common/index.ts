@@ -10,6 +10,8 @@ export { default as Button } from "./button/Button";
 export { default as IconButton } from "./button/IconButton";
 export { default as NavIconButton } from "./button/NavIconButton";
 
+export { default as ArrowLeftIcon } from "./ArrowLeftIcon";
+
 export { default as Input } from "./input";
 export { default as PasswordInput } from "./input/PasswordInput";
 export { default as SearchInput } from "./input/SearchInput";
