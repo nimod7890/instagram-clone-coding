@@ -3,7 +3,6 @@ import AuthenticatedLayout from "src/components/layout";
 import {
   DirectMessagePage,
   HomePage,
-  PostPage,
   SigninPage,
   SignupPage,
   UserPage,
@@ -17,7 +16,6 @@ const routes: RouteObject[] = [
     element: <AuthenticatedLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: RoutePath.Post, element: <PostPage /> },
       { path: RoutePath.DirectMessage, element: <DirectMessagePage /> },
       { path: RoutePath.User, element: <UserPage /> },
     ],
