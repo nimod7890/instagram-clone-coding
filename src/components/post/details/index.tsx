@@ -1,4 +1,4 @@
-import LikeListButton from "./LikeListButton";
+import LikesButton from "./LikesButton";
 import PostActionsBar from "./PostActionsBar";
 import { PostType } from "src/types";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ export default function PostDetail({ post }: PostDetailProps) {
   return (
     <Container>
       <PostActionsBar post={post} />
-      <LikeListButton postId={post.id} />
+      <LikesButton postId={post.id} />
     </Container>
   );
 }
