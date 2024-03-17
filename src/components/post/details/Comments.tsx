@@ -1,5 +1,7 @@
 import Comment from "./Comment";
 import { isEmpty } from "lodash";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { useGetComments } from "src/hooks/query";
 import styled from "styled-components";
 
@@ -7,7 +9,14 @@ type CommentsProps = { postId: number };
 
 /** suspense */
 export default function Comments({ postId }: CommentsProps) {
-  const { comments } = useGetComments({ postId });
+  const { ref, inView } = useInView();
+  const { comments, fetchNextPage } = useGetComments({ postId });
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   if (isEmpty(comments)) {
     return null;
@@ -18,6 +27,7 @@ export default function Comments({ postId }: CommentsProps) {
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}
+      <div ref={ref} />
     </Container>
   );
 }
@@ -27,5 +37,5 @@ const Container = styled.div`
   flex-direction: column;
 
   gap: 15px;
-  padding: 10px 0;
+  padding-top: 10px;
 `;
