@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "src/apis/user";
 import { QueryKeys } from "src/libraries/reactQuery";
 
@@ -7,7 +7,7 @@ export default function useGetProfile(loginId: string) {
     data: profile,
     error,
     ...rest
-  } = useSuspenseQuery({
+  } = useQuery({
     queryKey: [QueryKeys.User, loginId],
     queryFn: getProfile,
   });

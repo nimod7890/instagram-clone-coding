@@ -13,35 +13,32 @@ const apiClient: AxiosInstance = axios.create({
   },
 });
 
-apiClient.interceptors.request.use(
-  async (config) => {
-    const jwt = lStorage.get(StorageKeys.Token);
+apiClient.interceptors.request.use(async (config) => {
+  const jwt = lStorage.get(StorageKeys.Token);
 
-    if (jwt) {
-      const { exp: expiredDate } = jwtDecode(jwt);
-      const currentTime = new Date().getTime() / 1000;
+  if (jwt) {
+    const { exp: expiredDate } = jwtDecode(jwt);
+    const currentTime = new Date().getTime() / 1000;
 
-      /** token 재발급 */
-      if (expiredDate && expiredDate < currentTime) {
-        console.info("token 재발급 시도", expiredDate, currentTime);
+    /** token 재발급 */
+    if (expiredDate && expiredDate < currentTime) {
+      console.info("token 재발급 시도", expiredDate, currentTime);
 
-        const { token, setAuthData } = useAuthStorage();
+      const { token, setAuthData } = useAuthStorage();
 
-        const { jwt } = (await axios.post("/auth/jwt", { jwt: token })).data;
+      const { jwt } = (await axios.post("/auth/jwt", { jwt: token })).data;
 
-        console.info("token 재발급 완료", jwt);
+      console.info("token 재발급 완료", jwt);
 
-        setAuthData(jwt);
+      setAuthData(jwt);
 
-        // if (config.headers) {
-        //   config.headers.Authorization = `Bearer ${jwt}`;
-        // }
-      }
+      // if (config.headers) {
+      //   config.headers.Authorization = `Bearer ${jwt}`;
+      // }
     }
-
-    return config;
   }
-  // (error) => Promise.reject(error)
-);
+
+  return config;
+});
 
 export default apiClient;
