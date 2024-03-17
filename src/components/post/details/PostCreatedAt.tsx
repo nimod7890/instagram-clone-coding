@@ -3,7 +3,11 @@ import { Typography } from "src/components/@common";
 type PostCreatedAtProps = { date: Date };
 
 export default function PostCreatedAt({ date }: PostCreatedAtProps) {
-  return <Typography type="CaptionRegular">{renderPostDate(date)}</Typography>;
+  return (
+    <Typography type="CaptionRegular" color="gray300">
+      {renderPostDate(date)}
+    </Typography>
+  );
 }
 
 /** utils */
@@ -17,7 +21,7 @@ function renderPostDate(date: Date) {
   const currentDate = new Date();
 
   const timeDiff = Math.floor(
-    (currentDate.getTime() - postDate.getTime()) / (1000 * 60)
+    (currentDate.getTime() - postDate.getTime()) / (1000 * HOUR)
   );
 
   if (timeDiff < HOUR) {
