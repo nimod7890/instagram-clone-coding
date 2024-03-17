@@ -23,8 +23,8 @@ const Container = styled.div<{ size: number }>`
 
   color: ${theme.palette.gray500};
 
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
 
   border: 1px solid ${theme.palette.gray300};
   border-radius: 100px;
