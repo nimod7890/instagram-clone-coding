@@ -18,6 +18,7 @@ export default function Post({ post }: PostProps) {
         loginId={feedLoginId}
       />
       <PostDetail post={post} />
+      {/* Todo: 댓글 입력 부분 */}
     </Container>
   );
 }
