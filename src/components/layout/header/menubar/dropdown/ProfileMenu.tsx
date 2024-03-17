@@ -1,20 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import ProfileMenuItem from "src/components/layout/header/menubar/dropdown/ProfileMenuItem";
+import { useAppRepository } from "src/hooks/@common";
 import RoutePath, { getUserPagePath } from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
 // Todo: user 정보 불러오기
-const USER_ID = "nim_od";
 
 export default function ProfileMenu() {
+  const { userData } = useAppRepository();
   const navigate = useNavigate();
+
+  if (!userData) {
+    return null;
+  }
 
   return (
     <Containter>
       <ProfileMenuItem
         icon="user"
-        onClick={() => navigate(getUserPagePath(USER_ID))}
+        onClick={() => navigate(getUserPagePath(userData.loginId))}
       >
         프로필
       </ProfileMenuItem>

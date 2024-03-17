@@ -1,14 +1,12 @@
 import { NavIconButton, AppMenu } from "src/components/@common";
-import { useWindowSize } from "src/hooks/@common";
+import { useAppRepository, useWindowSize } from "src/hooks/@common";
 import { getUserPagePath } from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
-// Todo: user 정보 불러오기
-const USER_ID = "nim_od";
-
 export default function TabBar() {
   const { isMobileSize } = useWindowSize();
+  const { userData } = useAppRepository();
 
   if (!isMobileSize) {
     return null;
@@ -17,7 +15,9 @@ export default function TabBar() {
   return (
     <Container>
       <AppMenu />
-      <NavIconButton icon="user" to={getUserPagePath(USER_ID)} />
+      {userData && (
+        <NavIconButton icon="user" to={getUserPagePath(userData.loginId)} />
+      )}
     </Container>
   );
 }
