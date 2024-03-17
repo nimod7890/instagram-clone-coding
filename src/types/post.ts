@@ -34,4 +34,7 @@ export type CommentType = {
   id: number;
   writeUserLoginId: string;
   commentText: string;
+
+  /** Todo: 서버에 추가되면 required field로 변경 */
+  createdAt?: Date;
 };
