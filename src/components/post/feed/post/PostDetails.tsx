@@ -1,10 +1,10 @@
 import FeedComments from "./FeedComments";
-import PostContent from "./PostContent";
 import { Suspense } from "react";
 import {
   PostActionsBar,
   LikesButton,
   PostCreatedAt,
+  Content as PostContent,
 } from "src/components/post";
 import { PostType } from "src/types";
 import styled from "styled-components";
@@ -21,7 +21,7 @@ export default function PostDetails({ post }: PostDetailProps) {
         <Suspense>
           <LikesButton postId={post.id} />
         </Suspense>
-        <PostContent post={post} />
+        <PostContent loginId={post.feedLoginId} content={post.feedText} />
         <FeedComments post={post} />
         <PostCreatedAt date={post.createdAt} />
       </DetailsContainer>
