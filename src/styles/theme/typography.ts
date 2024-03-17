@@ -71,6 +71,13 @@ const typography = {
     font-family: "Sofia Pro Bold";
     line-height: 20px;
   `,
+  /** size 12; weight 500 */
+  CaptionRegular: css`
+    font-size: 12px;
+    font-weight: 500;
+    font-family: "Sofia Pro";
+    line-height: 18px;
+  `,
 } as const;
 
 export default typography;
