@@ -1,4 +1,4 @@
-import PostDetail from "../details";
+import PostDetails from "./PostDetails";
 import { ImagePreview } from "src/components/@common";
 import { theme } from "src/styles";
 import { PostType } from "src/types";
@@ -17,7 +17,7 @@ export default function Post({ post }: PostProps) {
         imageUrls={contentList.map(({ contentUrl }) => contentUrl)}
         loginId={feedLoginId}
       />
-      <PostDetail post={post} />
+      <PostDetails post={post} />
       {/* Todo: 댓글 입력 부분 */}
     </Container>
   );
