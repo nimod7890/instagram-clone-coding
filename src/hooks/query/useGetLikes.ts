@@ -12,7 +12,8 @@ export default function useGetLikes(feedId: number) {
   const { data: likes, ...rest } = useQuery({
     queryKey: [QueryKeys.Like, feedId],
     queryFn: getLikes,
+    initialData: { totalCount: 0, feedLikeList: [] },
   });
 
-  return { likeParticipants: likes, ...rest };
+  return { likes, ...rest };
 }
