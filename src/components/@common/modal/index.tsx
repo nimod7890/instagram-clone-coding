@@ -57,8 +57,8 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
     minWidth: "300px",
     minHeight: "300px",
 
-    maxHeight: `min(calc(100vh - 64px), ${height ?? "716px"})`,
-    maxWidth: `min(calc(100vw - 32px), ${width ?? "656px"})`,
+    maxHeight: `min(calc(100vh - 64px), ${height ?? "300px"})`,
+    maxWidth: `min(calc(100vw - 32px), ${width ?? "300px"})`,
 
     overflow: "hidden",
     display: "flex",
@@ -78,7 +78,7 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
 });
 
 const BodyContainer = styled.div`
-  height: calc(100% - 60px);
+  height: 100%;
   overflow-y: "auto";
   overflow-x: "hidden";
 `;
