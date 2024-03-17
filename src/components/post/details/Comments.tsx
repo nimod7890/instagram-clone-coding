@@ -1,4 +1,5 @@
 import Comment from "./Comment";
+import { isEmpty } from "lodash";
 import { useGetComments } from "src/hooks/query";
 import styled from "styled-components";
 
@@ -7,6 +8,10 @@ type CommentsProps = { postId: number };
 /** suspense */
 export default function Comments({ postId }: CommentsProps) {
   const { comments } = useGetComments({ postId });
+
+  if (isEmpty(comments)) {
+    return null;
+  }
 
   return (
     <Container>
