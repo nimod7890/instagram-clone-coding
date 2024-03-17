@@ -1,2 +1,2 @@
 export { default as useGetPosts } from "./useGetPosts";
-export { default as useGetLikeParticipants } from "./useGetLikeParticipants";
+export { default as useGetLikes } from "./useGetLikes";
