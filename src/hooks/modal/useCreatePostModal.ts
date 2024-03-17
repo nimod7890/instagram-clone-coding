@@ -58,12 +58,16 @@ export default function useCreatePostModal(close: () => void) {
     if (step !== CreatePostStep.InputImage) {
       options = Object.assign(options, {
         left: {
-          onClick: handlePrevStep,
-          children: ArrowLeftIcon,
-          disabled: isPending,
+          props: {
+            onClick: handlePrevStep,
+
+            disabled: isPending,
+          },
+          child: ArrowLeftIcon,
         },
       });
     }
+    console.log(options);
 
     switch (step) {
       case CreatePostStep.InputImage:
@@ -71,15 +75,14 @@ export default function useCreatePostModal(close: () => void) {
       case CreatePostStep.PreviewImage:
         return {
           ...options,
-          right: { onClick: handleNextStep, children: "다음" },
+          right: { props: { onClick: handleNextStep }, child: "다음" },
         };
       case CreatePostStep.WriteText:
         return {
           ...options,
           right: {
-            onClick: handleSubmit,
-            children: "공유",
-            disabled: isPending,
+            props: { onClick: handleSubmit, disabled: isPending },
+            child: "공유",
           },
         };
     }
