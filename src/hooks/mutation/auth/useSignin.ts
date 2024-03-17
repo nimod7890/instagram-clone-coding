@@ -11,9 +11,9 @@ export default function useSignin() {
 
   const { mutate, ...rest } = useMutation({
     mutationFn: signin,
-    onSuccess: ({ jwt }, { loginId }) => {
+    onSuccess: ({ id, jwt }, { loginId }) => {
       setAuthData(jwt);
-      syncRepository({ userData: { loginId } });
+      syncRepository({ userData: { id, loginId } });
 
       navigate(RoutePath.Home, { replace: true });
     },
