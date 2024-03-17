@@ -1,11 +1,10 @@
 import { QueryFunctionContext } from "@tanstack/react-query";
 import apiClient from "src/apis";
-import { UserType } from "src/types";
 
 export default async function getLikes({
   queryKey,
 }: QueryFunctionContext): Promise<{
-  feedLikeList: UserType[];
+  feedLikeList: { userId: number; userLoginId: string }[];
   totalCount: number;
 }> {
   const [, feedId] = queryKey;
