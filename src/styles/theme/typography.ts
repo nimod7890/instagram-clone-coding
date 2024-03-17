@@ -1,22 +1,29 @@
 import { css } from "styled-components";
 
 const typography = {
+  /** size 38; weight 500 */
+  Title1Regular: css`
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Sofia Pro";
+    line-height: 38px;
+  `,
   /** size 18; weight 700 */
-  TitleBold: css`
+  Title2Bold: css`
     font-size: 18px;
     font-weight: 700;
     font-family: "Sofia Pro Bold";
     line-height: 28px;
   `,
   /** size 18; weight 600 */
-  TitleSemiBold: css`
+  Title2SemiBold: css`
     font-size: 18px;
     font-weight: 600;
     font-family: "Sofia Pro SemiBold";
     line-height: 28px;
   `,
   /** size 18; weight 500 */
-  TitleRegular: css`
+  Title2Regular: css`
     font-size: 18px;
     font-weight: 500;
     font-family: "Sofia Pro";
