@@ -19,7 +19,6 @@ export type ModalHeaderProps = {
 };
 
 export default function ModalHeader({ left, right, title }: ModalHeaderProps) {
-  console.log(left?.child, right);
   return (
     <Container>
       <SideButton {...left?.props}>
