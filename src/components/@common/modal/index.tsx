@@ -57,8 +57,8 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
     minWidth: "300px",
     minHeight: "300px",
 
-    maxHeight: `min(calc(100vh - 64px), ${height ?? "300px"})`,
     maxWidth: `min(calc(100vw - 32px), ${width ?? "300px"})`,
+    maxHeight: `min(calc(100vh - 64px), ${height ?? "300px"})`,
 
     display: "flex",
     flexDirection: "column",
