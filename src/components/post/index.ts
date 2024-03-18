@@ -8,3 +8,4 @@ export { default as PostCreatedAt } from "./details/PostCreatedAt";
 export { default as Comments } from "./details/Comments";
 
 export { default as Content } from "./details/Content";
+export { default as PostContainer } from "./PostContainer";

@@ -1,6 +1,6 @@
 import InputBox from "./InputBox";
 import { HDivider, IconButton, Typography } from "src/components/@common";
-import PostContainer from "src/components/modal/post/PostContainer";
+import { PostContainer } from "src/components/post";
 import { useAppRepository } from "src/hooks/@common";
 import { theme } from "src/styles";
 import { UploadPostType } from "src/types";

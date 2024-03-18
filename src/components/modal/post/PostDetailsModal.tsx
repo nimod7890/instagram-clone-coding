@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Modal, ModalProps } from "src/components/@common";
-import PostContainer from "src/components/modal/post/PostContainer";
+import { PostContainer } from "src/components/post";
 import { useWindowSize } from "src/hooks/@common";
 import { PostType } from "src/types";
 
