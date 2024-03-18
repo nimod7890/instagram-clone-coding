@@ -16,6 +16,8 @@ export type PostImageType = {
   contentUrl: string;
 };
 
+type NonEmptyImageArray = [PostImageType, ...PostImageType[]];
+
 /** 게시글 */
 export type PostType = {
   id: number;
@@ -26,7 +28,7 @@ export type PostType = {
   feedCommentCount: number;
   isLiked: boolean;
   isBookMarked: boolean;
-  contentList: PostImageType[];
+  contentList: NonEmptyImageArray;
 };
 
 /** 댓글 */
