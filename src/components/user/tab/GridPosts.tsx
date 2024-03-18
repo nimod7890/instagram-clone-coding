@@ -1,4 +1,5 @@
 import PostGridImage from "./PostGridImage";
+import PostGridImageButton from "./PostGridImageButton";
 import { isEmpty } from "lodash";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
@@ -38,11 +39,7 @@ export default function GridPosts({
         {posts.map((post) => (
           <React.Fragment key={post.id}>
             {isPostType(post) ? (
-              // Todo: 모달 열기
-              <PostGridImage
-                key={`${post.id}-1`}
-                contentUrl={post.contentList[0].contentUrl}
-              />
+              <PostGridImageButton key={`${post.id}-1`} post={post} />
             ) : (
               <PostGridImage
                 key={`${post.id}-2`}

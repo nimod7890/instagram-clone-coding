@@ -1,12 +1,8 @@
 import InputBox from "./InputBox";
-import {
-  HDivider,
-  IconButton,
-  ImagePreview,
-  Typography,
-} from "src/components/@common";
+import { HDivider, IconButton, Typography } from "src/components/@common";
+import PostContainer from "src/components/modal/post/PostContainer";
 import { PostProfile } from "src/components/post";
-import { useAppRepository, useWindowSize } from "src/hooks/@common";
+import { useAppRepository } from "src/hooks/@common";
 import { theme } from "src/styles";
 import { UploadPostType } from "src/types";
 import styled from "styled-components";
@@ -22,37 +18,27 @@ export default function WriteTextStep({
 }: WriteTextStepProps) {
   const { userData } = useAppRepository();
 
-  const { width } = useWindowSize();
-  const isAlignColumn = width && width < 656;
-
   return (
-    <Container direction={isAlignColumn ? "column" : "row"}>
-      <ImageContainer
-        height={isAlignColumn ? `max(calc(100% - 300px),300px)` : "100%"}
-      >
-        <ImagePreview imageUrls={images.map(({ imageUrl }) => imageUrl)} />
-      </ImageContainer>
-      <InputContainer
-        width={isAlignColumn ? `100%` : "300px"}
-        borderPosition={isAlignColumn ? "top" : "left"}
-      >
-        <PostProfile loginId={userData?.loginId} />
-        <InputBox value={feedText} onChange={onInputText} />
-        <MetaInfo>
-          <Typography color="gray500">위치 추가</Typography>
-          <IconButton icon="map-pin" color="gray500" />
-        </MetaInfo>
-        <MetaInfo>
-          접근성
-          <IconButton icon="chevron-down" color="gray500" />
-        </MetaInfo>
-        <MetaInfo>
-          고급 설정
-          <IconButton icon="chevron-down" color="gray500" />
-        </MetaInfo>
-        <HDivider />
-      </InputContainer>
-    </Container>
+    <PostContainer
+      loginId={userData?.loginId ?? ""}
+      imageUrls={images.map(({ imageUrl }) => imageUrl)}
+    >
+      <PostProfile loginId={userData?.loginId} />
+      <InputBox value={feedText} onChange={onInputText} />
+      <MetaInfo>
+        <Typography color="gray500">위치 추가</Typography>
+        <IconButton icon="map-pin" color="gray500" />
+      </MetaInfo>
+      <MetaInfo>
+        접근성
+        <IconButton icon="chevron-down" color="gray500" />
+      </MetaInfo>
+      <MetaInfo>
+        고급 설정
+        <IconButton icon="chevron-down" color="gray500" />
+      </MetaInfo>
+      <HDivider />
+    </PostContainer>
   );
 }
 
