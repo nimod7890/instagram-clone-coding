@@ -12,3 +12,4 @@ export { default as CommentInput } from "./CommentInput";
 export { default as Content } from "./details/Content";
 
 export { default as PostContainer } from "./PostContainer";
+export { default as MenuButton } from "./MenuButton";

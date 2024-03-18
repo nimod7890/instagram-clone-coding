@@ -1,14 +1,12 @@
 import { PropsWithChildren } from "react";
 import { ImagePreview } from "src/components/@common";
-import { PostProfile } from "src/components/post";
 import { useWindowSize } from "src/hooks/@common";
 import { theme } from "src/styles";
 import styled from "styled-components";
 
-type ImageContainerProps = { loginId: string; imageUrls: string[] };
+type ImageContainerProps = { imageUrls: string[] };
 
 export default function PostContainer({
-  loginId,
   imageUrls,
   children,
 }: PropsWithChildren<ImageContainerProps>) {
@@ -26,7 +24,6 @@ export default function PostContainer({
         width={isAlignColumn ? `100%` : "300px"}
         borderPosition={isAlignColumn ? "top" : "left"}
       >
-        <PostProfile loginId={loginId} />
         {children}
       </MetaContainer>
     </Container>
