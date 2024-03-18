@@ -1,5 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getFollowers, getFollowings } from "src/apis/user";
+import { ModalState } from "src/constants";
 import { QueryKeys } from "src/libraries/reactQuery";
 
 export default function useGetFollows({
@@ -7,7 +8,7 @@ export default function useGetFollows({
   state,
 }: {
   loginId: string;
-  state: "팔로워" | "팔로잉";
+  state: ModalState;
 }) {
   const { data: follows, ...rest } = useSuspenseQuery({
     queryKey: [QueryKeys.User, userId, state],

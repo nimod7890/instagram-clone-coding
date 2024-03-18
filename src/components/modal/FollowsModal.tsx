@@ -1,10 +1,11 @@
 import UsersModal from "./UsersModal";
 import { ModalProps } from "src/components/@common";
+import { ModalState } from "src/constants";
 import { useGetFollows } from "src/hooks/query";
 
 type FollowsModalProps = {
   loginId: string;
-  state: "팔로워" | "팔로잉";
+  state: ModalState;
 } & ModalProps;
 
 export default function FollowsModal({

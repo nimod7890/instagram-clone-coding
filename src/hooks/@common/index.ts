@@ -1,6 +1,8 @@
 export { default as useToggle } from "./useToggle";
 export { default as useModal } from "./useToggle";
 
+export { default as useModalState } from "./useModalState";
+
 export { default as useWindowSize } from "./useWindowSize";
 export { default as useFunnel } from "./useFunnel";
 export { default as useAppRepository } from "./useAppRepository";
