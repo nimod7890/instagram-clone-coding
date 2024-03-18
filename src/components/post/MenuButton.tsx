@@ -1,12 +1,20 @@
+import DeletePostModal from "./modal/DeletePostModal";
+import MenuModal from "./modal/MenuModal";
+import UpdatePostModal from "./modal/UpdatePostModal";
 import { IconButton } from "src/components/@common";
-import { MenuModal, UpdatePostModal } from "src/components/post";
 import { ModalState } from "src/constants";
 import { useModalState } from "src/hooks/@common";
 import { PostType } from "src/types";
 
-type MenuButtonProps = { post: PostType };
+type MenuButtonProps = {
+  post: PostType;
+  close: () => void;
+};
 
-export default function MenuButton({ post }: MenuButtonProps) {
+export default function MenuButton({
+  post,
+  close: closeDetails,
+}: MenuButtonProps) {
   const { modalState, close, handleChangeModalState } = useModalState();
 
   return (
@@ -26,7 +34,14 @@ export default function MenuButton({ post }: MenuButtonProps) {
               />
             );
           case ModalState.DeletePost:
-            return null;
+            return (
+              <DeletePostModal
+                isOpen={modalState === ModalState.DeletePost}
+                close={close}
+                postId={post.id}
+                onSuccess={closeDetails}
+              />
+            );
           case ModalState.PostMenu:
             return (
               <MenuModal

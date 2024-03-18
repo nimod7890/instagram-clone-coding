@@ -45,13 +45,13 @@ export default function MenuModal({
   }, [userData?.loginId, loginId]);
 
   return (
-    <Modal isOpen={isOpen} close={close} >
+    <Modal isOpen={isOpen} close={close}>
       {menuList.map(({ label, state }) => (
         <>
           <Button
             key={label}
             disabled={state === undefined}
-            isDeleteModal={label === "삭제"}
+            isDelete={label === "삭제"}
             onClick={() => state !== undefined && handleClick(state)}
           >
             {label}
@@ -63,7 +63,7 @@ export default function MenuModal({
   );
 }
 
-const Button = styled.button<{ isDeleteModal: boolean }>`
+const Button = styled.button<{ isDelete: boolean }>`
   width: 100%;
   height: 50px;
   min-height: 50px;
@@ -74,7 +74,6 @@ const Button = styled.button<{ isDeleteModal: boolean }>`
 
   ${theme.typography.body2Regular}
 
-  font-weight: ${({ isDeleteModal }) => (isDeleteModal ? 600 : 500)};
-  color: ${({ isDeleteModal }) =>
-    theme.palette[isDeleteModal ? "error" : "gray900"]};
+  font-weight: ${({ isDelete }) => (isDelete ? 600 : 500)};
+  color: ${({ isDelete }) => theme.palette[isDelete ? "error" : "gray900"]};
 `;
