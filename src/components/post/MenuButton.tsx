@@ -1,5 +1,5 @@
 import { IconButton } from "src/components/@common";
-import MenuModal from "src/components/modal/post/MenuModal";
+import { MenuModal } from "src/components/modal";
 import { ModalState } from "src/constants";
 import { useModalState } from "src/hooks/@common";
 import { PostType } from "src/types";
