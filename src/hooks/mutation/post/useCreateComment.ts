@@ -7,14 +7,14 @@ export default function useCreateComment({
   onSuccess,
 }: {
   postId: number;
-  onSuccess?: () => void;
+  onSuccess: () => void;
 }) {
   const { mutate, ...rest } = useMutation({
     mutationFn: async (commentText: string) =>
       await createComment({ postId, commentText }),
     onSuccess: () => {
       invalidateQueries({ queryKeys: [[QueryKeys.Comment, postId]] });
-      onSuccess && onSuccess();
+      onSuccess();
     },
   });
 
