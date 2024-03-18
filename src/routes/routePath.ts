@@ -10,10 +10,21 @@ const enum RoutePath {
   Notification = "/notifications",
 
   User = "/:loginId",
+  UserPost = "/:loginId",
+  UserLike = "/:loginId/like",
+  UserBookMark = "/:loginId/bookmark",
 }
 
 export default RoutePath;
 
 export function getUserPagePath(id: string) {
   return RoutePath.User.replace(":loginId", String(id));
+}
+
+export function getUserLikePagePath(id: string) {
+  return RoutePath.UserLike.replace(":loginId", String(id));
+}
+
+export function getUserBookMarkPagePath(id: string) {
+  return RoutePath.UserBookMark.replace(":loginId", String(id));
 }

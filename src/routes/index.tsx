@@ -17,7 +17,15 @@ const routes: RouteObject[] = [
     children: [
       { index: true, element: <HomePage /> },
       { path: RoutePath.DirectMessage, element: <DirectMessagePage /> },
-      { path: RoutePath.User, element: <UserPage /> },
+      {
+        path: RoutePath.User,
+        element: <UserPage />,
+        children: [
+          { index: true, element: <>user</> },
+          { path: RoutePath.UserBookMark, element: <>user bookmark</> },
+          { path: RoutePath.UserLike, element: <>user like</> },
+        ],
+      },
     ],
   },
   { path: RoutePath.Signout, element: <SignOutNavPage /> },

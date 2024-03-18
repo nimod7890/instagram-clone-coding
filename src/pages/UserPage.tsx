@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { Profile } from "src/components/user";
+import { HDivider } from "src/components/@common";
+import { Profile, UserActivityTabs } from "src/components/user";
 import styled from "styled-components";
 
 export default function UserPage() {
@@ -12,6 +13,8 @@ export default function UserPage() {
   return (
     <Container>
       <Profile loginId={loginId} />
+      <HDivider />
+      <UserActivityTabs loginId={loginId} />
     </Container>
   );
 }
@@ -24,6 +27,4 @@ const Container = styled.div`
   flex-direction: column;
 
   overflow: auto;
-
-  padding-bottom: 100px;
 `;
