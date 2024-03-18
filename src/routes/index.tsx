@@ -33,8 +33,22 @@ const routes: RouteObject[] = [
               </Suspense>
             ),
           },
-          { path: RoutePath.UserBookMark, element: <UserBookmarkPage /> },
-          { path: RoutePath.UserLike, element: <UserLikePage /> },
+          {
+            path: RoutePath.UserBookMark,
+            element: (
+              <Suspense>
+                <UserBookmarkPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: RoutePath.UserLike,
+            element: (
+              <Suspense>
+                <UserLikePage />
+              </Suspense>
+            ),
+          },
         ],
       },
     ],
