@@ -13,7 +13,7 @@ export default async function getBookmarkedPosts({
   const [, size] = queryKey;
 
   const data = (
-    await apiClient.get(`/users/liked-feed`, {
+    await apiClient.get(`/users/bookmarked-feed`, {
       params: { page: pageParam, size },
     })
   ).data.result;
