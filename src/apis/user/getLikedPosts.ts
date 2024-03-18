@@ -12,11 +12,22 @@ export default async function getLikedPosts({
 }> {
   const [, size] = queryKey;
 
-  const data = (
+  const data: Response = (
     await apiClient.get(`/users/liked-feed`, {
       params: { page: pageParam, size },
     })
   ).data.result;
 
-  return { ...data, feedList: data.likedFeedList };
+  return {
+    ...data,
+    feedList: data.likedFeedList.map(
+      ({ feedId: id, feedContentUrl: contentUrl }) => ({ id, contentUrl })
+    ),
+  };
 }
+
+type Response = {
+  likedFeedList: { feedId: number; feedContentUrl: string }[];
+  totalCount: number;
+  lastPage: number;
+};

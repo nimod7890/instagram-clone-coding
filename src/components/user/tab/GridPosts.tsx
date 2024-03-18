@@ -2,10 +2,8 @@ import PostGridImage from "./PostGridImage";
 import { isEmpty } from "lodash";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Grid } from "src/components/@common";
-import { theme } from "src/styles";
+import { Grid, HelperText } from "src/components/@common";
 import { PostSummaryType, PostType } from "src/types";
-import styled from "styled-components";
 
 type GridPostsProps = {
   posts: PostSummaryType[] | PostType[];
@@ -60,17 +58,3 @@ export default function GridPosts({
     </>
   );
 }
-
-/** styles */
-
-const HelperText = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: max-content;
-
-  padding: 100px 0;
-
-  ${theme.typography.Title2SemiBold}
-  color: ${theme.palette.gray500};
-`;

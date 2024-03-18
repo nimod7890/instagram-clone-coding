@@ -12,11 +12,22 @@ export default async function getBookmarkedPosts({
 }> {
   const [, size] = queryKey;
 
-  const data = (
+  const data: Response = (
     await apiClient.get(`/users/bookmarked-feed`, {
       params: { page: pageParam, size },
     })
   ).data.result;
 
-  return { ...data, feedList: data.bookmarkedFeedList };
+  return {
+    ...data,
+    feedList: data.bookmarkedFeedList.map(
+      ({ feedId: id, feedContentUrl: contentUrl }) => ({ id, contentUrl })
+    ),
+  };
 }
+
+type Response = {
+  bookmarkedFeedList: { feedId: number; feedContentUrl: string }[];
+  totalCount: number;
+  lastPage: number;
+};
