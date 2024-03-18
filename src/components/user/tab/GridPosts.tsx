@@ -30,7 +30,7 @@ export default function GridPosts({
   };
 
   if (isEmpty(posts)) {
-    return <HelperText>아직 업로드한 게시글이 없습니다.</HelperText>;
+    return <HelperText>게시글이 없습니다.</HelperText>;
   }
 
   return (
