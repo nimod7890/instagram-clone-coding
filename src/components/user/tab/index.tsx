@@ -39,5 +39,5 @@ const Container = styled.div`
 `;
 
 const Body = styled.div`
-  height: 100%;
+  padding-bottom: 100px;
 `;

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { RouteObject } from "react-router-dom";
 import AuthenticatedLayout from "src/components/layout";
 import {
@@ -7,6 +8,9 @@ import {
   SignupPage,
   UserPage,
   SignOutNavPage,
+  UserPostPage,
+  UserBookmarkPage,
+  UserLikePage,
 } from "src/pages";
 import RoutePath from "src/routes/routePath";
 
@@ -21,9 +25,16 @@ const routes: RouteObject[] = [
         path: RoutePath.User,
         element: <UserPage />,
         children: [
-          { index: true, element: <>user</> },
-          { path: RoutePath.UserBookMark, element: <>user bookmark</> },
-          { path: RoutePath.UserLike, element: <>user like</> },
+          {
+            index: true,
+            element: (
+              <Suspense>
+                <UserPostPage />
+              </Suspense>
+            ),
+          },
+          { path: RoutePath.UserBookMark, element: <UserBookmarkPage /> },
+          { path: RoutePath.UserLike, element: <UserLikePage /> },
         ],
       },
     ],
