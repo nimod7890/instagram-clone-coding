@@ -8,7 +8,6 @@ type PostDetailsModalProps = { post: PostType };
 
 export default function PostGridImageButton({ post }: PostDetailsModalProps) {
   const { isOpen, open, close } = useModal();
-
   return (
     <>
       <Button onClick={open}>
@@ -20,5 +19,5 @@ export default function PostGridImageButton({ post }: PostDetailsModalProps) {
 }
 
 const Button = styled.button`
-  min-width: fit-content;
+  width: 100%;
 `;

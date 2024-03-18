@@ -41,13 +41,7 @@ export default function ImagePreview({
     <Container>
       <Image height={height} src={imageUrls[step]} alt={imageUrls[step]} />
       {loginId && (
-        <UserContainer
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-          }}
-        >
+        <UserContainer style={{ position: "absolute", top: 0, left: 0 }}>
           <PostProfile loginId={loginId} color="white" />
           {showMenuButton && (
             <IconButton icon="more-circle" color="primary500" />
