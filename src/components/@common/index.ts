@@ -33,3 +33,4 @@ export { default as ImagePreview } from "./ImagePreview";
 export { default as DeferredWrapper } from "./DeferredWrapper";
 
 export { default as Grid } from "./Grid";
+export { default as HelperText } from "./HelperText";
