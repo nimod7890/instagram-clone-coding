@@ -11,7 +11,7 @@ export default function UserNavTabButton({
   ...props
 }: UserNavTabButtonProps) {
   const { pathname } = useLocation();
-  const active = pathname === to || pathname.startsWith(to + "/");
+  const active = pathname === to;
 
   return (
     <Button {...props} active={active} to={to}>
@@ -34,7 +34,7 @@ const Button = styled(Link)<{ active: boolean }>`
 
   border-radius: 5px;
   background-color: ${({ active }) =>
-    active ? theme.palette.gray100 : theme.palette.gray50};
+    active ? theme.palette.gray50 : theme.palette.gray100};
 
   ${({ active }) =>
     active ? theme.typography.Title2Bold : theme.typography.Title2Regular}

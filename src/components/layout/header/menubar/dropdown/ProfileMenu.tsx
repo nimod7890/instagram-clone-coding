@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import ProfileMenuItem from "src/components/layout/header/menubar/dropdown/ProfileMenuItem";
 import { useAppRepository } from "src/hooks/@common";
-import RoutePath, { getUserPagePath } from "src/routes/routePath";
+import RoutePath, {
+  getUserBookMarkPagePath,
+  getUserPagePath,
+} from "src/routes/routePath";
 import { theme } from "src/styles";
 import styled from "styled-components";
-
-// Todo: user 정보 불러오기
 
 export default function ProfileMenu() {
   const { userData } = useAppRepository();
@@ -23,7 +24,10 @@ export default function ProfileMenu() {
       >
         프로필
       </ProfileMenuItem>
-      <ProfileMenuItem icon="bookmark" disabled>
+      <ProfileMenuItem
+        icon="bookmark"
+        onClick={() => navigate(getUserBookMarkPagePath(userData.loginId))}
+      >
         저장됨
       </ProfileMenuItem>
       <ProfileMenuItem icon="settings" disabled>
