@@ -31,6 +31,10 @@ export type PostType = {
   contentList: NonEmptyImageArray;
 };
 
+/** 게시글 */
+export type PostSummaryType = Pick<PostType, "id"> &
+  Pick<PostImageType, "contentUrl">;
+
 /** 댓글 */
 export type CommentType = {
   id: number;
