@@ -4,10 +4,10 @@ import { getBookmarkedPosts, getLikedPosts } from "src/apis/user";
 import { QueryKeys } from "src/libraries/reactQuery";
 
 export default function useGetInteractedPosts({
-  size = 10,
+  size = 9,
   state,
 }: {
-  size: number;
+  size?: number;
   state: "like" | "bookmark";
 }) {
   const { data, ...rest } = useSuspenseInfiniteQuery({
