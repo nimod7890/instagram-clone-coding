@@ -3,24 +3,25 @@ import { HDivider, IconButton, Typography } from "src/components/@common";
 import { PostContainer, PostProfile } from "src/components/post";
 import { useAppRepository } from "src/hooks/@common";
 import { theme } from "src/styles";
-import { UploadPostType } from "src/types";
 import styled from "styled-components";
 
 type WriteTextStepProps = {
-  post: UploadPostType;
+  text: string;
+  imageUrls: string[];
   onInputText: (text: string) => void;
 };
 
 export default function WriteTextStep({
-  post: { images, feedText },
+  text,
+  imageUrls,
   onInputText,
 }: WriteTextStepProps) {
   const { userData } = useAppRepository();
 
   return (
-    <PostContainer imageUrls={images.map(({ imageUrl }) => imageUrl)}>
+    <PostContainer imageUrls={imageUrls}>
       <PostProfile loginId={userData?.loginId ?? ""} />
-      <InputBox value={feedText} onChange={onInputText} />
+      <InputBox value={text} onChange={onInputText} />
       <MetaInfo>
         <Typography color="gray500">위치 추가</Typography>
         <IconButton icon="map-pin" color="gray500" />

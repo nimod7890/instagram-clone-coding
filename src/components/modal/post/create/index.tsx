@@ -32,7 +32,13 @@ export default function CreatePostModal({
           case CreatePostStep.PreviewImage:
             return <ImagePreviewStep images={images} />;
           case CreatePostStep.WriteText:
-            return <WriteTextStep post={post} onInputText={handleInputText} />;
+            return (
+              <WriteTextStep
+                text={post.feedText}
+                imageUrls={images.map(({ imageUrl }) => imageUrl)}
+                onInputText={handleInputText}
+              />
+            );
         }
       })()}
     </Modal>

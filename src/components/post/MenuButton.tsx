@@ -1,5 +1,5 @@
 import { IconButton } from "src/components/@common";
-import { MenuModal } from "src/components/modal";
+import { MenuModal, UpdatePostModal } from "src/components/modal";
 import { ModalState } from "src/constants";
 import { useModalState } from "src/hooks/@common";
 import { PostType } from "src/types";
@@ -18,7 +18,13 @@ export default function MenuButton({ post }: MenuButtonProps) {
       {(() => {
         switch (modalState) {
           case ModalState.UpdatePost:
-            return null;
+            return (
+              <UpdatePostModal
+                isOpen={modalState === ModalState.UpdatePost}
+                post={post}
+                close={close}
+              />
+            );
           case ModalState.DeletePost:
             return null;
           case ModalState.PostMenu:

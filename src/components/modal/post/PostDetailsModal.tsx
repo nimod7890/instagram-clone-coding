@@ -44,7 +44,7 @@ export default function PostDetailsModal({
       width: "956px",
       height: isAlignColumn ? `${width + 300}px` : "716px",
     }),
-    [isAlignColumn]
+    [isAlignColumn, width]
   );
 
   const handleClick = () => navigate(getUserPagePath(feedLoginId));
