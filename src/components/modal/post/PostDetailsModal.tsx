@@ -14,6 +14,8 @@ import {
   PostCreatedAt,
   Comments,
   CommentInput,
+  PostProfile,
+  MenuButton,
 } from "src/components/post";
 import { useWindowSize } from "src/hooks/@common";
 import { getUserPagePath } from "src/routes/routePath";
@@ -50,30 +52,34 @@ export default function PostDetailsModal({
   return (
     <Modal isOpen={isOpen} close={close} styles={modalStyles}>
       <PostContainer
-        loginId={feedLoginId}
         imageUrls={contentList.map(({ contentUrl }) => contentUrl)}
       >
+        <ProfileContainer>
+          <PostProfile loginId={feedLoginId} />
+          <MenuButton post={post} />
+        </ProfileContainer>
         <HDivider />
         <TextCntainer>
           {/* 텍스트 */}
           <ContentContainer>
             <AvatarButton onClick={handleClick} />
-            <PostContentContainer>
+            <DetailsContainer>
               <PostContent loginId={feedLoginId} content={feedText} />
               <PostCreatedAt date={createdAt} />
-            </PostContentContainer>
+            </DetailsContainer>
           </ContentContainer>
 
           {/* 댓글 리스트 */}
           <Suspense>
-            <DetailsContainer>
+            <DetailsContainer style={{ padding: "10px 15px" }}>
               <Comments postId={postId} />
             </DetailsContainer>
           </Suspense>
         </TextCntainer>
         <HDivider />
+
         {/* 좋아요, 북마크 */}
-        <DetailsContainer>
+        <DetailsContainer style={{ padding: "10px 15px" }}>
           <PostActionsBar post={post} />
           <Suspense>
             <LikesButton postId={postId} />
@@ -92,11 +98,17 @@ const FlexGrow = styled.div`
   flex-grow: 1;
 `;
 
+const ProfileContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  gap: 5px;
+  padding-right: 15px;
+`;
+
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  padding: 10px 15px;
 
   gap: 5px;
 `;
@@ -107,12 +119,6 @@ const ContentContainer = styled.div`
 
   padding: 15px;
   gap: 10px;
-`;
-
-const PostContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 `;
 
 const TextCntainer = styled.div`

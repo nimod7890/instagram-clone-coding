@@ -1,6 +1,6 @@
 import InputBox from "./InputBox";
 import { HDivider, IconButton, Typography } from "src/components/@common";
-import { PostContainer } from "src/components/post";
+import { PostContainer, PostProfile } from "src/components/post";
 import { useAppRepository } from "src/hooks/@common";
 import { theme } from "src/styles";
 import { UploadPostType } from "src/types";
@@ -18,10 +18,8 @@ export default function WriteTextStep({
   const { userData } = useAppRepository();
 
   return (
-    <PostContainer
-      loginId={userData?.loginId ?? ""}
-      imageUrls={images.map(({ imageUrl }) => imageUrl)}
-    >
+    <PostContainer imageUrls={images.map(({ imageUrl }) => imageUrl)}>
+      <PostProfile loginId={userData?.loginId ?? ""} />
       <InputBox value={feedText} onChange={onInputText} />
       <MetaInfo>
         <Typography color="gray500">위치 추가</Typography>

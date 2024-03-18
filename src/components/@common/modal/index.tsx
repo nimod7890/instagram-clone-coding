@@ -60,7 +60,6 @@ const modalStyles = ({ width, height }: Styles): ReactModal.Styles => ({
     maxHeight: `min(calc(100vh - 64px), ${height ?? "300px"})`,
     maxWidth: `min(calc(100vw - 32px), ${width ?? "300px"})`,
 
-    overflow: "hidden",
     display: "flex",
     flexDirection: "column",
 
