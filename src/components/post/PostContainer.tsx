@@ -61,8 +61,6 @@ const MetaContainer = styled.div<{
   display: flex;
   flex-direction: column;
 
-  padding-bottom: 50px;
-
   ${({ borderPosition }) =>
     `border-${borderPosition}: 1px solid ${theme.palette.gray300}`};
 `;
