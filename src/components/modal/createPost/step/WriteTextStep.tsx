@@ -1,7 +1,6 @@
 import InputBox from "./InputBox";
 import { HDivider, IconButton, Typography } from "src/components/@common";
 import PostContainer from "src/components/modal/post/PostContainer";
-import { PostProfile } from "src/components/post";
 import { useAppRepository } from "src/hooks/@common";
 import { theme } from "src/styles";
 import { UploadPostType } from "src/types";
@@ -23,7 +22,6 @@ export default function WriteTextStep({
       loginId={userData?.loginId ?? ""}
       imageUrls={images.map(({ imageUrl }) => imageUrl)}
     >
-      <PostProfile loginId={userData?.loginId} />
       <InputBox value={feedText} onChange={onInputText} />
       <MetaInfo>
         <Typography color="gray500">위치 추가</Typography>
@@ -43,37 +41,6 @@ export default function WriteTextStep({
 }
 
 /** styles */
-
-const Container = styled.div<{ direction?: "row" | "column" }>`
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: ${({ direction = "row" }) => direction};
-
-  overflow: auto;
-`;
-
-const ImageContainer = styled.div<{ height: string }>`
-  width: 100%;
-  height: ${({ height }) => height};
-`;
-
-const InputContainer = styled.div<{
-  width: string;
-  borderPosition?: "left" | "top";
-}>`
-  width: ${({ width }) => width};
-  min-width: ${({ width }) => width};
-
-  display: flex;
-  flex-direction: column;
-
-  padding-bottom: 50px;
-
-  ${({ borderPosition }) =>
-    `border-${borderPosition}: 1px solid ${theme.palette.gray300}`};
-`;
 
 const MetaInfo = styled.div`
   height: 50px;
