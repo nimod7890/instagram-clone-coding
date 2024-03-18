@@ -1,7 +1,7 @@
 import ProfileSummaryButton from "./ProfileSummaryButton";
 import { Suspense } from "react";
 import { Typography } from "src/components/@common";
-import { FollowsModal } from "src/components/modal";
+import { FollowsModal } from "src/components/user";
 import { ModalState } from "src/constants";
 import { useModalState } from "src/hooks/@common";
 import { UserProfileType } from "src/types";

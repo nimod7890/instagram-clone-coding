@@ -11,7 +11,7 @@ type WriteTextStepProps = {
   onInputText: (text: string) => void;
 };
 
-export default function WriteTextStep({
+export default function TextUpdateLayout({
   text,
   imageUrls,
   onInputText,

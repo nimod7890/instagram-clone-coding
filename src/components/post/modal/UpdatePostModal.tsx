@@ -1,5 +1,5 @@
 import { Modal, ModalProps } from "src/components/@common";
-import { WriteTextStep } from "src/components/modal/post/create/step";
+import { TextUpdateLayout } from "src/components/post";
 import { useUpdatePostModal } from "src/hooks/modal";
 import { PostType } from "src/types";
 
@@ -22,7 +22,7 @@ export default function UpdatePostModal({
       header={headerOptions}
       styles={modalStyles}
     >
-      <WriteTextStep {...contentProps} />
+      <TextUpdateLayout {...contentProps} />
     </Modal>
   );
 }

@@ -1,5 +1,6 @@
-import { ImageInputStep, ImagePreviewStep, WriteTextStep } from "./step";
+import { ImageInputStep, ImagePreviewStep } from "./step";
 import { Modal, ModalProps } from "src/components/@common";
+import { TextUpdateLayout } from "src/components/post";
 import { useCreatePostModal } from "src/hooks/modal";
 import { CreatePostStep } from "src/hooks/modal/useCreatePostModal";
 
@@ -33,7 +34,7 @@ export default function CreatePostModal({
             return <ImagePreviewStep images={images} />;
           case CreatePostStep.WriteText:
             return (
-              <WriteTextStep
+              <TextUpdateLayout
                 text={post.feedText}
                 imageUrls={images.map(({ imageUrl }) => imageUrl)}
                 onInputText={handleInputText}

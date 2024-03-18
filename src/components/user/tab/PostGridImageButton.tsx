@@ -1,5 +1,5 @@
 import PostGridImage from "./PostGridImage";
-import { PostDetailsModal } from "src/components/modal";
+import { PostDetailsModal } from "src/components/post";
 import { useModal } from "src/hooks/@common";
 import { PostType } from "src/types";
 import styled from "styled-components";

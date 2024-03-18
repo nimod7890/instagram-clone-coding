@@ -1,5 +1,5 @@
 import { NavIconButton, IconButton } from "src/components/@common";
-import { CreatePostModal } from "src/components/modal";
+import { CreatePostModal } from "src/components/post";
 import { useAppRepository, useModal } from "src/hooks/@common";
 import RoutePath, { getUserLikePagePath } from "src/routes/routePath";
 
