@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { RouteObject } from "react-router-dom";
 import AuthenticatedLayout from "src/components/layout";
+import PageLoading from "src/components/layout/PageLoading";
 import {
   DirectMessagePage,
   HomePage,
@@ -28,7 +29,7 @@ const routes: RouteObject[] = [
           {
             index: true,
             element: (
-              <Suspense>
+              <Suspense fallback={<PageLoading />}>
                 <UserPostPage />
               </Suspense>
             ),
@@ -36,7 +37,7 @@ const routes: RouteObject[] = [
           {
             path: RoutePath.UserBookMark,
             element: (
-              <Suspense>
+              <Suspense fallback={<PageLoading />}>
                 <UserBookmarkPage />
               </Suspense>
             ),
@@ -44,7 +45,7 @@ const routes: RouteObject[] = [
           {
             path: RoutePath.UserLike,
             element: (
-              <Suspense>
+              <Suspense fallback={<PageLoading />}>
                 <UserLikePage />
               </Suspense>
             ),
