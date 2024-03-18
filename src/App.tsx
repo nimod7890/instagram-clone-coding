@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ApiErrorBoundary from "src/apis/ApiErrorBoundary";
-import GlobalLoading from "src/components/layout/GlobalLoading";
+import { GlobalLoading } from "src/components/layout";
 import AppRegister from "src/libraries";
 import routes from "src/routes";
 

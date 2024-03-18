@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { RouteObject } from "react-router-dom";
-import AuthenticatedLayout from "src/components/layout";
-import PageLoading from "src/components/layout/PageLoading";
+import { AuthenticatedLayout } from "src/components/layout";
+import { PageLoading } from "src/components/user";
 import {
   DirectMessagePage,
   HomePage,
