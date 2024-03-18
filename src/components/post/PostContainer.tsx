@@ -55,6 +55,7 @@ const MetaContainer = styled.div<{
   borderPosition?: "left" | "top";
 }>`
   width: ${({ width }) => width};
+  height: 100%;
   min-width: ${({ width }) => width};
 
   display: flex;

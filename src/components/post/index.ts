@@ -7,5 +7,8 @@ export { default as LikesButton } from "./details/LikesButton";
 export { default as PostCreatedAt } from "./details/PostCreatedAt";
 export { default as Comments } from "./details/Comments";
 
+export { default as CommentInput } from "./CommentInput";
+
 export { default as Content } from "./details/Content";
+
 export { default as PostContainer } from "./PostContainer";
