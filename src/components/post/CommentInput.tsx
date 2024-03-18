@@ -43,6 +43,7 @@ export default function CommentInput({
 /** styles */
 
 const Container = styled.div`
+  border-top: 1px solid ${theme.palette.gray300};
   width: calc(100% - 30px);
 
   display: flex;

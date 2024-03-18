@@ -25,6 +25,6 @@ const ProfileContainer = styled.div`
   flex-direction: row;
   align-items: center;
 
-  padding: 20px;
+  padding: 15px;
   gap: 11px;
 `;
