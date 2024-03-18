@@ -42,7 +42,7 @@ const Container = styled.div<{ isMobileSize: boolean }>`
   align-items: center;
 
   gap: ${({ isMobileSize }) => (isMobileSize ? "30px" : "100px")};
-  padding: ${({ isMobileSize }) => (isMobileSize ? "30px" : "30px 100px")};
+  padding: ${({ isMobileSize }) => (isMobileSize ? "30px" : "50px 100px")};
 `;
 
 const Main = styled.div`
