@@ -53,24 +53,25 @@ export default function PostDetailsModal({
         loginId={feedLoginId}
         imageUrls={contentList.map(({ contentUrl }) => contentUrl)}
       >
-        {/* 텍스트 */}
         <HDivider />
-        <ContentContainer>
-          <AvatarButton onClick={handleClick} />
-          <PostContentContainer>
-            <PostContent loginId={feedLoginId} content={feedText} />
-            <PostCreatedAt date={createdAt} />
-          </PostContentContainer>
-        </ContentContainer>
+        <TextCntainer>
+          {/* 텍스트 */}
+          <ContentContainer>
+            <AvatarButton onClick={handleClick} />
+            <PostContentContainer>
+              <PostContent loginId={feedLoginId} content={feedText} />
+              <PostCreatedAt date={createdAt} />
+            </PostContentContainer>
+          </ContentContainer>
 
-        {/* 댓글 리스트 */}
-        <Suspense>
-          <DetailsContainer>
-            <Comments postId={postId} />
-          </DetailsContainer>
-        </Suspense>
+          {/* 댓글 리스트 */}
+          <Suspense>
+            <DetailsContainer>
+              <Comments postId={postId} />
+            </DetailsContainer>
+          </Suspense>
+        </TextCntainer>
         <HDivider />
-
         {/* 좋아요, 북마크 */}
         <DetailsContainer>
           <PostActionsBar post={post} />
@@ -90,6 +91,7 @@ export default function PostDetailsModal({
 const FlexGrow = styled.div`
   flex-grow: 1;
 `;
+
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -111,4 +113,13 @@ const PostContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+`;
+
+const TextCntainer = styled.div`
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: auto;
 `;
