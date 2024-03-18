@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import { useMemo, useState } from "react";
 import { ArrowLeftIcon, ModalHeaderProps } from "src/components/@common";
 import { useFunnel, useWindowSize } from "src/hooks/@common";
@@ -79,7 +80,10 @@ export default function useCreatePostModal(close: () => void) {
         return {
           ...options,
           right: {
-            props: { onClick: handleSubmit, disabled: isPending },
+            props: {
+              onClick: handleSubmit,
+              disabled: isEmpty(post.feedText) || isPending,
+            },
             child: "공유",
           },
         };
