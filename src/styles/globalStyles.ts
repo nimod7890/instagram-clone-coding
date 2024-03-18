@@ -20,6 +20,22 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
 
     overflow: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  body > * {
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   a{
     text-decoration: none;

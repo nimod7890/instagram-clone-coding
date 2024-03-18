@@ -8,7 +8,7 @@ type MenuButtonProps = { post: PostType };
 
 export default function MenuButton({ post }: MenuButtonProps) {
   const { modalState, close, handleChangeModalState } = useModalState();
-  post;
+
   return (
     <>
       <IconButton
@@ -24,6 +24,7 @@ export default function MenuButton({ post }: MenuButtonProps) {
           case ModalState.PostMenu:
             return (
               <MenuModal
+                loginId={post.feedLoginId}
                 isOpen={modalState === ModalState.PostMenu}
                 close={close}
                 openModal={handleChangeModalState}
