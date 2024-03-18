@@ -1,18 +1,16 @@
 import ProfileSummaryButton from "./ProfileSummaryButton";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { Typography } from "src/components/@common";
 import { FollowsModal } from "src/components/modal";
+import { ModalState } from "src/constants";
+import { useModalState } from "src/hooks/@common";
 import { UserProfileType } from "src/types";
 import styled from "styled-components";
 
 type ProfileSummaryProps = { profile: UserProfileType };
 
 export default function ProfileSummary({ profile }: ProfileSummaryProps) {
-  const [modalState, setModalState] = useState<"팔로잉" | "팔로워" | null>(
-    null
-  );
-
-  const close = () => setModalState(null);
+  const { modalState, handleChangeModalState, close } = useModalState();
 
   return (
     <>
@@ -24,12 +22,12 @@ export default function ProfileSummary({ profile }: ProfileSummaryProps) {
         <ProfileSummaryButton
           label="팔로워"
           value={profile.followerCount}
-          onClick={() => setModalState("팔로워")}
+          onClick={() => handleChangeModalState(ModalState.Followers)}
         />
         <ProfileSummaryButton
           label="팔로잉"
           value={profile.followingCount}
-          onClick={() => setModalState("팔로잉")}
+          onClick={() => handleChangeModalState(ModalState.Followings)}
         />
       </Container>
       <Suspense>
