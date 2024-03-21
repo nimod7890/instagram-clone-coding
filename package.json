@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "homepage": ".",
   "license": "Only use for softsquared project",
-  "author": "(주)소프트스퀘어드",
+  "author": "nimod7890",
   "scripts": {
     "build-dev": "dotenv -e .env.development react-scripts build",
     "build-stage": "dotenv -e .env.stage react-scripts build",
