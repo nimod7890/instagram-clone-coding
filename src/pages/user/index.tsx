@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { HDivider } from "src/components/@common";
-import { Profile, UserActivityTabs } from "src/components/user";
+import { PageLoading, Profile, UserActivityTabs } from "src/components/user";
 import styled from "styled-components";
 
 export default function UserPage() {
@@ -17,7 +17,9 @@ export default function UserPage() {
         <Profile loginId={loginId} />
       </Suspense>
       <HDivider />
-      <UserActivityTabs loginId={loginId} />
+      <Suspense fallback={<PageLoading />}>
+        <UserActivityTabs loginId={loginId} />
+      </Suspense>
     </Container>
   );
 }
