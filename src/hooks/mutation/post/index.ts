@@ -1,4 +1,5 @@
 export { default as useLikePost } from "./useLikePost";
+export { default as useBookmarkPost } from "./useBookmarkPost";
 export { default as useCreateComment } from "./useCreateComment";
 
 export { default as useCreatePost } from "./useCreatePost";

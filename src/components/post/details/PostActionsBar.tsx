@@ -1,3 +1,4 @@
+import BookmarkButton from "./BookmarkButton";
 import LikeButton from "./LikeButton";
 import { IconButton } from "src/components/@common";
 import { PostType } from "src/types";
@@ -13,11 +14,7 @@ export default function PostActionsBar({ post }: PostActionsBarProps) {
       <LikeButton post={post} />
       <IconButton icon="message-circle" color={"black"} />
       <Space />
-      <IconButton
-        fill={post.isBookMarked ? "black" : "none"}
-        color={"black"}
-        icon="bookmark"
-      />
+      <BookmarkButton post={post} />
     </Container>
   );
 }
