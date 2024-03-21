@@ -22,6 +22,7 @@ const GridContainer = styled.div<GridProps>`
 
 const GridItem = styled.div`
   width: 100%;
+  max-height: 480px;
 `;
 
 const Grid = ({
