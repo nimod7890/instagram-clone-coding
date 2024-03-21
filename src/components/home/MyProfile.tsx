@@ -4,7 +4,7 @@ import { useGetProfile } from "src/hooks/query";
 import styled from "styled-components";
 
 /** suspense */
-export default function FeedProfile() {
+export default function MyProfile() {
   const { userData } = useAppRepository();
 
   if (!userData) {
