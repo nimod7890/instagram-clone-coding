@@ -41,7 +41,7 @@ export default function PostDetailsModal({
 
   const modalStyles = useMemo(
     () => ({
-      width: "956px",
+      width: isAlignColumn ? "calc(100% - 50px)" : "956px",
       height: isAlignColumn ? `${width + 300}px` : "716px",
     }),
     [isAlignColumn, width]
