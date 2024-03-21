@@ -4,7 +4,7 @@ import { signin } from "src/apis/auth";
 import { useAppRepository, useAuthStorage } from "src/hooks/@common";
 import RoutePath from "src/routes/routePath";
 
-export default function useSignin() {
+export default function useSignin(onSuccess: () => void) {
   const navigate = useNavigate();
   const { setAuthData } = useAuthStorage();
   const { syncRepository } = useAppRepository();
@@ -12,6 +12,7 @@ export default function useSignin() {
   const { mutate, ...rest } = useMutation({
     mutationFn: signin,
     onSuccess: ({ id, jwt }, { loginId }) => {
+      onSuccess();
       setAuthData(jwt);
       syncRepository({ userData: { id, loginId } });
 
