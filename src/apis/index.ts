@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { jwtDecode } from "jwt-decode";
-import { useAuthStorage } from "src/hooks/@common";
+import RoutePath from "src/routes/routePath";
 import { lStorage, StorageKeys } from "src/utils/storage";
 
 const apiClient: AxiosInstance = axios.create({
@@ -13,6 +13,8 @@ const apiClient: AxiosInstance = axios.create({
   },
 });
 
+const ONE_HOUR = 60 * 60;
+
 apiClient.interceptors.request.use(async (config) => {
   const jwt = lStorage.get(StorageKeys.Token);
 
@@ -20,21 +22,25 @@ apiClient.interceptors.request.use(async (config) => {
     const { exp: expiredDate } = jwtDecode(jwt);
     const currentTime = new Date().getTime() / 1000;
 
-    /** token 재발급 */
-    if (expiredDate && expiredDate < currentTime) {
-      console.info("token 재발급 시도", expiredDate, currentTime);
+    if (expiredDate) {
+      const remainingTime = expiredDate - currentTime;
 
-      const { token, setAuthData } = useAuthStorage();
+      /** 토큰 만료 기한이 1시간 미만일 경우 token 재발급 */
+      if (remainingTime < ONE_HOUR) {
+        try {
+          const token = lStorage.get(StorageKeys.Token);
+          const { jwt } = (
+            await axios.post(`${process.env.REACT_APP_API}/auth/jwt`, {
+              jwt: token,
+            })
+          ).data.result;
 
-      const { jwt } = (await axios.post("/auth/jwt", { jwt: token })).data;
-
-      console.info("token 재발급 완료", jwt);
-
-      setAuthData(jwt);
-
-      // if (config.headers) {
-      //   config.headers.Authorization = `Bearer ${jwt}`;
-      // }
+          lStorage.set(StorageKeys.Token, jwt);
+        } catch (error) {
+          console.error(error);
+          window.location.href = RoutePath.Signout;
+        }
+      }
     }
   }
 
