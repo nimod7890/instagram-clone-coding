@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Feed } from "src/components/post";
+import { Feed, FeedProfile } from "src/components/home";
 import { useWindowSize } from "src/hooks/@common";
 import styled from "styled-components";
 
@@ -11,7 +11,13 @@ export default function HomePage() {
       <Suspense>
         <Feed />
       </Suspense>
-      {isMobileSize ? null : <div>meta data</div>}
+      {isMobileSize ? null : (
+        <MetaContainer>
+          <Suspense>
+            <FeedProfile />
+          </Suspense>
+        </MetaContainer>
+      )}
     </Container>
   );
 }
@@ -30,4 +36,13 @@ const Container = styled.div`
 
   padding: 20px 40px;
   padding-bottom: 100px;
+`;
+
+const MetaContainer = styled.div`
+  width: 350px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
 `;

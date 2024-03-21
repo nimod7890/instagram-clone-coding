@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { HDivider } from "src/components/@common";
 import { Profile, UserActivityTabs } from "src/components/user";
@@ -12,7 +13,9 @@ export default function UserPage() {
 
   return (
     <Container>
-      <Profile loginId={loginId} />
+      <Suspense>
+        <Profile loginId={loginId} />
+      </Suspense>
       <HDivider />
       <UserActivityTabs loginId={loginId} />
     </Container>
