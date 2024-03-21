@@ -13,9 +13,7 @@ export default function HomePage() {
       </Suspense>
       {isMobileSize ? null : (
         <MetaContainer>
-          <Suspense>
-            <MyProfile />
-          </Suspense>
+          <MyProfile />
           <RecommendedUser />
         </MetaContainer>
       )}

@@ -3,7 +3,6 @@ import { useAppRepository } from "src/hooks/@common";
 import { useGetProfile } from "src/hooks/query";
 import styled from "styled-components";
 
-/** suspense */
 export default function MyProfile() {
   const { userData } = useAppRepository();
 
@@ -17,8 +16,8 @@ export default function MyProfile() {
     <Container>
       <Avatar size={80} />
       <DetailContainer>
-        <Typography type="Title2Bold">{profile.loginId}</Typography>
-        <Typography color="gray500">{profile.realName}</Typography>
+        <Typography type="Title2Bold">{userData.loginId}</Typography>
+        <Typography color="gray500">{profile?.realName}</Typography>
       </DetailContainer>
     </Container>
   );

@@ -13,9 +13,7 @@ export default function UserPage() {
 
   return (
     <Container>
-      <Suspense>
-        <Profile loginId={loginId} />
-      </Suspense>
+      <Profile loginId={loginId} />
       <HDivider />
       <Suspense fallback={<PageLoading />}>
         <UserActivityTabs loginId={loginId} />
