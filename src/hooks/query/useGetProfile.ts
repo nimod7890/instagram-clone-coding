@@ -16,7 +16,7 @@ export default function useGetProfile(loginId: string) {
   });
 
   if (isError) {
-    navigate(RoutePath.NotFoundError);
+    navigate(RoutePath.Home);
   }
 
   return { profile, ...rest };
