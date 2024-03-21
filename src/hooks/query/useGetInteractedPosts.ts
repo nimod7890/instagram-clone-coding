@@ -11,7 +11,10 @@ export default function useGetInteractedPosts({
   state: "like" | "bookmark";
 }) {
   const { data, ...rest } = useSuspenseInfiniteQuery({
-    queryKey: [QueryKeys.Posts, size, state],
+    queryKey: [
+      state === "like" ? QueryKeys.LikedPosts : QueryKeys.BookMarkedPosts,
+      size,
+    ],
     queryFn: state === "like" ? getLikedPosts : getBookmarkedPosts,
     initialPageParam: 1,
     getNextPageParam: (

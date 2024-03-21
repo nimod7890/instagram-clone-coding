@@ -1,3 +1,5 @@
+export { default as bookmarkPost } from "./bookmarkPost";
+
 export { default as likePost } from "./likePost";
 export { default as getLikes } from "./getLikes";
 
