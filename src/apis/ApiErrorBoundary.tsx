@@ -34,9 +34,6 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
           window.location.href = RoutePath.Signout;
         }, 2000);
         break;
-      case 404:
-        window.location.href = RoutePath.NotFoundError;
-        break;
       case 500:
         toast.error(messages);
         window.location.href = RoutePath.ServerError;
