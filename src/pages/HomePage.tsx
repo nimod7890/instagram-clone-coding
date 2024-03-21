@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Feed, FeedProfile } from "src/components/home";
+import { Feed, MyProfile, RecommendedUser } from "src/components/home";
 import { useWindowSize } from "src/hooks/@common";
 import styled from "styled-components";
 
@@ -14,8 +14,9 @@ export default function HomePage() {
       {isMobileSize ? null : (
         <MetaContainer>
           <Suspense>
-            <FeedProfile />
+            <MyProfile />
           </Suspense>
+          <RecommendedUser />
         </MetaContainer>
       )}
     </Container>
