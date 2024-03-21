@@ -1,8 +1,6 @@
-import { Suspense } from "react";
 import { RouteObject } from "react-router-dom";
 import { HelperText } from "src/components/@common";
 import { AuthenticatedLayout } from "src/components/layout";
-import { PageLoading } from "src/components/user";
 import {
   DirectMessagePage,
   HomePage,
@@ -35,30 +33,9 @@ const routes: RouteObject[] = [
         path: RoutePath.User,
         element: <UserPage />,
         children: [
-          {
-            index: true,
-            element: (
-              <Suspense fallback={<PageLoading />}>
-                <UserPostPage />
-              </Suspense>
-            ),
-          },
-          {
-            path: RoutePath.UserBookMark,
-            element: (
-              <Suspense fallback={<PageLoading />}>
-                <UserBookmarkPage />
-              </Suspense>
-            ),
-          },
-          {
-            path: RoutePath.UserLike,
-            element: (
-              <Suspense fallback={<PageLoading />}>
-                <UserLikePage />
-              </Suspense>
-            ),
-          },
+          { index: true, element: <UserPostPage /> },
+          { path: RoutePath.UserBookMark, element: <UserBookmarkPage /> },
+          { path: RoutePath.UserLike, element: <UserLikePage /> },
         ],
       },
     ],
@@ -66,8 +43,11 @@ const routes: RouteObject[] = [
   { path: RoutePath.Signout, element: <SignOutNavPage /> },
   { path: RoutePath.Signin, element: <SigninPage /> },
   { path: RoutePath.Signup, element: <SignupPage /> },
-  // Todo: 404 not found page
-  { path: "*", element: <>404</> },
+  {
+    path: RoutePath.NotFoundError,
+    element: <HelperText>404 not found</HelperText>,
+  },
+  { path: "*", element: <HelperText>404 not found</HelperText> },
 ];
 
 export default routes;

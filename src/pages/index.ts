@@ -1,4 +1,3 @@
-export { default as PostPage } from "./PostPage";
 export { default as SigninPage } from "./SigninPage";
 export { default as SignupPage } from "./SignupPage";
 export { default as SignOutNavPage } from "./SignOutNavPage";

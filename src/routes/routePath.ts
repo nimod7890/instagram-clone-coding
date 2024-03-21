@@ -15,6 +15,7 @@ const enum RoutePath {
   UserBookMark = "/:loginId/bookmark",
 
   ServerError = "/error/500",
+  NotFoundError = "/error/404",
 }
 
 export default RoutePath;
