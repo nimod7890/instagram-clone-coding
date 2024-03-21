@@ -9,7 +9,7 @@ export default function invalidateQueries({
   isWaitForAllQueries?: boolean;
 }) {
   const queries = queryKeys.map((queryKey) =>
-    queryClient.invalidateQueries({ queryKey })
+    queryClient.invalidateQueries({ queryKey, refetchType: "all" })
   );
 
   if (isWaitForAllQueries) {
