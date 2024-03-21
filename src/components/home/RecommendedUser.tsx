@@ -15,7 +15,7 @@ export default function RecommendedUser() {
       </SpaceBetween>
       <List>
         {MockUsers.map((user) => (
-          <SpaceBetween>
+          <SpaceBetween key={user}>
             <SpaceBetween>
               <Avatar size={30} />
               <Typography type="body2Regular">{user}</Typography>
