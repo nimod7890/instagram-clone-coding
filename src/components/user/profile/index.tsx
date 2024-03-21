@@ -7,14 +7,11 @@ import styled from "styled-components";
 
 type ProfileProps = { loginId: string };
 
+/** suspense */
 export default function Profile({ loginId }: ProfileProps) {
   const { isMobileSize } = useWindowSize();
   const { userData } = useAppRepository();
   const { profile } = useGetProfile(loginId);
-
-  if (!profile) {
-    return null;
-  }
 
   return (
     <Container isMobileSize={isMobileSize}>
