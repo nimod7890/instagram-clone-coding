@@ -1,2 +1,3 @@
-export { default as Feed } from "./Feed";
-export { default as FeedProfile } from "./FeedProfile";
+export { default as Feed } from "./feed";
+export { default as MyProfile } from "./MyProfile";
+export { default as RecommendedUser } from "./RecommendedUser";
