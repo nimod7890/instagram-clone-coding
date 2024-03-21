@@ -56,7 +56,7 @@ export default function PostDetailsModal({
       >
         <ProfileContainer>
           <PostProfile loginId={feedLoginId} />
-          <MenuButton post={post} />
+          <MenuButton post={post} close={close} />
         </ProfileContainer>
         <HDivider />
         <TextCntainer>
