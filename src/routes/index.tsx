@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { RouteObject } from "react-router-dom";
+import { HelperText } from "src/components/@common";
 import { AuthenticatedLayout } from "src/components/layout";
 import { PageLoading } from "src/components/user";
 import {
@@ -16,6 +17,14 @@ import {
 import RoutePath from "src/routes/routePath";
 
 const routes: RouteObject[] = [
+  {
+    path: RoutePath.ServerError,
+    element: (
+      <HelperText>
+        서버 에러가 발생했습니다. 잠시 후 다시 시도해주세요.
+      </HelperText>
+    ),
+  },
   {
     path: RoutePath.Index,
     element: <AuthenticatedLayout />,

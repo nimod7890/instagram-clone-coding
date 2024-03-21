@@ -13,6 +13,8 @@ const enum RoutePath {
   UserPost = "/:loginId",
   UserLike = "/:loginId/like",
   UserBookMark = "/:loginId/bookmark",
+
+  ServerError = "/error/500",
 }
 
 export default RoutePath;

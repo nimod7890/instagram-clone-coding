@@ -24,9 +24,9 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
   function handleError(axiosError: AxiosError) {
     const errorResponse = axiosError.response?.data as ErrorResponseType;
 
-    const messages = errorResponse.message;
+    const messages = errorResponse?.message;
 
-    switch (errorResponse.statusCode) {
+    switch (errorResponse?.statusCode) {
       case 401:
       case 403:
         toast.error(messages);
@@ -38,11 +38,19 @@ export default function ApiErrorBoundary({ children }: PropsWithChildren) {
         toast.error(messages);
         window.location.href = RoutePath.Home;
         break;
-      default:
+      case 500:
         toast.error(messages);
+        window.location.href = RoutePath.ServerError;
+        break;
+      default:
+        if (messages) {
+          toast.error(messages);
+        } else {
+          console.error(errorResponse);
+        }
         break;
     }
   }
 
-  return <>{children}</>;
+  return children;
 }
