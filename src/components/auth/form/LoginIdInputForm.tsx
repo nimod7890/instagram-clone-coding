@@ -45,7 +45,7 @@ export default function LoginIdInputForm({
 
           return (
             !isSignInPage ||
-            "입력한 사용자 이름을 사용하는 계정을 찾을 수 없습니다. 사용자 입름을 확인하고 다시 시도하세요."
+            "입력한 사용자 이름을 사용하는 계정을 찾을 수 없습니다. 사용자 이름을 확인하고 다시 시도하세요."
           );
         },
         maxLength: 20,
